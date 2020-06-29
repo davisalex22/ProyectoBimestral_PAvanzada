@@ -47,20 +47,7 @@ val dataMe = data.where($"etnia" === "6 - Mestizo")
 val dataB = data.where($"etnia" === "7 - Blanco")
 val dataO = data.where($"etnia" === "8 - Otro")
 
-// COMMAND ----------
 
-val dataB = data.where($"etnia" === "7 - Blanco")
-println(dataB.count)
-
-// COMMAND ----------
-
-val dataM = data.where($"etnia" === "6 - Mestizo")
-println(dataM.count)
-
-// COMMAND ----------
-
-val dataN = data.where($"etnia" === "3 - Negro")
-println(dataN.count)
 
 // COMMAND ----------
 
