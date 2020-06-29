@@ -50,7 +50,7 @@ val dataO = data.where($"etnia" === "8 - Otro")
 
 
 // COMMAND ----------
-
+// promedio de ingreso laboral en la columna etnias
 dataI.select(avg("ingreso_laboral") as "Sueldo promedio Indígena").show
 dataA.select(avg("ingreso_laboral")as "Sueldo promedio Afroecuatoriano").show
 dataN.select(avg("ingreso_laboral")as "Sueldo promedio Negra").show
@@ -62,7 +62,7 @@ dataO.select(avg("ingreso_laboral")as "Sueldo promedio Otro").show
 
 // COMMAND ----------
 
-//Cuantas personas de etnia Negras trabajan en condicion formal, informal, Empleo Domestico, No clasificado por sector
+//Cuantas personas de etnia negra trabajan en condicion formal, informal, Empleo Domestico, No clasificado por sector
 
 val SFN = dataN.where($"sectorizacion" === "1 - Sector Formal")
 val SIN = dataN.where($"sectorizacion" === "2 - Sector Informal")
@@ -88,7 +88,7 @@ println("Etnia blanca en Sector empleo domestico "+ EDB.count)
 println("Etnia blanca en No Clasificados por Sector "+ NCB.count)
 
 // COMMAND ----------
-//Cuantas  personas de etnia mestizas trabajan en condicion forma, informal, Empleo Domestico, No clasificado por sector
+//Cuantas personas de etnia mestiza trabajan en condicion forma, informal, Empleo Domestico, No clasificado por sector
 
 val SFM = dataMe.where($"sectorizacion" === "1 - Sector Formal")
 val SIM = dataMe.where($"sectorizacion" === "2 - Sector Informal")
@@ -101,7 +101,7 @@ println("Etnia mestiza en Sector empleo domestico "+ EDM.count)
 println("Etnia mestiza en No Clasificados por Sector "+ NCM.count)
 
 // COMMAND ----------
-//Cuál es el porcentaje de personas personas de etnia negra, blanca, mestiza tienen un nivel de instrucción superior universitario vs superior no universitario vs post grado
+//Cuantas personas de etnia negra, blanca, mestiza tienen un nivel de instrucción superior universitario vs superior no universitario vs post grado
 val SUM = dataMe.where($"nivel_de_instruccion" === "09 - Superior Universitario")
 val SNUM = dataMe.where($"nivel_de_instruccion" === "08 - Superior no universitario")
 val PGM = dataMe.where($"nivel_de_instruccion" === "10 - Post-grado")
@@ -138,6 +138,7 @@ PGB.select(min("ingreso_laboral").as("minímo blancos con post grado"), max("ing
 SUN.select(min("ingreso_laboral").as("minímo etnia negra con educación superior"), max("ingreso_laboral").as("maxímo etnia negra con educación superior")).show
 SNUN.select(min("ingreso_laboral").as("minímo etnia negra con educación no superior"), max("ingreso_laboral").as("maxímo etnia negra con educación no superior")).show
 PGN.select(min("ingreso_laboral").as("minímo etnia negra con post grado"), max("ingreso_laboral").as("maxímo etnia negra con post grado")).show
+
 
 
 // COMMAND ----------
