@@ -88,7 +88,7 @@ println("Etnia blanca en Sector empleo domestico "+ EDB.count)
 println("Etnia blanca en No Clasificados por Sector "+ NCB.count)
 
 // COMMAND ----------
-//Cuantas personas de etnia mestizas trabajan en condicion forma, informal, Empleo Domestico, No clasificado por sector
+//Cuantas  personas de etnia mestizas trabajan en condicion forma, informal, Empleo Domestico, No clasificado por sector
 
 val SFM = dataMe.where($"sectorizacion" === "1 - Sector Formal")
 val SIM = dataMe.where($"sectorizacion" === "2 - Sector Informal")
@@ -101,7 +101,7 @@ println("Etnia mestiza en Sector empleo domestico "+ EDM.count)
 println("Etnia mestiza en No Clasificados por Sector "+ NCM.count)
 
 // COMMAND ----------
-//Cuantas personas de etnia negra, blanca, mestiza tienen un nivel de instrucción superior universitario vs superior no universitario vs post grado
+//Cuál es el porcentaje de personas personas de etnia negra, blanca, mestiza tienen un nivel de instrucción superior universitario vs superior no universitario vs post grado
 val SUM = dataMe.where($"nivel_de_instruccion" === "09 - Superior Universitario")
 val SNUM = dataMe.where($"nivel_de_instruccion" === "08 - Superior no universitario")
 val PGM = dataMe.where($"nivel_de_instruccion" === "10 - Post-grado")
