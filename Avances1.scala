@@ -142,6 +142,34 @@ PGN.select(min("ingreso_laboral").as("minímo etnia negra con post grado"), max(
 
 // COMMAND ----------
 
+// Edades promedio de cada una de las etnias  ----------
+
+dataI.select(avg("edad") as "Edad promedio Indígena").show
+dataA.select(avg("edad") as "Edad promedio Afroecuatoriano").show
+dataN.select(avg("edad") as "Edad promedio Negro").show
+dataMu.select(avg("edad") as "Edad promedio Mulato").show
+dataMo.select(avg("edad") as "Edad promedio Montubio").show
+dataMe.select(avg("edad") as "Edad promedio Mestizo").show
+dataB.select(avg("edad") as "Edad promedio Blanco").show
+dataO.select(avg("edad") as "Edad promedio Otros").show
+
+// Porcentaje de personas de cada una de las etnias Etnias  ----------
+
+println(f"${(dataI.count/data.count.toDouble)*100}%.2f%% Indígenas\n${(dataA.count/data.count.toDouble)*100}%.2f%% Afroecuatoriano\n${(dataN.count/data.count.toDouble)*100}%.2f%% Negro\n${(dataMu.count/data.count.toDouble)*100}%.2f%% Mulato\n${(dataMo.count/data.count.toDouble)*100}%.2f%% Montubio\n${(dataMe.count/data.count.toDouble)*100}%.2f%% Mestizo\n${(dataB.count/data.count.toDouble)*100}%.2f%% Blanco\n${(dataO.count/data.count.toDouble)*100}%.2f%% Otro")
 
 
+// Número de personas que tiene un empleo adecuado de etnia Mestiza, Blanco y Negra ----------
 
+val condMe = dataMe.where($"condicion_actividad" === "1 - Empleo Adecuado/Pleno").count
+val condB = dataB.where($"condicion_actividad" === "1 - Empleo Adecuado/Pleno").count
+val condN = dataN.where($"condicion_actividad" === "1 - Empleo Adecuado/Pleno").count
+
+println("Número de personas con Empleo adecuado de Mestizos: "+ condMe+ "\nNúmero de personas con Empleo adecuado de Blancos: "+condB+"\nNúmero de personas con Empleo adecuado de Negros: "+condN)
+
+// Porcentaje de personas de Loja que son Mestizos, Blanco y Negro ----------
+
+val cantTotal = data.where($"provincia" === "11")
+val cantMe = dataMe.where($"provincia" === "11")
+val cantB = dataB.where($"provincia" === "11")
+val cantN = dataN.where($"provincia" === "11")
+println(f"${(cantMe.count*100)/cantTotal.count.toDouble}%.2f%% Mestizos\n"+ f"${(cantB.count*100)/cantTotal.count.toDouble}%.2f%% Blancos\n"+f"${(cantN.count*100)/cantTotal.count.toDouble}%.2f%% Negros")
