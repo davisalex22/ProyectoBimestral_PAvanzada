@@ -37,6 +37,7 @@ val data = spark
 
 
 // COMMAND ----------
+// Separacion de etnias
 
 val dataI = data.where($"etnia" === "1 - Indígena")
 val dataA = data.where($"etnia" === "2 - Afroecuatoriano")
@@ -50,7 +51,8 @@ val dataO = data.where($"etnia" === "8 - Otro")
 
 
 // COMMAND ----------
-// promedio de ingreso laboral en la columna etnias
+// Promedio de ingreso laboral en la columna etnias
+
 dataI.select(avg("ingreso_laboral") as "Sueldo promedio Indígena").show
 dataA.select(avg("ingreso_laboral")as "Sueldo promedio Afroecuatoriano").show
 dataN.select(avg("ingreso_laboral")as "Sueldo promedio Negra").show
@@ -62,7 +64,7 @@ dataO.select(avg("ingreso_laboral")as "Sueldo promedio Otro").show
 
 // COMMAND ----------
 
-//Cuantas personas de etnia negra trabajan en condicion formal, informal, Empleo Domestico, No clasificado por sector
+// Cuantas personas de etnia negra trabajan en condicion formal, informal, Empleo Domestico, No clasificado por sector
 
 val SFN = dataN.where($"sectorizacion" === "1 - Sector Formal")
 val SIN = dataN.where($"sectorizacion" === "2 - Sector Informal")
@@ -75,6 +77,7 @@ println("Etnia negra en Sector empleo domestico "+ EDN.count)
 println("Etnia negra en No Clasificados por Sector "+ NCN.count)
 
 // COMMAND ----------
+
 //Cuantas personas de etnia Blancas trabajan en condicion forma, informal, Empleo Domestico, No clasificado por sector
 
 val SFB = dataB.where($"sectorizacion" === "1 - Sector Formal")
@@ -88,6 +91,7 @@ println("Etnia blanca en Sector empleo domestico "+ EDB.count)
 println("Etnia blanca en No Clasificados por Sector "+ NCB.count)
 
 // COMMAND ----------
+
 //Cuantas personas de etnia mestiza trabajan en condicion forma, informal, Empleo Domestico, No clasificado por sector
 
 val SFM = dataMe.where($"sectorizacion" === "1 - Sector Formal")
@@ -102,13 +106,12 @@ println("Etnia mestiza en No Clasificados por Sector "+ NCM.count)
 
 // COMMAND ----------
 //Cuantas personas de etnia negra, blanca, mestiza tienen un nivel de instrucción superior universitario vs superior no universitario vs post grado
+
 val SUM = dataMe.where($"nivel_de_instruccion" === "09 - Superior Universitario")
 val SNUM = dataMe.where($"nivel_de_instruccion" === "08 - Superior no universitario")
 val PGM = dataMe.where($"nivel_de_instruccion" === "10 - Post-grado")
 
 println(f"${(SUM.count / data.count.toDouble) * 100}%.2f%%Mestizos universitaria\n${(SNUM.count / data.count.toDouble) * 100}%.2f%%Mestizos no universitario\n${(PGM.count / data.count.toDouble) * 100}%.2f%%Mestizos post grado")
-
-
 
 val SUB = dataB.where($"nivel_de_instruccion" === "09 - Superior Universitario")
 val SNUB = dataB.where($"nivel_de_instruccion" === "08 - Superior no universitario")
@@ -138,7 +141,6 @@ PGB.select(min("ingreso_laboral").as("minímo blancos con post grado"), max("ing
 SUN.select(min("ingreso_laboral").as("minímo etnia negra con educación superior"), max("ingreso_laboral").as("maxímo etnia negra con educación superior")).show
 SNUN.select(min("ingreso_laboral").as("minímo etnia negra con educación no superior"), max("ingreso_laboral").as("maxímo etnia negra con educación no superior")).show
 PGN.select(min("ingreso_laboral").as("minímo etnia negra con post grado"), max("ingreso_laboral").as("maxímo etnia negra con post grado")).show
-
 
 
 // COMMAND ----------
@@ -174,3 +176,38 @@ val cantMe = dataMe.where($"provincia" === "11")
 val cantB = dataB.where($"provincia" === "11")
 val cantN = dataN.where($"provincia" === "11")
 println(f"${(cantMe.count*100)/cantTotal.count.toDouble}%.2f%% Mestizos\n"+ f"${(cantB.count*100)/cantTotal.count.toDouble}%.2f%% Blancos\n"+f"${(cantN.count*100)/cantTotal.count.toDouble}%.2f%% Negros")
+
+// COMMAND ----------
+// Cantidad de Hombres y Mujeres Mestizas y afroecuatorianas
+
+val dataMe = data.where($"genero" === "2 - Mujer" && $"etnia" === "6 - Mestizo")
+val dataHe = data.where($"genero" === "1 - Hombre" && $"etnia" === "6 - Mestizo")
+val dataMa = data.where($"genero" === "2 - Mujer" && $"etnia" === "2 - Afroecuatoriano")
+val dataHa = data.where($"genero" === "1 - Hombre" && $"etnia" === "2 - Afroecuatoriano")
+println("Existen "+ dataHe.count + " mujeres mestizas")
+println("Existen "+ dataMe.count + " hombres mestizos")
+println("Existen "+ dataHa.count + " hombres afroecuatorianos")
+println("Existen "+ dataMa.count + " mujeres afroecuatorianas")
+
+// COMMAND ----------
+// Sueldo maximo que gana una mujer meztiza y afroecuatoriana en el sector Empleo Doméstico
+
+dataMe.where($"sectorizacion" === "3 - Empleo Doméstico").select(max("ingreso_laboral").as("Máximo sueldo de una empleada domestica mestiza")).show
+dataMa.where($"sectorizacion" === "3 - Empleo Doméstico").select(max("ingreso_laboral").as("Máximo sueldo de una empleada domestica afroecuatorina")).show
+
+// COMMAND ----------
+// Cantidad de personas que trabajan en el sector de la construccion de todas las etnias
+
+data
+   .where($"rama_actividad" === "06 - F. Construcción")
+   .groupBy("etnia")
+   .agg(count("*").as("Cantidad de personas"))
+   .show()
+
+// COMMAND ----------
+// Cantidad de personas del sector rural que tienen un nivel de instruccion superior universitario de todas las etnias
+
+data
+   .where($"area" === "2 - Rural" && $"nivel_de_instruccion" === "09 - Superior Universitario")
+   .groupBy("etnia")
+   .agg(count("*").as("Area Urbana")).show()
