@@ -1,0 +1,910 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "import org.apache.spark.sql.types._\nimport org.apache.spark.sql.functions._\nval myDataSchema = StructType(\n  Array(\n    StructField(\"id\",DecimalType(26, 0),true),\n    StructField(\"anio\",IntegerType,true),\n    StructField(\"mes\",IntegerType,true),\n    StructField(\"provincia\",IntegerType,true),\n    StructField(\"canton\",IntegerType,true),\n    StructField(\"area\",StringType,true),\n    StructField(\"genero\",StringType,true),\n    StructField(\"edad\",IntegerType,true),\n    StructField(\"estado_civil\",StringType,true),\n    StructField(\"nivel_de_instruccion\",StringType,true),\n    StructField(\"etnia\",StringType,true),\n    StructField(\"ingreso_laboral\",IntegerType,true),\n    StructField(\"condicion_actividad\",StringType,true),\n    StructField(\"sectorizacion\",StringType,true),\n    StructField(\"grupo_ocupacion\",StringType,true),\n    StructField(\"rama_actividad\",StringType,true),\n    StructField(\"factor_expansion\",DoubleType,true)\n  ));",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:38:05-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.types._\nimport org.apache.spark.sql.functions._\n\u001b[1m\u001b[34mmyDataSchema\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.types.StructType\u001b[0m = StructType(StructField(id,DecimalType(26,0),true), StructField(anio,IntegerType,true), StructField(mes,IntegerType,true), StructField(provincia,IntegerType,true), StructField(canton,IntegerType,true), StructField(area,StringType,true), StructField(genero,StringType,true), StructField(edad,IntegerType,true), StructField(estado_civil,StringType,true), StructField(nivel_de_instruccion,StringType,true), StructField(etnia,StringType,true), StructField(ingreso_laboral,IntegerType,true), StructField(condicion_actividad,StringType,true), StructField(sectorizacion,StringType,true), StructField(grupo_ocupacion,StringType,true), StructField(ram..."
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222962_339502893",
+      "id": "paragraph_1594589861597_1503247418",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "dateStarted": "2020-07-12T17:38:05-0500",
+      "dateFinished": "2020-07-12T17:38:06-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:6637"
+    },
+    {
+      "text": "\nval data = spark\n\t  .read\n\t  .option(\"inferSchema\",\"true\")\n\t  .option(\"header\",\"true\")\n\t  .option(\"delimiter\",\"\\t\")\n\t  .csv(\"/home/david/Escritorio/Datos_ENEMDU_PEA_v2.csv\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:38:54-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdata\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=108",
+              "$$hashKey": "object:7321"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=109",
+              "$$hashKey": "object:7322"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222973_940639689",
+      "id": "paragraph_1594589869486_2137739600",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "dateStarted": "2020-07-12T17:38:54-0500",
+      "dateFinished": "2020-07-12T17:38:59-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:6638"
+    },
+    {
+      "text": "// Separacion de etnias\n\nval dataI = data.where($\"etnia\" === \"1 - Indígena\")\nval dataA = data.where($\"etnia\" === \"2 - Afroecuatoriano\")\nval dataN = data.where($\"etnia\" === \"3 - Negro\")\nval dataMu = data.where($\"etnia\" === \"4 - Mulato\")\nval dataMo = data.where($\"etnia\" === \"5 - Montubio\")\nval dataMe = data.where($\"etnia\" === \"6 - Mestizo\")\nval dataB = data.where($\"etnia\" === \"7 - Blanco\")\nval dataO = data.where($\"etnia\" === \"8 - Otro\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:39:03-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdataI\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataA\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataMu\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataMo\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataMe\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Data..."
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222973_1833972455",
+      "id": "paragraph_1594590048242_-1072034705",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "dateStarted": "2020-07-12T17:39:03-0500",
+      "dateFinished": "2020-07-12T17:39:04-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:6639"
+    },
+    {
+      "text": "// Promedio de ingreso laboral en la columna etnias\n\ndataI.select(avg(\"ingreso_laboral\") as \"Sueldo promedio Indígena\").show\ndataA.select(avg(\"ingreso_laboral\")as \"Sueldo promedio Afroecuatoriano\").show\ndataN.select(avg(\"ingreso_laboral\")as \"Sueldo promedio Negra\").show\ndataMu.select(avg(\"ingreso_laboral\")as \"Sueldo promedio Mulato\").show\ndataMo.select(avg(\"ingreso_laboral\")as \"Sueldo promedio Montuvio\").show\ndataMe.select(avg(\"ingreso_laboral\")as \"Sueldo promedio Mestizo\").show\ndataB.select(avg(\"ingreso_laboral\")as \"Sueldo promedio Blanca\").show\ndataO.select(avg(\"ingreso_laboral\")as \"Sueldo promedio Otro\").show",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:33:42-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------------------------+\n|Sueldo promedio Indígena|\n+------------------------+\n|      297.09649890123956|\n+------------------------+\n\n+-------------------------------+\n|Sueldo promedio Afroecuatoriano|\n+-------------------------------+\n|             439.58184501845017|\n+-------------------------------+\n\n+---------------------+\n|Sueldo promedio Negra|\n+---------------------+\n|    395.2136351090257|\n+---------------------+\n\n+----------------------+\n|Sueldo promedio Mulato|\n+----------------------+\n|     397.6776031434185|\n+----------------------+\n\n+------------------------+\n|Sueldo promedio Montuvio|\n+------------------------+\n|       329.7523729613509|\n+------------------------+\n\n+-----------------------+\n|Sueldo promedio Mestizo|\n+-----------------------+\n|      516.6195378181872|\n+-----------------------+\n\n+----------------------+\n|Sueldo promedio Blanca|\n+----------------------+\n|     634.3030224075039|\n+----------------------+\n\n+--------------------+\n|Sueldo promedio Otro|\n+--------------------+\n|   785.4585152838428|\n+--------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222973_-600445879",
+      "id": "paragraph_1594590063064_1787411420",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "status": "READY",
+      "$$hashKey": "object:6640"
+    },
+    {
+      "text": "// Promedio de ingreso laboral en la columna etnias\n\ndataI.select(avg(\"ingreso_laboral\") as \"Sueldo promedio Indígena\").show\ndataA.select(avg(\"ingreso_laboral\")as \"Sueldo promedio Afroecuatoriano\").show\ndataN.select(avg(\"ingreso_laboral\")as \"Sueldo promedio Negra\").show\ndataMu.select(avg(\"ingreso_laboral\")as \"Sueldo promedio Mulato\").show\ndataMo.select(avg(\"ingreso_laboral\")as \"Sueldo promedio Montuvio\").show\ndataMe.select(avg(\"ingreso_laboral\")as \"Sueldo promedio Mestizo\").show\ndataB.select(avg(\"ingreso_laboral\")as \"Sueldo promedio Blanca\").show\ndataO.select(avg(\"ingreso_laboral\")as \"Sueldo promedio Otro\").show",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:33:42-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------------------------+\n|Sueldo promedio Indígena|\n+------------------------+\n|      297.09649890123956|\n+------------------------+\n\n+-------------------------------+\n|Sueldo promedio Afroecuatoriano|\n+-------------------------------+\n|             439.58184501845017|\n+-------------------------------+\n\n+---------------------+\n|Sueldo promedio Negra|\n+---------------------+\n|    395.2136351090257|\n+---------------------+\n\n+----------------------+\n|Sueldo promedio Mulato|\n+----------------------+\n|     397.6776031434185|\n+----------------------+\n\n+------------------------+\n|Sueldo promedio Montuvio|\n+------------------------+\n|       329.7523729613509|\n+------------------------+\n\n+-----------------------+\n|Sueldo promedio Mestizo|\n+-----------------------+\n|      516.6195378181872|\n+-----------------------+\n\n+----------------------+\n|Sueldo promedio Blanca|\n+----------------------+\n|     634.3030224075039|\n+----------------------+\n\n+--------------------+\n|Sueldo promedio Otro|\n+--------------------+\n|   785.4585152838428|\n+--------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222974_1823516173",
+      "id": "paragraph_1594590074199_-1907892564",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "status": "READY",
+      "$$hashKey": "object:6641"
+    },
+    {
+      "text": "// Cuantas personas de etnia negra trabajan en condicion formal, informal, Empleo Domestico, No clasificado por sector\n\nval SFN = dataN.where($\"sectorizacion\" === \"1 - Sector Formal\")\nval SIN = dataN.where($\"sectorizacion\" === \"2 - Sector Informal\")\nval EDN = dataN.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\nval NCN = dataN.where($\"sectorizacion\" === \"4 - No Clasificados por Sector\")\n\nprintln(\"Etnia negra en Sector formal \"+ SFN.count)\nprintln(\"Etnia negra en Sector informal \"+ SIN.count)\nprintln(\"Etnia negra en Sector empleo domestico \"+ EDN.count)\nprintln(\"Etnia negra en No Clasificados por Sector \"+ NCN.count)",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:33:42-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Etnia negra en Sector formal 3057\nEtnia negra en Sector informal 3736\nEtnia negra en Sector empleo domestico 289\nEtnia negra en No Clasificados por Sector 698\n\u001b[1m\u001b[34mSFN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSIN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mEDN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mNCN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222974_-2061434637",
+      "id": "paragraph_1594590104148_199830214",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "status": "READY",
+      "$$hashKey": "object:6642"
+    },
+    {
+      "text": "// Cuantas personas de etnia Blancas trabajan en condicion forma, informal, Empleo Domestico, No clasificado por sector\n\nval SFB = dataB.where($\"sectorizacion\" === \"1 - Sector Formal\")\nval SIB = dataB.where($\"sectorizacion\" === \"2 - Sector Informal\")\nval EDB = dataB.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\nval NCB = dataB.where($\"sectorizacion\" === \"4 - No Clasificados por Sector\")\n\nprintln(\"Etnia blanca en Sector formal \"+ SFB.count)\nprintln(\"Etnia blanca en Sector informal \"+ SIB.count)\nprintln(\"Etnia blanca en Sector empleo domestico \"+ EDB.count)\nprintln(\"Etnia blanca en No Clasificados por Sector \"+ NCB.count)",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:33:42-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Etnia blanca en Sector formal 4676\nEtnia blanca en Sector informal 3414\nEtnia blanca en Sector empleo domestico 179\nEtnia blanca en No Clasificados por Sector 465\n\u001b[1m\u001b[34mSFB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSIB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mEDB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mNCB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222974_1407408662",
+      "id": "paragraph_1594590126398_-2082114001",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "status": "READY",
+      "$$hashKey": "object:6643"
+    },
+    {
+      "text": "// Cuantas personas de etnia mestiza trabajan en condicion forma, informal, Empleo Domestico, No clasificado por sector\n\nval SFM = dataMe.where($\"sectorizacion\" === \"1 - Sector Formal\")\nval SIM = dataMe.where($\"sectorizacion\" === \"2 - Sector Informal\")\nval EDM = dataMe.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\nval NCM = dataMe.where($\"sectorizacion\" === \"4 - No Clasificados por Sector\")\n\nprintln(\"Etnia mestiza en Sector formal \"+ SFM.count)\nprintln(\"Etnia mestiza en Sector informal \"+ SIM.count)\nprintln(\"Etnia mestiza en Sector empleo domestico \"+ EDM.count)\nprintln(\"Etnia mestiza en No Clasificados por Sector \"+ NCM.count)",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:33:42-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Etnia mestiza en Sector formal 249058\nEtnia mestiza en Sector informal 187126\nEtnia mestiza en Sector empleo domestico 11037\nEtnia mestiza en No Clasificados por Sector 22720\n\u001b[1m\u001b[34mSFM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSIM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mEDM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mNCM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222974_-479335825",
+      "id": "paragraph_1594590145102_1446682773",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "status": "READY",
+      "$$hashKey": "object:6644"
+    },
+    {
+      "text": "// Cuantas personas de etnia negra, blanca, mestiza tienen un nivel de instrucción superior universitario vs superior no universitario vs post grado\n\nval SUM = dataMe.where($\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\nval SNUM = dataMe.where($\"nivel_de_instruccion\" === \"08 - Superior no universitario\")\nval PGM = dataMe.where($\"nivel_de_instruccion\" === \"10 - Post-grado\")\n\nprintln(f\"${(SUM.count / data.count.toDouble) * 100}%.2f%%Mestizos universitaria\\n${(SNUM.count / data.count.toDouble) * 100}%.2f%%Mestizos no universitario\\n${(PGM.count / data.count.toDouble) * 100}%.2f%%Mestizos post grado\")\n\nval SUB = dataB.where($\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\nval SNUB = dataB.where($\"nivel_de_instruccion\" === \"08 - Superior no universitario\")\nval PGB = dataB.where($\"nivel_de_instruccion\" === \"10 - Post-grado\")\n\nprintln(f\"${(SUB.count / data.count.toDouble) * 100}%.2f%%Blancos universitaria\\n${(SNUB.count / data.count.toDouble) * 100}%.2f%%Blancos no universitario\\n${(PGB.count / data.count.toDouble) * 100}%.2f%%Blancos post grado\")\n\n\nval SUN = dataN.where($\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\nval SNUN = dataN.where($\"nivel_de_instruccion\" === \"08 - Superior no universitario\")\nval PGN = dataN.where($\"nivel_de_instruccion\" === \"10 - Post-grado\")\n\nprintln(f\"${(SUN.count / data.count.toDouble) * 100}%.2f%%Etnia negra universitaria\\n${(SNUN.count / data.count.toDouble) * 100}%.2f%%Etnia negra no universitaria\\n${(PGN.count / data.count.toDouble) * 100}%.2f%%Etnia negra con post grado\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:33:42-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "16,08%Mestizos universitaria\n1,65%Mestizos no universitario\n1,54%Mestizos post grado\n0,34%Blancos universitaria\n0,03%Blancos no universitario\n0,06%Blancos post grado\n0,15%Etnia negra universitaria\n0,02%Etnia negra no universitaria\n0,01%Etnia negra con post grado\n\u001b[1m\u001b[34mSUM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSNUM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mPGM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSUB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSNUB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mPGB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apach..."
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222974_215801905",
+      "id": "paragraph_1594590158703_-516410277",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "status": "READY",
+      "$$hashKey": "object:6645"
+    },
+    {
+      "text": "// Cual es el sueldo maxímo y minímo de una persona de etnia negra, blanca, mestiza con nivel de instruccion universitario, no universitaria, post grado \n\nSUM.select(min(\"ingreso_laboral\").as(\"minímo mestizos con educación superior\"), max(\"ingreso_laboral\").as(\"maxímo mestizos con educación superior\")).show\nSNUM.select(min(\"ingreso_laboral\").as(\"minímo mestizos con educación no superior\"), max(\"ingreso_laboral\").as(\"maxímo mestizos con educación no superior\")).show\nPGM.select(min(\"ingreso_laboral\").as(\"minímo mestizos con post grado\"), max(\"ingreso_laboral\").as(\"maxímo mestizos con post grado\")).show\n\nSUB.select(min(\"ingreso_laboral\").as(\"minímo blancos con educación superior\"), max(\"ingreso_laboral\").as(\"maxímo blancos con educación superior\")).show\nSNUB.select(min(\"ingreso_laboral\").as(\"minímo blancos con educación no superior\"), max(\"ingreso_laboral\").as(\"maxímo blancos con educación no superior\")).show\nPGB.select(min(\"ingreso_laboral\").as(\"minímo blancos con post grado\"), max(\"ingreso_laboral\").as(\"maxímo blancos con post grado\")).show\n\nSUN.select(min(\"ingreso_laboral\").as(\"minímo etnia negra con educación superior\"), max(\"ingreso_laboral\").as(\"maxímo etnia negra con educación superior\")).show\nSNUN.select(min(\"ingreso_laboral\").as(\"minímo etnia negra con educación no superior\"), max(\"ingreso_laboral\").as(\"maxímo etnia negra con educación no superior\")).show\nPGN.select(min(\"ingreso_laboral\").as(\"minímo etnia negra con post grado\"), max(\"ingreso_laboral\").as(\"maxímo etnia negra con post grado\")).show",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:33:42-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------------------------+--------------------------------------+\n|minímo mestizos con educación superior|maxímo mestizos con educación superior|\n+--------------------------------------+--------------------------------------+\n|                                     0|                                146030|\n+--------------------------------------+--------------------------------------+\n\n+-----------------------------------------+-----------------------------------------+\n|minímo mestizos con educación no superior|maxímo mestizos con educación no superior|\n+-----------------------------------------+-----------------------------------------+\n|                                        0|                                    19982|\n+-----------------------------------------+-----------------------------------------+\n\n+------------------------------+------------------------------+\n|minímo mestizos con post grado|maxímo mestizos con post grado|\n+------------------------------+------------------------------+\n|                             0|                         30000|\n+------------------------------+------------------------------+\n\n+-------------------------------------+-------------------------------------+\n|minímo blancos con educación superior|maxímo blancos con educación superior|\n+-------------------------------------+-------------------------------------+\n|                                    0|                                60000|\n+-------------------------------------+-------------------------------------+\n\n+----------------------------------------+----------------------------------------+\n|minímo blancos con educación no superior|maxímo blancos con educación no superior|\n+----------------------------------------+----------------------------------------+\n|                                       0|                                    5280|\n+----------------------------------------+----------------------------------------+\n\n+-----------------------------+-----------------------------+\n|minímo blancos con post grado|maxímo blancos con post grado|\n+-----------------------------+-----------------------------+\n|                            0|                         9000|\n+-----------------------------+-----------------------------+\n\n+-----------------------------------------+-----------------------------------------+\n|minímo etnia negra con educación superior|maxímo etnia negra con educación superior|\n+-----------------------------------------+-----------------------------------------+\n|                                        0|                                     7500|\n+-----------------------------------------+-----------------------------------------+\n\n+--------------------------------------------+--------------------------------------------+\n|minímo etnia negra con educación no superior|maxímo etnia negra con educación no superior|\n+--------------------------------------------+--------------------------------------------+\n|                                           0|                                        2950|\n+--------------------------------------------+--------------------------------------------+\n\n+---------------------------------+---------------------------------+\n|minímo etnia negra con post grado|maxímo etnia negra con post grado|\n+---------------------------------+---------------------------------+\n|                                0|                             3010|\n+---------------------------------+---------------------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222974_747253817",
+      "id": "paragraph_1594590174422_-507393010",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "status": "READY",
+      "$$hashKey": "object:6646"
+    },
+    {
+      "title": "Edades promedio de cada una de las etnias",
+      "text": "dataB.select(avg(\"edad\") as \"Edad promedio Blanco\").show\ndataMo.select(avg(\"edad\") as \"Edad promedio Montubio\").show\ndataO.select(avg(\"edad\") as \"Edad promedio Otros\").show\ndataMe.select(avg(\"edad\") as \"Edad promedio Mestizo\").show\ndataMu.select(avg(\"edad\") as \"Edad promedio Mulato\").show\ndataN.select(avg(\"edad\") as \"Edad promedio Negro\").show\ndataA.select(avg(\"edad\") as \"Edad promedio Afroecuatoriano\").show\ndataI.select(avg(\"edad\") as \"Edad promedio Indígena\").show\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:39:23-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+\n|Edad promedio Blanco|\n+--------------------+\n|  44.103594309914214|\n+--------------------+\n\n+----------------------+\n|Edad promedio Montubio|\n+----------------------+\n|     43.03359573278272|\n+----------------------+\n\n+-------------------+\n|Edad promedio Otros|\n+-------------------+\n|  42.56957928802589|\n+-------------------+\n\n+---------------------+\n|Edad promedio Mestizo|\n+---------------------+\n|   40.870014209540926|\n+---------------------+\n\n+--------------------+\n|Edad promedio Mulato|\n+--------------------+\n|    40.4169474393531|\n+--------------------+\n\n+-------------------+\n|Edad promedio Negro|\n+-------------------+\n| 39.713406697432255|\n+-------------------+\n\n+-----------------------------+\n|Edad promedio Afroecuatoriano|\n+-----------------------------+\n|            39.05827846866618|\n+-----------------------------+\n\n+----------------------+\n|Edad promedio Indígena|\n+----------------------+\n|      38.6595054239129|\n+----------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=110",
+              "$$hashKey": "object:7800"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=111",
+              "$$hashKey": "object:7801"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=112",
+              "$$hashKey": "object:7802"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=113",
+              "$$hashKey": "object:7803"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=114",
+              "$$hashKey": "object:7804"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=115",
+              "$$hashKey": "object:7805"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=116",
+              "$$hashKey": "object:7806"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=117",
+              "$$hashKey": "object:7807"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222974_406479757",
+      "id": "paragraph_1594590189640_2048261652",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "dateStarted": "2020-07-12T17:39:23-0500",
+      "dateFinished": "2020-07-12T17:39:40-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:6647"
+    },
+    {
+      "title": "Porcentaje de personas de cada una de las Etnias",
+      "text": "\nprintln(f\"${(dataMe.count/data.count.toDouble)*100}%.2f%% Mestizos\\n${(dataI.count/data.count.toDouble)*100}%.2f%% Indigenas\\n${(dataMo.count/data.count.toDouble)*100}%.2f%% Montubio\\n${(dataB.count/data.count.toDouble)*100}%.2f%% Blanco\\n${(dataN.count/data.count.toDouble)*100}%.2f%% Negro\\n${(dataA.count/data.count.toDouble)*100}%.2f%% Afroecuatoriano\\n${(dataMu.count/data.count.toDouble)*100}%.2f%% Mulato\\n${(dataO.count/data.count.toDouble)*100}%.2f%% Otro\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:39:46-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "78,99% Mestizos\n12,12% Indigenas\n3,73% Montubio\n1,48% Blanco\n1,36% Negro\n1,32% Afroecuatoriano\n0,95% Mulato\n0,05% Otro\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=118",
+              "$$hashKey": "object:7893"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=119",
+              "$$hashKey": "object:7894"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=120",
+              "$$hashKey": "object:7895"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=121",
+              "$$hashKey": "object:7896"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=122",
+              "$$hashKey": "object:7897"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=123",
+              "$$hashKey": "object:7898"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=124",
+              "$$hashKey": "object:7899"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=125",
+              "$$hashKey": "object:7900"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=126",
+              "$$hashKey": "object:7901"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=127",
+              "$$hashKey": "object:7902"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=128",
+              "$$hashKey": "object:7903"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=129",
+              "$$hashKey": "object:7904"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=130",
+              "$$hashKey": "object:7905"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=131",
+              "$$hashKey": "object:7906"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=132",
+              "$$hashKey": "object:7907"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=133",
+              "$$hashKey": "object:7908"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222974_673110644",
+      "id": "paragraph_1594590234083_1549465442",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "dateStarted": "2020-07-12T17:39:46-0500",
+      "dateFinished": "2020-07-12T17:40:08-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:6648"
+    },
+    {
+      "title": "Número de personas que tiene un empleo adecuado de etnia Mestiza, Blanco y Negra",
+      "text": "\n\nval condMe = dataMe.where($\"condicion_actividad\" === \"1 - Empleo Adecuado/Pleno\").count\nval condB = dataB.where($\"condicion_actividad\" === \"1 - Empleo Adecuado/Pleno\").count\nval condN = dataN.where($\"condicion_actividad\" === \"1 - Empleo Adecuado/Pleno\").count\n\nprintln(\"Número de personas con Empleo adecuado de Mestizos: \"+ condMe+ \"\\nNúmero de personas con Empleo adecuado de Blancos: \"+condB+\"\\nNúmero de personas con Empleo adecuado de Negros: \"+condN)",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:37:34-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Número de personas con Empleo adecuado de Mestizos: 213259\nNúmero de personas con Empleo adecuado de Blancos: 3887\nNúmero de personas con Empleo adecuado de Negros: 2926\n\u001b[1m\u001b[34mcondMe\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m = 213259\n\u001b[1m\u001b[34mcondB\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m = 3887\n\u001b[1m\u001b[34mcondN\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m = 2926\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222974_-227689062",
+      "id": "paragraph_1594590256230_-2021141827",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "status": "READY",
+      "$$hashKey": "object:6649"
+    },
+    {
+      "title": "Porcentaje de personas de Loja que son Mestizos, Blanco y Negro",
+      "text": "val cantTotal = data.where($\"provincia\" === \"11\")\nval cantMe = dataMe.where($\"provincia\" === \"11\")\nval cantB = dataB.where($\"provincia\" === \"11\")\nval cantN = dataN.where($\"provincia\" === \"11\")\nprintln(f\"${(cantMe.count*100)/cantTotal.count.toDouble}%.2f%% Mestizos\\n\"+ f\"${(cantB.count*100)/cantTotal.count.toDouble}%.2f%% Blancos\\n\"+f\"${(cantN.count*100)/cantTotal.count.toDouble}%.2f%% Negros\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:37:14-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "94,80% Mestizos\n1,45% Blancos\n0,52% Negros\n\u001b[1m\u001b[34mcantTotal\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mcantMe\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mcantB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mcantN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222974_-1612957894",
+      "id": "paragraph_1594590289511_1118431551",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "status": "READY",
+      "$$hashKey": "object:6650"
+    },
+    {
+      "title": "Cantidad de Hombres y Mujeres Mestizas y afroecuatorianas",
+      "text": "val dataMe = data.where($\"genero\" === \"2 - Mujer\" && $\"etnia\" === \"6 - Mestizo\")\nval dataHe = data.where($\"genero\" === \"1 - Hombre\" && $\"etnia\" === \"6 - Mestizo\")\nval dataMa = data.where($\"genero\" === \"2 - Mujer\" && $\"etnia\" === \"2 - Afroecuatoriano\")\nval dataHa = data.where($\"genero\" === \"1 - Hombre\" && $\"etnia\" === \"2 - Afroecuatoriano\")\nprintln(\"Existen \"+ dataHe.count + \" mujeres mestizas\")\nprintln(\"Existen \"+ dataMe.count + \" hombres mestizos\")\nprintln(\"Existen \"+ dataHa.count + \" hombres afroecuatorianos\")\nprintln(\"Existen \"+ dataMa.count + \" mujeres afroecuatorianas\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:33:42-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Existen 279951 mujeres mestizas\nExisten 211972 hombres mestizos\nExisten 4617 hombres afroecuatorianos\nExisten 3585 mujeres afroecuatorianas\n\u001b[1m\u001b[34mdataMe\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataHe\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataMa\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataHa\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222974_543879845",
+      "id": "paragraph_1594590314617_-90364988",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "status": "READY",
+      "$$hashKey": "object:6651"
+    },
+    {
+      "title": "Sueldo maximo que gana una mujer meztiza y afroecuatoriana en el sector Empleo Doméstico",
+      "text": "dataMe.where($\"sectorizacion\" === \"3 - Empleo Doméstico\").select(max(\"ingreso_laboral\").as(\"Máximo sueldo de una empleada domestica mestiza\")).show\ndataMa.where($\"sectorizacion\" === \"3 - Empleo Doméstico\").select(max(\"ingreso_laboral\").as(\"Máximo sueldo de una empleada domestica afroecuatorina\")).show",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:33:42-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----------------------------------------------+\n|Máximo sueldo de una empleada domestica mestiza|\n+-----------------------------------------------+\n|                                           3455|\n+-----------------------------------------------+\n\n+------------------------------------------------------+\n|Máximo sueldo de una empleada domestica afroecuatorina|\n+------------------------------------------------------+\n|                                                   961|\n+------------------------------------------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222974_35867792",
+      "id": "paragraph_1594590331348_-1240353455",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "status": "READY",
+      "$$hashKey": "object:6652"
+    },
+    {
+      "title": "Cantidad de personas que trabajan en el sector de la construccion de todas las etnias",
+      "text": "data\n   .where($\"rama_actividad\" === \"06 - F. Construcción\")\n   .groupBy(\"etnia\")\n   .agg(count(\"*\").as(\"Cantidad de personas\"))\n   .orderBy(desc(\"Cantidad de personas\"))\n   .show()",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:33:42-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------+--------------------+\n|              etnia|Cantidad de personas|\n+-------------------+--------------------+\n|        6 - Mestizo|               27431|\n|       1 - Indígena|                4676|\n|       5 - Montubio|                 745|\n|          3 - Negro|                 536|\n|2 - Afroecuatoriano|                 482|\n|         4 - Mulato|                 428|\n|         7 - Blanco|                 378|\n|           8 - Otro|                  25|\n+-------------------+--------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222974_623320747",
+      "id": "paragraph_1594590354972_753500312",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "status": "READY",
+      "$$hashKey": "object:6653"
+    },
+    {
+      "title": "Cantidad de personas del sector rural que tienen un nivel de instruccion superior universitario de todas las etnias",
+      "text": "data\n   .where($\"area\" === \"2 - Rural\" && $\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\n   .groupBy(\"etnia\")\n   .agg(count(\"*\").as(\"Area Rural\"))\n   .orderBy(desc(\"Area Rural\"))\n   .show()",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:33:42-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------+----------+\n|              etnia|Area Rural|\n+-------------------+----------+\n|        6 - Mestizo|     12020|\n|       1 - Indígena|      1724|\n|       5 - Montubio|       487|\n|         7 - Blanco|       199|\n|2 - Afroecuatoriano|       133|\n|          3 - Negro|        82|\n|         4 - Mulato|        39|\n|           8 - Otro|        16|\n+-------------------+----------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222974_-871115822",
+      "id": "paragraph_1594590366625_1214838279",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "status": "READY",
+      "$$hashKey": "object:6654"
+    },
+    {
+      "user": "anonymous",
+      "dateUpdated": "2020-07-12T17:33:42-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594593222974_-1716424782",
+      "id": "paragraph_1594590380035_-1004959188",
+      "dateCreated": "2020-07-12T17:33:42-0500",
+      "status": "READY",
+      "$$hashKey": "object:6655"
+    }
+  ],
+  "name": "AvancePAvanzada1",
+  "id": "2FENU8BFT",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/AvancePAvanzada1"
+}
