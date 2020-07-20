@@ -3,7 +3,7 @@
     {
       "text": "import org.apache.spark.sql.types._\nimport org.apache.spark.sql.functions._\nval myDataSchema = StructType(\n  Array(\n    StructField(\"id\",DecimalType(26, 0),true),\n    StructField(\"anio\",IntegerType,true),\n    StructField(\"mes\",IntegerType,true),\n    StructField(\"provincia\",IntegerType,true),\n    StructField(\"canton\",IntegerType,true),\n    StructField(\"area\",StringType,true),\n    StructField(\"genero\",StringType,true),\n    StructField(\"edad\",IntegerType,true),\n    StructField(\"estado_civil\",StringType,true),\n    StructField(\"nivel_de_instruccion\",StringType,true),\n    StructField(\"etnia\",StringType,true),\n    StructField(\"ingreso_laboral\",IntegerType,true),\n    StructField(\"condicion_actividad\",StringType,true),\n    StructField(\"sectorizacion\",StringType,true),\n    StructField(\"grupo_ocupacion\",StringType,true),\n    StructField(\"rama_actividad\",StringType,true),\n    StructField(\"factor_expansion\",DoubleType,true)\n  ));",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:33:51-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -33,19 +33,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300026_384997846",
+      "jobName": "paragraph_1595213393581_-1836357717",
       "id": "paragraph_1594589741163_953275550",
-      "dateCreated": "2020-07-19T21:31:40-0500",
-      "status": "FINISHED",
+      "dateCreated": "2020-07-19T21:49:53-0500",
+      "status": "READY",
       "focus": true,
-      "$$hashKey": "object:440",
-      "dateFinished": "2020-07-19T21:33:52-0500",
-      "dateStarted": "2020-07-19T21:33:51-0500"
+      "$$hashKey": "object:399"
     },
     {
       "text": "val data = spark\n\t  .read\n\t  .option(\"inferSchema\",\"true\")\n\t  .option(\"header\",\"true\")\n\t  .option(\"delimiter\",\"\\t\")\n\t  .csv(\"/home/davisalex22/Datos_ENEMDU_PEA_v2.csv\")",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:34:38-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -73,38 +71,18 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=135",
-              "$$hashKey": "object:7345"
-            },
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=136",
-              "$$hashKey": "object:7346"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300026_-896843833",
+      "jobName": "paragraph_1595213393582_720160778",
       "id": "paragraph_1594589753060_-1353525488",
-      "dateCreated": "2020-07-19T21:31:40-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:441",
-      "dateFinished": "2020-07-19T21:34:42-0500",
-      "dateStarted": "2020-07-19T21:34:38-0500"
+      "dateCreated": "2020-07-19T21:49:53-0500",
+      "status": "READY",
+      "$$hashKey": "object:400"
     },
     {
       "text": "// Separacion de etnias\nval dataI = data.where($\"etnia\" === \"1 - Indígena\")\nval dataA = data.where($\"etnia\" === \"2 - Afroecuatoriano\")\nval dataN = data.where($\"etnia\" === \"3 - Negro\")\nval dataMu = data.where($\"etnia\" === \"4 - Mulato\")\nval dataMo = data.where($\"etnia\" === \"5 - Montubio\")\nval dataMe = data.where($\"etnia\" === \"6 - Mestizo\")\nval dataB = data.where($\"etnia\" === \"7 - Blanco\")\nval dataO = data.where($\"etnia\" === \"8 - Otro\")",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:34:48-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -134,212 +112,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300026_-873457526",
+      "jobName": "paragraph_1595213393582_-937694006",
       "id": "paragraph_1594589798744_21385150",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:442"
-    },
-    {
-      "text": "// Promedio de ingreso laboral en la columna etnias\n\ndataA.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Afroecuatoriano\").sort($\"anio\".desc).show();\ndataN.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Negros\").sort($\"anio\".desc).show();\ndataMu.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Mulato\").sort($\"anio\".desc).show();\ndataMo.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Montubio\").sort($\"anio\".desc).show();\ndataMe.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Mestizos\").sort($\"anio\".desc).show();\ndataB.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Blancos\").sort($\"anio\".desc).show();\ndataO.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Otros\").sort($\"anio\".desc).show();\n",
-      "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:35:01-0500",
-      "config": {
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "colWidth": 12,
-        "editorMode": "ace/mode/scala",
-        "fontSize": 9,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|  325.32051469513084|\n|2018|  312.27034080442127|\n|2017|   290.9101227509669|\n|2016|   281.2302359271523|\n|2015|   291.6655518394649|\n+----+--------------------+\n\n+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|  485.53057384760115|\n|2018|  469.77282377919323|\n|2017|  452.31573033707866|\n|2016|  400.29624277456645|\n|2015|   411.2017434620174|\n+----+--------------------+\n\n+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|  383.14963119072706|\n|2018|   386.5911654135338|\n|2017|   422.3720238095238|\n|2016|  379.14643799472293|\n|2015|  394.89690721649487|\n+----+--------------------+\n\n+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|  387.36475409836066|\n|2018|  402.54987834549877|\n|2017|  395.49725274725273|\n|2016|   386.2193074501574|\n|2015|   413.2036888532478|\n+----+--------------------+\n\n+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|   302.4964403542282|\n|2018|   307.2650913423352|\n|2017|   373.0661553211889|\n|2016|  352.58051044083527|\n|2015|  358.34414715719066|\n+----+--------------------+\n\n+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|   518.0325121290404|\n|2018|   532.2717226516984|\n|2017|   525.1980497870074|\n|2016|   491.1641972578505|\n|2015|   513.3691551452475|\n+----+--------------------+\n\n+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|   624.4534623976173|\n|2018|   706.4891871737509|\n|2017|   624.7062146892655|\n|2016|   554.7198443579766|\n|2015|   667.7136904761904|\n+----+--------------------+\n\n+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|               795.0|\n|2018|           924.96875|\n|2017|   799.0410958904109|\n|2016|   508.8709677419355|\n|2015|   838.7450980392157|\n+----+--------------------+\n\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_457394931",
-      "id": "paragraph_1594589837548_-1223429766",
-      "dateCreated": "2020-07-19T21:31:40-0500",
-      "status": "READY",
-      "$$hashKey": "object:443"
-    },
-    {
-      "text": "val SFN = dataN.where($\"sectorizacion\" === \"1 - Sector Formal\")\nval SIN = dataN.where($\"sectorizacion\" === \"2 - Sector Informal\")\nval EDN = dataN.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\nval NCN = dataN.where($\"sectorizacion\" === \"4 - No Clasificados por Sector\")\n\nprintln(\"Etnia negra en Sector formal \"+ SFN.count)\nprintln(\"Etnia negra en Sector informal \"+ SIN.count)\nprintln(\"Etnia negra en Sector empleo domestico \"+ EDN.count)\nprintln(\"Etnia negra en No Clasificados por Sector \"+ NCN.count)",
-      "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
-      "config": {
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "colWidth": 12,
-        "editorMode": "ace/mode/scala",
-        "fontSize": 9,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Etnia negra en Sector formal 3057\nEtnia negra en Sector informal 3736\nEtnia negra en Sector empleo domestico 289\nEtnia negra en No Clasificados por Sector 698\n\u001b[1m\u001b[34mSFN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSIN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mEDN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mNCN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_-1756430913",
-      "id": "paragraph_1594589945590_-1860922717",
-      "dateCreated": "2020-07-19T21:31:40-0500",
-      "status": "READY",
-      "$$hashKey": "object:444"
-    },
-    {
-      "text": "val SFB = dataB.where($\"sectorizacion\" === \"1 - Sector Formal\")\nval SIB = dataB.where($\"sectorizacion\" === \"2 - Sector Informal\")\nval EDB = dataB.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\nval NCB = dataB.where($\"sectorizacion\" === \"4 - No Clasificados por Sector\")\n\nprintln(\"Etnia blanca en Sector formal \"+ SFB.count)\nprintln(\"Etnia blanca en Sector informal \"+ SIB.count)\nprintln(\"Etnia blanca en Sector empleo domestico \"+ EDB.count)\nprintln(\"Etnia blanca en No Clasificados por Sector \"+ NCB.count)",
-      "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
-      "config": {
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "colWidth": 12,
-        "editorMode": "ace/mode/scala",
-        "fontSize": 9,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Etnia blanca en Sector formal 4676\nEtnia blanca en Sector informal 3414\nEtnia blanca en Sector empleo domestico 179\nEtnia blanca en No Clasificados por Sector 465\n\u001b[1m\u001b[34mSFB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSIB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mEDB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mNCB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_125030470",
-      "id": "paragraph_1594590894843_-1617372934",
-      "dateCreated": "2020-07-19T21:31:40-0500",
-      "status": "READY",
-      "$$hashKey": "object:445"
-    },
-    {
-      "text": "val SFM = dataMe.where($\"sectorizacion\" === \"1 - Sector Formal\")\nval SIM = dataMe.where($\"sectorizacion\" === \"2 - Sector Informal\")\nval EDM = dataMe.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\nval NCM = dataMe.where($\"sectorizacion\" === \"4 - No Clasificados por Sector\")\n\nprintln(\"Etnia mestiza en Sector formal \"+ SFM.count)\nprintln(\"Etnia mestiza en Sector informal \"+ SIM.count)\nprintln(\"Etnia mestiza en Sector empleo domestico \"+ EDM.count)\nprintln(\"Etnia mestiza en No Clasificados por Sector \"+ NCM.count)",
-      "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
-      "config": {
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "colWidth": 12,
-        "editorMode": "ace/mode/scala",
-        "fontSize": 9,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Etnia mestiza en Sector formal 249058\nEtnia mestiza en Sector informal 187126\nEtnia mestiza en Sector empleo domestico 11037\nEtnia mestiza en No Clasificados por Sector 22720\n\u001b[1m\u001b[34mSFM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSIM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mEDM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mNCM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_-1905417740",
-      "id": "paragraph_1594590933219_1197123414",
-      "dateCreated": "2020-07-19T21:31:40-0500",
-      "status": "READY",
-      "$$hashKey": "object:446"
-    },
-    {
-      "text": "val SUM = dataMe.where($\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\nval SNUM = dataMe.where($\"nivel_de_instruccion\" === \"08 - Superior no universitario\")\nval PGM = dataMe.where($\"nivel_de_instruccion\" === \"10 - Post-grado\")\n\nprintln(f\"${(SUM.count / data.count.toDouble) * 100}%.2f%%Mestizos universitaria\\n${(SNUM.count / data.count.toDouble) * 100}%.2f%%Mestizos no universitario\\n${(PGM.count / data.count.toDouble) * 100}%.2f%%Mestizos post grado\")\n\nval SUB = dataB.where($\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\nval SNUB = dataB.where($\"nivel_de_instruccion\" === \"08 - Superior no universitario\")\nval PGB = dataB.where($\"nivel_de_instruccion\" === \"10 - Post-grado\")\n\nprintln(f\"${(SUB.count / data.count.toDouble) * 100}%.2f%%Blancos universitaria\\n${(SNUB.count / data.count.toDouble) * 100}%.2f%%Blancos no universitario\\n${(PGB.count / data.count.toDouble) * 100}%.2f%%Blancos post grado\")\n\n\nval SUN = dataN.where($\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\nval SNUN = dataN.where($\"nivel_de_instruccion\" === \"08 - Superior no universitario\")\nval PGN = dataN.where($\"nivel_de_instruccion\" === \"10 - Post-grado\")\n\nprintln(f\"${(SUN.count / data.count.toDouble) * 100}%.2f%%Etnia negra universitaria\\n${(SNUN.count / data.count.toDouble) * 100}%.2f%%Etnia negra no universitaria\\n${(PGN.count / data.count.toDouble) * 100}%.2f%%Etnia negra con post grado\")",
-      "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
-      "config": {
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "colWidth": 12,
-        "editorMode": "ace/mode/scala",
-        "fontSize": 9,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "16,08%Mestizos universitaria\n1,65%Mestizos no universitario\n1,54%Mestizos post grado\n0,34%Blancos universitaria\n0,03%Blancos no universitario\n0,06%Blancos post grado\n0,15%Etnia negra universitaria\n0,02%Etnia negra no universitaria\n0,01%Etnia negra con post grado\n\u001b[1m\u001b[34mSUM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSNUM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mPGM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSUB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSNUB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mPGB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apach..."
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_1832872580",
-      "id": "paragraph_1594590973506_1925931599",
-      "dateCreated": "2020-07-19T21:31:40-0500",
-      "status": "READY",
-      "$$hashKey": "object:447"
+      "$$hashKey": "object:401"
     },
     {
       "title": "Avances 16/07/2020 Grupo ocupacion con etnias afroecuatorianas",
       "text": "z.show(dataA.stat.crosstab(\"condicion_actividad\", \"anio\").orderBy(\"condicion_actividad_anio\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -563,16 +346,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_1484114018",
+      "jobName": "paragraph_1595213393583_-1732796081",
       "id": "paragraph_1594591031926_-198642923",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:448"
+      "$$hashKey": "object:407"
     },
     {
       "text": "val empNopleno = dataA.where($\"condicion_actividad\" === \"4 - Otro empleo no pleno\")\nval empNoremunerado = dataA.where($\"condicion_actividad\" === \"5 - Empleo no remunerado\")\nval empNoclasificado = dataA.where($\"condicion_actividad\" === \"6 - Empleo no clasificado\")\nval dempAbierto = dataA.where($\"condicion_actividad\" === \"7 - Desempleo abierto\")\nval dempOculto = dataA.where($\"condicion_actividad\" === \"8 - Desempleo oculto\")",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -602,17 +385,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_1091858118",
+      "jobName": "paragraph_1595213393583_-847665240",
       "id": "paragraph_1594951159198_418330902",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:449"
+      "$$hashKey": "object:408"
     },
     {
       "title": "Cual es el promedio de edad de afroecuatorianos que se encuentran en una condicion no favorable dentro de la data",
       "text": "// Promedio de edad de afroecuatorianos con un empleo no pleno\nempNopleno.groupBy(\"anio\").pivot(\"genero\").agg(round(avg(\"edad\"))).orderBy(\"anio\").show()",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -706,16 +489,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_2096395214",
+      "jobName": "paragraph_1595213393583_-1159064572",
       "id": "paragraph_1594952791058_-1127560960",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:450"
+      "$$hashKey": "object:409"
     },
     {
       "text": "// Promedio de edad de afroecuatorianos con un empleo no remunerado\nempNoremunerado.groupBy(\"anio\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"anio\").show()",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -802,16 +585,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_1198367197",
+      "jobName": "paragraph_1595213393585_413318504",
       "id": "paragraph_1594953168769_225748749",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:451"
+      "$$hashKey": "object:410"
     },
     {
       "text": "// Promedio de edad de afroecuatorianos con un empleo no clasificado\nempNoclasificado.groupBy(\"anio\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"anio\").show()",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -893,16 +676,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_1388127136",
+      "jobName": "paragraph_1595213393585_417365772",
       "id": "paragraph_1594953459757_171229628",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:452"
+      "$$hashKey": "object:411"
     },
     {
       "text": "// Promedio de edad de afroecuatorianos con un desempleo abierto\ndempAbierto.groupBy(\"anio\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"anio\").show()",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -932,16 +715,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_-1763569888",
+      "jobName": "paragraph_1595213393585_412422344",
       "id": "paragraph_1594953506056_-40473246",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:453"
+      "$$hashKey": "object:412"
     },
     {
       "text": "// Promedio de edad de afroecuatorianos con un desempleo oculto\ndempOculto.groupBy(\"anio\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"anio\").show()",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -971,17 +754,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_-1441585424",
+      "jobName": "paragraph_1595213393585_-398066090",
       "id": "paragraph_1594953818958_-1825798281",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:454"
+      "$$hashKey": "object:413"
     },
     {
       "title": "Con lo datos de la tabla podemos conocer los estados civiles de  las personas afroecuatorianas",
       "text": "// Estado civil de las afroecuatorianos con un empleo no pleno\nz.show(empNopleno.groupBy(\"estado_civil\").pivot(\"anio\").count().orderBy(\"estado_civil\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1087,17 +870,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_-16898825",
+      "jobName": "paragraph_1595213393585_428551530",
       "id": "paragraph_1594953919130_1520721483",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:455"
+      "$$hashKey": "object:414"
     },
     {
       "title": "Que nivel de educacion recibio cada una de estas personas",
       "text": "// Nivel de instruccion de las afroecuatorianos con un empleo no pleno\nz.show(empNopleno.groupBy(\"nivel_de_instruccion\").count().orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1179,16 +962,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_-1414962063",
+      "jobName": "paragraph_1595213393585_923687319",
       "id": "paragraph_1594954551322_-133067703",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:456"
+      "$$hashKey": "object:415"
     },
     {
       "text": "// Nivel de instruccion de las afroecuatorianos con un empleo no remunerado\nz.show(empNoremunerado.groupBy(\"nivel_de_instruccion\").count().orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1248,16 +1031,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_406030824",
+      "jobName": "paragraph_1595213393586_967064685",
       "id": "paragraph_1594956019986_-1828124474",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:457"
+      "$$hashKey": "object:416"
     },
     {
       "text": "// Nivel de instruccion de las afroecuatorianos con un empleo no clasificado\nz.show(empNoclasificado.groupBy(\"nivel_de_instruccion\").count().orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1317,16 +1100,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300027_427220480",
+      "jobName": "paragraph_1595213393586_1913570320",
       "id": "paragraph_1594956106687_-1597090037",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:458"
+      "$$hashKey": "object:417"
     },
     {
       "text": "// Nivel de instruccion de las afroecuatorianos con un desempleo abierto\nz.show(dempAbierto.groupBy(\"nivel_de_instruccion\").count().orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1386,16 +1169,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300028_382141298",
+      "jobName": "paragraph_1595213393586_-1929435816",
       "id": "paragraph_1594956233336_-1997328417",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:459"
+      "$$hashKey": "object:418"
     },
     {
       "text": "// Nivel de instruccion de las afroecuatorianos con un desempleo oculto\nz.show(dempOculto.groupBy(\"nivel_de_instruccion\").count().orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1455,17 +1238,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300028_-180510503",
+      "jobName": "paragraph_1595213393586_-2140270212",
       "id": "paragraph_1594956299360_-715363378",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:460"
+      "$$hashKey": "object:419"
     },
     {
       "title": "Con esto cual es el promedio de sueldo que reciben estas personas",
       "text": "// Sueldo promedio de  afroecuatorianos con empleo no pleno\nz.show(empNopleno.groupBy(\"nivel_de_instruccion\").pivot(\"genero\").agg(round(avg(\"ingreso_laboral\"))).orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1567,16 +1350,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300028_1460299176",
+      "jobName": "paragraph_1595213393586_-1546237640",
       "id": "paragraph_1594956334902_874025213",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:461"
+      "$$hashKey": "object:420"
     },
     {
       "text": "// Sueldo promedio de afroecuatorianos con desempleo abierto\nz.show(dempAbierto.groupBy(\"nivel_de_instruccion\").pivot(\"genero\").agg(round(avg(\"ingreso_laboral\"))).orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1664,17 +1447,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300028_-1354516275",
+      "jobName": "paragraph_1595213393587_-1681083774",
       "id": "paragraph_1594957052413_-1709138982",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:462"
+      "$$hashKey": "object:421"
     },
     {
       "title": "Que grupo ocupacion tienen mas incidencias de condicion de empleo en Ecuador",
       "text": "// grupo ocupacion afroecuatorianos que tienen un empleo no pleno\nz.show(empNopleno.groupBy(\"grupo_ocupacion\").pivot(\"genero\").count().orderBy(\"grupo_ocupacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1762,16 +1545,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300028_-2134109805",
+      "jobName": "paragraph_1595213393587_1647666086",
       "id": "paragraph_1594957177607_-1232891908",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:463"
+      "$$hashKey": "object:422"
     },
     {
       "text": "// grupo ocupacion afroecuatorianos que tienen un empleo no clasificado\nz.show(empNoclasificado.groupBy(\"grupo_ocupacion\").pivot(\"genero\").count().orderBy(\"grupo_ocupacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1858,16 +1641,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300028_765435613",
+      "jobName": "paragraph_1595213393587_-1991283371",
       "id": "paragraph_1594957996823_159686994",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:464"
+      "$$hashKey": "object:423"
     },
     {
       "title": "David Avances 19/07/2020",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1889,17 +1672,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300028_407133646",
+      "jobName": "paragraph_1595213393589_-763189295",
       "id": "paragraph_1595108278967_-1814349563",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:465"
+      "$$hashKey": "object:424"
     },
     {
       "title": "Conteo de personas de cada etnia clasifica por genero                  ",
       "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:33:07-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1987,17 +1770,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300028_551676431",
+      "jobName": "paragraph_1595213393589_-706997901",
       "id": "paragraph_1595210362994_-2027147942",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:466"
+      "$$hashKey": "object:425"
     },
     {
       "title": "Edad promedio de las personas de cada etnia por género",
       "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:35:30-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2078,39 +1861,19 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=137",
-              "$$hashKey": "object:7628"
-            },
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=138",
-              "$$hashKey": "object:7629"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300028_-1951812397",
+      "jobName": "paragraph_1595213393589_-889493997",
       "id": "paragraph_1595210693426_1613594662",
-      "dateCreated": "2020-07-19T21:31:40-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:467",
-      "dateFinished": "2020-07-19T21:35:38-0500",
-      "dateStarted": "2020-07-19T21:35:30-0500"
+      "dateCreated": "2020-07-19T21:49:53-0500",
+      "status": "READY",
+      "$$hashKey": "object:426"
     },
     {
       "title": "Conteo de las personas de cada sector en cada año",
       "text": "z.show(data.groupBy(\"sectorizacion\").pivot(\"anio\").count.orderBy(\"sectorizacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:33:39-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2196,17 +1959,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300028_703762034",
+      "jobName": "paragraph_1595213393590_-878286040",
       "id": "paragraph_1595210411095_-1694523353",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:468"
+      "$$hashKey": "object:427"
     },
     {
       "title": "Promedio del ingreso laboral de cada etnia por año",
       "text": "z.show(data.groupBy(\"etnia\").pivot(\"anio\").avg(\"ingreso_laboral\").where($\"etnia\".isNotNull)orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2270,17 +2033,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300028_170129435",
+      "jobName": "paragraph_1595213393591_1220546990",
       "id": "paragraph_1595210646436_-893613200",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:469"
+      "$$hashKey": "object:428"
     },
     {
       "title": "Promedio del ingreso laboral de cada etnia por genero",
       "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").agg(avg(\"ingreso_laboral\")).orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2341,15 +2104,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300028_-246181095",
+      "jobName": "paragraph_1595213393591_-1551432985",
       "id": "paragraph_1595210673695_-1393770346",
-      "dateCreated": "2020-07-19T21:31:40-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "$$hashKey": "object:470"
+      "$$hashKey": "object:429"
     },
     {
+      "title": "Cantidad de personas por etnia de cada anio en el sector de la construccion",
+      "text": "z.show(data.where($\"rama_actividad\" === \"06 - F. Construcción\").groupBy(\"etnia\").pivot(\"anio\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:37:16-0500",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2360,6 +2125,7 @@
         "colWidth": 12,
         "editorMode": "ace/mode/scala",
         "fontSize": 9,
+        "title": true,
         "results": {
           "0": {
             "graph": {
@@ -2416,43 +2182,12 @@
             "helium": {}
           }
         },
-        "enabled": true,
-        "title": true
+        "enabled": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=139",
-              "$$hashKey": "object:8606"
-            },
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=140",
-              "$$hashKey": "object:8607"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212300028_-1926445098",
-      "id": "paragraph_1595210733093_-1286460396",
-      "dateCreated": "2020-07-19T21:31:40-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:471",
-      "text": "z.show(data.where($\"rama_actividad\" === \"06 - F. Construcción\").groupBy(\"etnia\").pivot(\"anio\").count.orderBy(\"etnia\"))",
-      "dateFinished": "2020-07-19T21:37:10-0500",
-      "dateStarted": "2020-07-19T21:37:01-0500",
-      "title": "Cantidad de personas por etnia de cada anio en el sector de la construccion",
       "results": {
         "code": "SUCCESS",
         "msg": [
@@ -2461,14 +2196,31 @@
             "data": "etnia\t2015\t2016\t2017\t2018\t2019\n1 - Indígena\t1417\t964\t1157\t560\t578\n2 - Afroecuatoriano\t121\t100\t137\t59\t65\n3 - Negro\t150\t97\t147\t94\t48\n4 - Mulato\t104\t84\t98\t60\t82\n5 - Montubio\t141\t99\t156\t163\t186\n6 - Mestizo\t6513\t4787\t5933\t5300\t4898\n7 - Blanco\t90\t58\t94\t68\t68\n8 - Otro\t11\t2\t7\t1\t4\n"
           }
         ]
-      }
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595213393591_516217134",
+      "id": "paragraph_1595210733093_-1286460396",
+      "dateCreated": "2020-07-19T21:49:53-0500",
+      "status": "READY",
+      "$$hashKey": "object:430"
     },
     {
+      "text": "val dataMe = data.where($\"etnia\" === \"6 - Mestizo\" || $\"etnia\" === \"5 - Montubio\")\nz.show(dataMe.groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
+        "title": true,
         "results": {
           "0": {
             "graph": {
@@ -2527,50 +2279,12 @@
             "helium": {}
           }
         },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala",
-        "title": true
+        "enabled": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=145",
-              "$$hashKey": "object:10188"
-            },
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=146",
-              "$$hashKey": "object:10189"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212621737_1354047431",
-      "id": "paragraph_1595212621737_1354047431",
-      "dateCreated": "2020-07-19T21:37:01-0500",
-      "status": "FINISHED",
-      "focus": true,
-      "$$hashKey": "object:7788",
-      "text": "val dataMe = data.where($\"etnia\" === \"6 - Mestizo\" || $\"etnia\" === \"5 - Montubio\")\nz.show(dataMe.groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))",
-      "dateUpdated": "2020-07-19T21:38:22-0500",
-      "dateFinished": "2020-07-19T21:38:13-0500",
-      "dateStarted": "2020-07-19T21:38:06-0500",
       "results": {
         "code": "SUCCESS",
         "msg": [
@@ -2583,14 +2297,32 @@
             "data": "\u001b[1m\u001b[34mdataMe\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
           }
         ]
-      }
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595213393592_-1980667088",
+      "id": "paragraph_1595212621737_1354047431",
+      "dateCreated": "2020-07-19T21:49:53-0500",
+      "status": "READY",
+      "$$hashKey": "object:431"
     },
     {
+      "title": "Cantidad de personas del sector rural que tienen un nivel de instruccion superior universitario de todas las etnias",
+      "text": "z.show(data.where($\"area\" === \"2 - Rural\" && $\"nivel_de_instruccion\" === \"09 - Superior Universitario\").groupBy(\"etnia\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
+        "title": true,
         "results": {
           "0": {
             "graph": {
@@ -2643,46 +2375,12 @@
             "helium": {}
           }
         },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala",
-        "title": true
+        "enabled": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=147",
-              "$$hashKey": "object:10971"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212640085_1470747113",
-      "id": "paragraph_1595212640085_1470747113",
-      "dateCreated": "2020-07-19T21:37:20-0500",
-      "status": "FINISHED",
-      "focus": true,
-      "$$hashKey": "object:8622",
-      "dateUpdated": "2020-07-19T21:38:54-0500",
-      "dateFinished": "2020-07-19T21:38:49-0500",
-      "dateStarted": "2020-07-19T21:38:45-0500",
-      "title": "Cantidad de personas del sector rural que tienen un nivel de instruccion superior universitario de todas las etnias",
       "results": {
         "code": "SUCCESS",
         "msg": [
@@ -2692,22 +2390,30 @@
           }
         ]
       },
-      "text": "z.show(data.where($\"area\" === \"2 - Rural\" && $\"nivel_de_instruccion\" === \"09 - Superior Universitario\").groupBy(\"etnia\").count.orderBy(\"etnia\"))"
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595213393592_220396999",
+      "id": "paragraph_1595212640085_1470747113",
+      "dateCreated": "2020-07-19T21:49:53-0500",
+      "status": "READY",
+      "$$hashKey": "object:432"
     },
     {
       "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:49:53-0500",
       "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {},
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -2716,16 +2422,15 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595212725607_-975288635",
+      "jobName": "paragraph_1595213393593_1583793148",
       "id": "paragraph_1595212725607_-975288635",
-      "dateCreated": "2020-07-19T21:38:45-0500",
+      "dateCreated": "2020-07-19T21:49:53-0500",
       "status": "READY",
-      "focus": true,
-      "$$hashKey": "object:10212"
+      "$$hashKey": "object:433"
     }
   ],
   "name": "avances2",
-  "id": "2FGJKBM9J",
+  "id": "2FDCR3PAV",
   "defaultInterpreterGroup": "spark",
   "version": "0.9.0-preview1",
   "noteParams": {},
