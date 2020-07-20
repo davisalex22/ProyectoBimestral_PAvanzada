@@ -1,0 +1,2127 @@
+﻿{
+  "paragraphs": [
+    {
+      "title": "Creacion de Esquema",
+      "text": "import org.apache.spark.sql.types._\nimport org.apache.spark.sql.functions._\nval myDataSchema = StructType(\n  Array(\n    StructField(\"id\",DecimalType(26, 0),true),\n    StructField(\"anio\",IntegerType,true),\n    StructField(\"mes\",IntegerType,true),\n    StructField(\"provincia\",IntegerType,true),\n    StructField(\"canton\",IntegerType,true),\n    StructField(\"area\",StringType,true),\n    StructField(\"genero\",StringType,true),\n    StructField(\"edad\",IntegerType,true),\n    StructField(\"estado_civil\",StringType,true),\n    StructField(\"nivel_de_instruccion\",StringType,true),\n    StructField(\"etnia\",StringType,true),\n    StructField(\"ingreso_laboral\",IntegerType,true),\n    StructField(\"condicion_actividad\",StringType,true),\n    StructField(\"sectorizacion\",StringType,true),\n    StructField(\"grupo_ocupacion\",StringType,true),\n    StructField(\"rama_actividad\",StringType,true),\n    StructField(\"factor_expansion\",DoubleType,true)\n  ));",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T20:53:23-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.types._\nimport org.apache.spark.sql.functions._\n\u001b[1m\u001b[34mmyDataSchema\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.types.StructType\u001b[0m = StructType(StructField(id,DecimalType(26,0),true), StructField(anio,IntegerType,true), StructField(mes,IntegerType,true), StructField(provincia,IntegerType,true), StructField(canton,IntegerType,true), StructField(area,StringType,true), StructField(genero,StringType,true), StructField(edad,IntegerType,true), StructField(estado_civil,StringType,true), StructField(nivel_de_instruccion,StringType,true), StructField(etnia,StringType,true), StructField(ingreso_laboral,IntegerType,true), StructField(condicion_actividad,StringType,true), StructField(sectorizacion,StringType,true), StructField(grupo_ocupacion,StringType,true), StructField(ram..."
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839971_-1736291745",
+      "id": "20200719-205039_1618731476",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:105",
+      "dateFinished": "2020-07-19T20:53:39-0500",
+      "dateStarted": "2020-07-19T20:53:23-0500"
+    },
+    {
+      "text": "val data = spark\n\t  .read\n\t  .option(\"inferSchema\",\"true\")\n\t  .option(\"header\",\"true\")\n\t  .option(\"delimiter\",\"\\t\")\n\t  .csv(\"/home/davisalex22/Datos_ENEMDU_PEA_v2.csv\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T20:55:07-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdata\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=0",
+              "$$hashKey": "object:1707"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=1",
+              "$$hashKey": "object:1708"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839979_-173779223",
+      "id": "20200719-205039_564149781",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:106",
+      "dateFinished": "2020-07-19T20:55:14-0500",
+      "dateStarted": "2020-07-19T20:55:07-0500",
+      "title": "Lectura de csv"
+    },
+    {
+      "text": "val dataI = data.where($\"etnia\" === \"1 - Indígena\")\nval dataA = data.where($\"etnia\" === \"2 - Afroecuatoriano\")\nval dataN = data.where($\"etnia\" === \"3 - Negro\")\nval dataMu = data.where($\"etnia\" === \"4 - Mulato\")\nval dataMo = data.where($\"etnia\" === \"5 - Montubio\")\nval dataMe = data.where($\"etnia\" === \"6 - Mestizo\")\nval dataB = data.where($\"etnia\" === \"7 - Blanco\")\nval dataO = data.where($\"etnia\" === \"8 - Otro\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T20:55:17-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdataI\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataA\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataMu\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataMo\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataMe\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Data..."
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839979_-1621705957",
+      "id": "20200719-205039_518659764",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:107",
+      "dateFinished": "2020-07-19T20:55:18-0500",
+      "dateStarted": "2020-07-19T20:55:17-0500",
+      "title": "Separacion de Etnias"
+    },
+    {
+      "text": "dataI.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio indigena\").sort($\"anio\".desc).show();\ndataA.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Afroecuatoriano\").sort($\"anio\".desc).show();\ndataN.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Negros\").sort($\"anio\".desc).show();\ndataMu.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Mulato\").sort($\"anio\".desc).show();\ndataMo.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Montubio\").sort($\"anio\".desc).show();\ndataMe.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Mestizos\").sort($\"anio\".desc).show();\ndataB.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Blancos\").sort($\"anio\".desc).show();\ndataO.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Otros\").sort($\"anio\".desc).show();\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T20:58:21-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|  325.32051469513084|\n|2018|  312.27034080442127|\n|2017|   290.9101227509669|\n|2016|   281.2302359271523|\n|2015|   291.6655518394649|\n+----+--------------------+\n\n+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|  485.53057384760115|\n|2018|  469.77282377919323|\n|2017|  452.31573033707866|\n|2016|  400.29624277456645|\n|2015|   411.2017434620174|\n+----+--------------------+\n\n+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|  383.14963119072706|\n|2018|   386.5911654135338|\n|2017|   422.3720238095238|\n|2016|  379.14643799472293|\n|2015|  394.89690721649487|\n+----+--------------------+\n\n+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|  387.36475409836066|\n|2018|  402.54987834549877|\n|2017|  395.49725274725273|\n|2016|   386.2193074501574|\n|2015|   413.2036888532478|\n+----+--------------------+\n\n+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|   302.4964403542282|\n|2018|   307.2650913423352|\n|2017|   373.0661553211889|\n|2016|  352.58051044083527|\n|2015|  358.34414715719066|\n+----+--------------------+\n\n+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|   518.0325121290404|\n|2018|   532.2717226516984|\n|2017|   525.1980497870074|\n|2016|   491.1641972578505|\n|2015|   513.3691551452475|\n+----+--------------------+\n\n+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|   624.4534623976173|\n|2018|   706.4891871737509|\n|2017|   624.7062146892655|\n|2016|   554.7198443579766|\n|2015|   667.7136904761904|\n+----+--------------------+\n\n+----+--------------------+\n|anio|avg(ingreso_laboral)|\n+----+--------------------+\n|2019|               795.0|\n|2018|           924.96875|\n|2017|   799.0410958904109|\n|2016|   508.8709677419355|\n|2015|   838.7450980392157|\n+----+--------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=26",
+              "$$hashKey": "object:3042"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=27",
+              "$$hashKey": "object:3043"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=28",
+              "$$hashKey": "object:3044"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=29",
+              "$$hashKey": "object:3045"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=30",
+              "$$hashKey": "object:3046"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=31",
+              "$$hashKey": "object:3047"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=32",
+              "$$hashKey": "object:3048"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=33",
+              "$$hashKey": "object:3049"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839979_-1659394311",
+      "id": "20200719-205039_2126550764",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:108",
+      "dateFinished": "2020-07-19T20:58:45-0500",
+      "dateStarted": "2020-07-19T20:58:21-0500",
+      "title": "Promedio de ingreso laboral en la columna etnias"
+    },
+    {
+      "text": "val SFN = dataN.where($\"sectorizacion\" === \"1 - Sector Formal\")\nval SIN = dataN.where($\"sectorizacion\" === \"2 - Sector Informal\")\nval EDN = dataN.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\nval NCN = dataN.where($\"sectorizacion\" === \"4 - No Clasificados por Sector\")\n\nprintln(\"Etnia negra en Sector formal \"+ SFN.count)\nprintln(\"Etnia negra en Sector informal \"+ SIN.count)\nprintln(\"Etnia negra en Sector empleo domestico \"+ EDN.count)\nprintln(\"Etnia negra en No Clasificados por Sector \"+ NCN.count)",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T20:59:42-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Etnia negra en Sector formal 3057\nEtnia negra en Sector informal 3736\nEtnia negra en Sector empleo domestico 289\nEtnia negra en No Clasificados por Sector 698\n\u001b[1m\u001b[34mSFN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSIN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mEDN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mNCN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=34",
+              "$$hashKey": "object:3227"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=35",
+              "$$hashKey": "object:3228"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=36",
+              "$$hashKey": "object:3229"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=37",
+              "$$hashKey": "object:3230"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839979_-842331873",
+      "id": "20200719-205039_211309815",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:110",
+      "dateFinished": "2020-07-19T20:59:17-0500",
+      "dateStarted": "2020-07-19T20:59:09-0500",
+      "title": "Cuantas personas de etnia negra trabajan en condicion formal, informal, Empleo Domestico, No clasificado por sector"
+    },
+    {
+      "text": "val SFB = dataB.where($\"sectorizacion\" === \"1 - Sector Formal\")\nval SIB = dataB.where($\"sectorizacion\" === \"2 - Sector Informal\")\nval EDB = dataB.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\nval NCB = dataB.where($\"sectorizacion\" === \"4 - No Clasificados por Sector\")\n\nprintln(\"Etnia blanca en Sector formal \"+ SFB.count)\nprintln(\"Etnia blanca en Sector informal \"+ SIB.count)\nprintln(\"Etnia blanca en Sector empleo domestico \"+ EDB.count)\nprintln(\"Etnia blanca en No Clasificados por Sector \"+ NCB.count)",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:00:13-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Etnia blanca en Sector formal 4676\nEtnia blanca en Sector informal 3414\nEtnia blanca en Sector empleo domestico 179\nEtnia blanca en No Clasificados por Sector 465\n\u001b[1m\u001b[34mSFB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSIB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mEDB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mNCB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=38",
+              "$$hashKey": "object:3339"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=39",
+              "$$hashKey": "object:3340"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=40",
+              "$$hashKey": "object:3341"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=41",
+              "$$hashKey": "object:3342"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839979_676354855",
+      "id": "20200719-205039_1112142958",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:111",
+      "dateFinished": "2020-07-19T21:00:21-0500",
+      "dateStarted": "2020-07-19T21:00:13-0500",
+      "title": "Cuantas personas de etnia Blancas trabajan en condicion forma, informal, Empleo Domestico, No clasificado por sector"
+    },
+    {
+      "text": "val SFM = dataMe.where($\"sectorizacion\" === \"1 - Sector Formal\")\nval SIM = dataMe.where($\"sectorizacion\" === \"2 - Sector Informal\")\nval EDM = dataMe.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\nval NCM = dataMe.where($\"sectorizacion\" === \"4 - No Clasificados por Sector\")\n\nprintln(\"Etnia mestiza en Sector formal \"+ SFM.count)\nprintln(\"Etnia mestiza en Sector informal \"+ SIM.count)\nprintln(\"Etnia mestiza en Sector empleo domestico \"+ EDM.count)\nprintln(\"Etnia mestiza en No Clasificados por Sector \"+ NCM.count)",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:01:21-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Etnia mestiza en Sector formal 249058\nEtnia mestiza en Sector informal 187126\nEtnia mestiza en Sector empleo domestico 11037\nEtnia mestiza en No Clasificados por Sector 22720\n\u001b[1m\u001b[34mSFM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSIM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mEDM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mNCM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=42",
+              "$$hashKey": "object:3469"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=43",
+              "$$hashKey": "object:3470"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=44",
+              "$$hashKey": "object:3471"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=45",
+              "$$hashKey": "object:3472"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839980_481218970",
+      "id": "20200719-205039_944008509",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:112",
+      "dateFinished": "2020-07-19T21:01:30-0500",
+      "dateStarted": "2020-07-19T21:01:21-0500",
+      "title": "Cuantas personas de etnia mestiza trabajan en condicion forma, informal, Empleo Domestico, No clasificado por sector"
+    },
+    {
+      "text": "val SUM = dataMe.where($\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\nval SNUM = dataMe.where($\"nivel_de_instruccion\" === \"08 - Superior no universitario\")\nval PGM = dataMe.where($\"nivel_de_instruccion\" === \"10 - Post-grado\")\n\nprintln(f\"${(SUM.count / data.count.toDouble) * 100}%.2f%%Mestizos universitaria\\n${(SNUM.count / data.count.toDouble) * 100}%.2f%%Mestizos no universitario\\n${(PGM.count / data.count.toDouble) * 100}%.2f%%Mestizos post grado\")\n\nval SUB = dataB.where($\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\nval SNUB = dataB.where($\"nivel_de_instruccion\" === \"08 - Superior no universitario\")\nval PGB = dataB.where($\"nivel_de_instruccion\" === \"10 - Post-grado\")\n\nprintln(f\"${(SUB.count / data.count.toDouble) * 100}%.2f%%Blancos universitaria\\n${(SNUB.count / data.count.toDouble) * 100}%.2f%%Blancos no universitario\\n${(PGB.count / data.count.toDouble) * 100}%.2f%%Blancos post grado\")\n\n\nval SUN = dataN.where($\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\nval SNUN = dataN.where($\"nivel_de_instruccion\" === \"08 - Superior no universitario\")\nval PGN = dataN.where($\"nivel_de_instruccion\" === \"10 - Post-grado\")\n\nprintln(f\"${(SUN.count / data.count.toDouble) * 100}%.2f%%Etnia negra universitaria\\n${(SNUN.count / data.count.toDouble) * 100}%.2f%%Etnia negra no universitaria\\n${(PGN.count / data.count.toDouble) * 100}%.2f%%Etnia negra con post grado\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:02:51-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "16,08%Mestizos universitaria\n1,65%Mestizos no universitario\n1,54%Mestizos post grado\n0,34%Blancos universitaria\n0,03%Blancos no universitario\n0,06%Blancos post grado\n0,15%Etnia negra universitaria\n0,02%Etnia negra no universitaria\n0,01%Etnia negra con post grado\n\u001b[1m\u001b[34mSUM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSNUM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mPGM\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSUB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mSNUB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mPGB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apach..."
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=46",
+              "$$hashKey": "object:4376"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=47",
+              "$$hashKey": "object:4377"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=48",
+              "$$hashKey": "object:4378"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=49",
+              "$$hashKey": "object:4379"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=50",
+              "$$hashKey": "object:4380"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=51",
+              "$$hashKey": "object:4381"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=52",
+              "$$hashKey": "object:4382"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=53",
+              "$$hashKey": "object:4383"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=54",
+              "$$hashKey": "object:4384"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=55",
+              "$$hashKey": "object:4385"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=56",
+              "$$hashKey": "object:4386"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=57",
+              "$$hashKey": "object:4387"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=58",
+              "$$hashKey": "object:4388"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=59",
+              "$$hashKey": "object:4389"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=60",
+              "$$hashKey": "object:4390"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=61",
+              "$$hashKey": "object:4391"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=62",
+              "$$hashKey": "object:4392"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=63",
+              "$$hashKey": "object:4393"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839980_348350367",
+      "id": "20200719-205039_1358652035",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:113",
+      "dateFinished": "2020-07-19T21:03:16-0500",
+      "dateStarted": "2020-07-19T21:02:51-0500",
+      "title": "Cuantas personas de etnia negra, blanca, mestiza tienen un nivel de instrucción superior universitario vs superior no universitario vs post grado"
+    },
+    {
+      "text": "SUM.select(min(\"ingreso_laboral\").as(\"minímo mestizos con educación superior\"), max(\"ingreso_laboral\").as(\"maxímo mestizos con educación superior\")).show\nSNUM.select(min(\"ingreso_laboral\").as(\"minímo mestizos con educación no superior\"), max(\"ingreso_laboral\").as(\"maxímo mestizos con educación no superior\")).show\nPGM.select(min(\"ingreso_laboral\").as(\"minímo mestizos con post grado\"), max(\"ingreso_laboral\").as(\"maxímo mestizos con post grado\")).show\n\nSUB.select(min(\"ingreso_laboral\").as(\"minímo blancos con educación superior\"), max(\"ingreso_laboral\").as(\"maxímo blancos con educación superior\")).show\nSNUB.select(min(\"ingreso_laboral\").as(\"minímo blancos con educación no superior\"), max(\"ingreso_laboral\").as(\"maxímo blancos con educación no superior\")).show\nPGB.select(min(\"ingreso_laboral\").as(\"minímo blancos con post grado\"), max(\"ingreso_laboral\").as(\"maxímo blancos con post grado\")).show\n\nSUN.select(min(\"ingreso_laboral\").as(\"minímo etnia negra con educación superior\"), max(\"ingreso_laboral\").as(\"maxímo etnia negra con educación superior\")).show\nSNUN.select(min(\"ingreso_laboral\").as(\"minímo etnia negra con educación no superior\"), max(\"ingreso_laboral\").as(\"maxímo etnia negra con educación no superior\")).show\nPGN.select(min(\"ingreso_laboral\").as(\"minímo etnia negra con post grado\"), max(\"ingreso_laboral\").as(\"maxímo etnia negra con post grado\")).show",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:07:17-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------------------------+--------------------------------------+\n|minímo mestizos con educación superior|maxímo mestizos con educación superior|\n+--------------------------------------+--------------------------------------+\n|                                     0|                                146030|\n+--------------------------------------+--------------------------------------+\n\n+-----------------------------------------+-----------------------------------------+\n|minímo mestizos con educación no superior|maxímo mestizos con educación no superior|\n+-----------------------------------------+-----------------------------------------+\n|                                        0|                                    19982|\n+-----------------------------------------+-----------------------------------------+\n\n+------------------------------+------------------------------+\n|minímo mestizos con post grado|maxímo mestizos con post grado|\n+------------------------------+------------------------------+\n|                             0|                         30000|\n+------------------------------+------------------------------+\n\n+-------------------------------------+-------------------------------------+\n|minímo blancos con educación superior|maxímo blancos con educación superior|\n+-------------------------------------+-------------------------------------+\n|                                    0|                                60000|\n+-------------------------------------+-------------------------------------+\n\n+----------------------------------------+----------------------------------------+\n|minímo blancos con educación no superior|maxímo blancos con educación no superior|\n+----------------------------------------+----------------------------------------+\n|                                       0|                                    5280|\n+----------------------------------------+----------------------------------------+\n\n+-----------------------------+-----------------------------+\n|minímo blancos con post grado|maxímo blancos con post grado|\n+-----------------------------+-----------------------------+\n|                            0|                         9000|\n+-----------------------------+-----------------------------+\n\n+-----------------------------------------+-----------------------------------------+\n|minímo etnia negra con educación superior|maxímo etnia negra con educación superior|\n+-----------------------------------------+-----------------------------------------+\n|                                        0|                                     7500|\n+-----------------------------------------+-----------------------------------------+\n\n+--------------------------------------------+--------------------------------------------+\n|minímo etnia negra con educación no superior|maxímo etnia negra con educación no superior|\n+--------------------------------------------+--------------------------------------------+\n|                                           0|                                        2950|\n+--------------------------------------------+--------------------------------------------+\n\n+---------------------------------+---------------------------------+\n|minímo etnia negra con post grado|maxímo etnia negra con post grado|\n+---------------------------------+---------------------------------+\n|                                0|                             3010|\n+---------------------------------+---------------------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=64",
+              "$$hashKey": "object:4866"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=65",
+              "$$hashKey": "object:4867"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=66",
+              "$$hashKey": "object:4868"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=67",
+              "$$hashKey": "object:4869"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=68",
+              "$$hashKey": "object:4870"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=69",
+              "$$hashKey": "object:4871"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=70",
+              "$$hashKey": "object:4872"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=71",
+              "$$hashKey": "object:4873"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=72",
+              "$$hashKey": "object:4874"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839980_1261740722",
+      "id": "20200719-205039_504019847",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:114",
+      "dateFinished": "2020-07-19T21:07:36-0500",
+      "dateStarted": "2020-07-19T21:07:17-0500",
+      "title": "Cual es el sueldo maxímo y minímo de una persona de etnia negra, blanca, mestiza con nivel de instruccion universitario, no universitaria, post grado "
+    },
+    {
+      "text": "dataB.select(avg(\"edad\") as \"Edad promedio Blanco\").show\ndataMo.select(avg(\"edad\") as \"Edad promedio Montubio\").show\ndataO.select(avg(\"edad\") as \"Edad promedio Otros\").show\ndataMe.select(avg(\"edad\") as \"Edad promedio Mestizo\").show\ndataMu.select(avg(\"edad\") as \"Edad promedio Mulato\").show\ndataN.select(avg(\"edad\") as \"Edad promedio Negro\").show\ndataA.select(avg(\"edad\") as \"Edad promedio Afroecuatoriano\").show\ndataI.select(avg(\"edad\") as \"Edad promedio Indígena\").show\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:07:27-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+\n|Edad promedio Blanco|\n+--------------------+\n|  44.103594309914214|\n+--------------------+\n\n+----------------------+\n|Edad promedio Montubio|\n+----------------------+\n|     43.03359573278272|\n+----------------------+\n\n+-------------------+\n|Edad promedio Otros|\n+-------------------+\n|  42.56957928802589|\n+-------------------+\n\n+---------------------+\n|Edad promedio Mestizo|\n+---------------------+\n|   40.870014209540926|\n+---------------------+\n\n+--------------------+\n|Edad promedio Mulato|\n+--------------------+\n|    40.4169474393531|\n+--------------------+\n\n+-------------------+\n|Edad promedio Negro|\n+-------------------+\n| 39.713406697432255|\n+-------------------+\n\n+-----------------------------+\n|Edad promedio Afroecuatoriano|\n+-----------------------------+\n|            39.05827846866618|\n+-----------------------------+\n\n+----------------------+\n|Edad promedio Indígena|\n+----------------------+\n|      38.6595054239129|\n+----------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=73",
+              "$$hashKey": "object:5117"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=74",
+              "$$hashKey": "object:5118"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=75",
+              "$$hashKey": "object:5119"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=76",
+              "$$hashKey": "object:5120"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=77",
+              "$$hashKey": "object:5121"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=78",
+              "$$hashKey": "object:5122"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=79",
+              "$$hashKey": "object:5123"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=80",
+              "$$hashKey": "object:5124"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839980_874593860",
+      "id": "20200719-205039_325961388",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:115",
+      "dateFinished": "2020-07-19T21:07:50-0500",
+      "dateStarted": "2020-07-19T21:07:27-0500",
+      "title": "Edades promedio de cada una de las etnias "
+    },
+    {
+      "text": "println(f\"${(dataMe.count/data.count.toDouble)*100}%.2f%% Mestizos\\n${(dataI.count/data.count.toDouble)*100}%.2f%% Indigenas\\n${(dataMo.count/data.count.toDouble)*100}%.2f%% Montubio\\n${(dataB.count/data.count.toDouble)*100}%.2f%% Blanco\\n${(dataN.count/data.count.toDouble)*100}%.2f%% Negro\\n${(dataA.count/data.count.toDouble)*100}%.2f%% Afroecuatoriano\\n${(dataMu.count/data.count.toDouble)*100}%.2f%% Mulato\\n${(dataO.count/data.count.toDouble)*100}%.2f%% Otro\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:08:02-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "78,99% Mestizos\n12,12% Indigenas\n3,73% Montubio\n1,48% Blanco\n1,36% Negro\n1,32% Afroecuatoriano\n0,95% Mulato\n0,05% Otro\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=81",
+              "$$hashKey": "object:5875"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=82",
+              "$$hashKey": "object:5876"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=83",
+              "$$hashKey": "object:5877"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=84",
+              "$$hashKey": "object:5878"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=85",
+              "$$hashKey": "object:5879"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=86",
+              "$$hashKey": "object:5880"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=87",
+              "$$hashKey": "object:5881"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=88",
+              "$$hashKey": "object:5882"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=89",
+              "$$hashKey": "object:5883"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=90",
+              "$$hashKey": "object:5884"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=91",
+              "$$hashKey": "object:5885"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=92",
+              "$$hashKey": "object:5886"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=93",
+              "$$hashKey": "object:5887"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=94",
+              "$$hashKey": "object:5888"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=95",
+              "$$hashKey": "object:5889"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=96",
+              "$$hashKey": "object:5890"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839980_-607774930",
+      "id": "20200719-205039_148597881",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:116",
+      "dateFinished": "2020-07-19T21:08:22-0500",
+      "dateStarted": "2020-07-19T21:08:02-0500",
+      "title": "Porcentaje de personas de cada una de las etnias Etnias "
+    },
+    {
+      "text": "val condMe = dataMe.where($\"condicion_actividad\" === \"1 - Empleo Adecuado/Pleno\").count\nval condB = dataB.where($\"condicion_actividad\" === \"1 - Empleo Adecuado/Pleno\").count\nval condN = dataN.where($\"condicion_actividad\" === \"1 - Empleo Adecuado/Pleno\").count\n\nprintln(\"Número de personas con Empleo adecuado de Mestizos: \"+ condMe+ \"\\nNúmero de personas con Empleo adecuado de Blancos: \"+condB+\"\\nNúmero de personas con Empleo adecuado de Negros: \"+condN)",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:08:25-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Número de personas con Empleo adecuado de Mestizos: 213259\nNúmero de personas con Empleo adecuado de Blancos: 3887\nNúmero de personas con Empleo adecuado de Negros: 2926\n\u001b[1m\u001b[34mcondMe\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m = 213259\n\u001b[1m\u001b[34mcondB\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m = 3887\n\u001b[1m\u001b[34mcondN\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m = 2926\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=97",
+              "$$hashKey": "object:6017"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=98",
+              "$$hashKey": "object:6018"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=99",
+              "$$hashKey": "object:6019"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839980_-2032055069",
+      "id": "20200719-205039_62908571",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:117",
+      "dateFinished": "2020-07-19T21:08:30-0500",
+      "dateStarted": "2020-07-19T21:08:25-0500",
+      "title": "Número de personas que tiene un empleo adecuado de etnia Mestiza, Blanco y Negra"
+    },
+    {
+      "text": "val cantTotal = data.where($\"provincia\" === \"11\")\nval cantMe = dataMe.where($\"provincia\" === \"11\")\nval cantB = dataB.where($\"provincia\" === \"11\")\nval cantN = dataN.where($\"provincia\" === \"11\")\nprintln(f\"${(cantMe.count*100)/cantTotal.count.toDouble}%.2f%% Mestizos\\n\"+ f\"${(cantB.count*100)/cantTotal.count.toDouble}%.2f%% Blancos\\n\"+f\"${(cantN.count*100)/cantTotal.count.toDouble}%.2f%% Negros\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:08:33-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "94,80% Mestizos\n1,45% Blancos\n0,52% Negros\n\u001b[1m\u001b[34mcantTotal\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mcantMe\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mcantB\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mcantN\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=100",
+              "$$hashKey": "object:6178"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=101",
+              "$$hashKey": "object:6179"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=102",
+              "$$hashKey": "object:6180"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=103",
+              "$$hashKey": "object:6181"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=104",
+              "$$hashKey": "object:6182"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=105",
+              "$$hashKey": "object:6183"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839980_-1001551385",
+      "id": "20200719-205039_1218625000",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:118",
+      "dateFinished": "2020-07-19T21:08:44-0500",
+      "dateStarted": "2020-07-19T21:08:33-0500",
+      "title": "Porcentaje de personas de Loja que son Mestizos, Blanco y Negro "
+    },
+    {
+      "text": "val dataMe = data.where($\"genero\" === \"2 - Mujer\" && $\"etnia\" === \"6 - Mestizo\")\nval dataHe = data.where($\"genero\" === \"1 - Hombre\" && $\"etnia\" === \"6 - Mestizo\")\nval dataMa = data.where($\"genero\" === \"2 - Mujer\" && $\"etnia\" === \"2 - Afroecuatoriano\")\nval dataHa = data.where($\"genero\" === \"1 - Hombre\" && $\"etnia\" === \"2 - Afroecuatoriano\")\nprintln(\"Existen \"+ dataHe.count + \" mujeres mestizas\")\nprintln(\"Existen \"+ dataMe.count + \" hombres mestizos\")\nprintln(\"Existen \"+ dataHa.count + \" hombres afroecuatorianos\")\nprintln(\"Existen \"+ dataMa.count + \" mujeres afroecuatorianas\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:08:45-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Existen 279951 mujeres mestizas\nExisten 211972 hombres mestizos\nExisten 4617 hombres afroecuatorianos\nExisten 3585 mujeres afroecuatorianas\n\u001b[1m\u001b[34mdataMe\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataHe\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataMa\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n\u001b[1m\u001b[34mdataHa\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=106",
+              "$$hashKey": "object:6290"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=107",
+              "$$hashKey": "object:6291"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=108",
+              "$$hashKey": "object:6292"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=109",
+              "$$hashKey": "object:6293"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839981_-2096456328",
+      "id": "20200719-205039_898063094",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:119",
+      "dateFinished": "2020-07-19T21:08:53-0500",
+      "dateStarted": "2020-07-19T21:08:45-0500",
+      "title": "Cantidad de Hombres y Mujeres Mestizas y afroecuatorianas"
+    },
+    {
+      "text": "dataMe.where($\"sectorizacion\" === \"3 - Empleo Doméstico\").select(max(\"ingreso_laboral\").as(\"Máximo sueldo de una empleada domestica mestiza\")).show\ndataMa.where($\"sectorizacion\" === \"3 - Empleo Doméstico\").select(max(\"ingreso_laboral\").as(\"Máximo sueldo de una empleada domestica afroecuatorina\")).show",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:08:56-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----------------------------------------------+\n|Máximo sueldo de una empleada domestica mestiza|\n+-----------------------------------------------+\n|                                           3455|\n+-----------------------------------------------+\n\n+------------------------------------------------------+\n|Máximo sueldo de una empleada domestica afroecuatorina|\n+------------------------------------------------------+\n|                                                   961|\n+------------------------------------------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=110",
+              "$$hashKey": "object:6372"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=111",
+              "$$hashKey": "object:6373"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839981_-1805653496",
+      "id": "20200719-205039_1718374555",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:120",
+      "dateFinished": "2020-07-19T21:09:00-0500",
+      "dateStarted": "2020-07-19T21:08:56-0500",
+      "title": "Sueldo maximo que gana una mujer meztiza y afroecuatoriana en el sector Empleo Doméstico"
+    },
+    {
+      "text": "data\n   .where($\"rama_actividad\" === \"06 - F. Construcción\")\n   .groupBy(\"etnia\")\n   .agg(count(\"*\").as(\"Cantidad de personas\"))\n   .orderBy(desc(\"Cantidad de personas\"))\n   .show()",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:09:03-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------+--------------------+\n|              etnia|Cantidad de personas|\n+-------------------+--------------------+\n|        6 - Mestizo|               27431|\n|       1 - Indígena|                4676|\n|       5 - Montubio|                 745|\n|          3 - Negro|                 536|\n|2 - Afroecuatoriano|                 482|\n|         4 - Mulato|                 428|\n|         7 - Blanco|                 378|\n|           8 - Otro|                  25|\n+-------------------+--------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=112",
+              "$$hashKey": "object:6424"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839981_571346892",
+      "id": "20200719-205039_443254781",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:121",
+      "dateFinished": "2020-07-19T21:09:06-0500",
+      "dateStarted": "2020-07-19T21:09:03-0500",
+      "title": "Cantidad de personas que trabajan en el sector de la construccion de todas las etnias"
+    },
+    {
+      "text": "data\n   .where($\"area\" === \"2 - Rural\" && $\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\n   .groupBy(\"etnia\")\n   .agg(count(\"*\").as(\"Area Rural\"))\n   .orderBy(desc(\"Area Rural\"))\n   .show()",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:09:08-0500",
+      "config": {
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------+----------+\n|              etnia|Area Rural|\n+-------------------+----------+\n|        6 - Mestizo|     12020|\n|       1 - Indígena|      1724|\n|       5 - Montubio|       487|\n|         7 - Blanco|       199|\n|2 - Afroecuatoriano|       133|\n|          3 - Negro|        82|\n|         4 - Mulato|        39|\n|           8 - Otro|        16|\n+-------------------+----------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=113",
+              "$$hashKey": "object:6537"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209839981_-407152128",
+      "id": "20200719-205039_1207645349",
+      "dateCreated": "2020-07-19T20:50:39-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:122",
+      "dateFinished": "2020-07-19T21:09:12-0500",
+      "dateStarted": "2020-07-19T21:09:09-0500",
+      "title": "Cantidad de personas del sector rural que tienen un nivel de instruccion superior universitario de todas las etnias"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/text",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595210949001_-601182490",
+      "id": "paragraph_1595210949001_-601182490",
+      "dateCreated": "2020-07-19T21:09:09-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:6434",
+      "text": "%md Desviacion Estandar ",
+      "dateUpdated": "2020-07-19T21:10:50-0500",
+      "dateFinished": "2020-07-19T21:10:47-0500",
+      "dateStarted": "2020-07-19T21:10:46-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p>Desviacion Estandar</p>\n\n</div>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "// Análisis General Basado en la columna ingreso_laboral\nval dfIngresoLaboral = data.select(\"ingreso_laboral\").where($\"ingreso_laboral\".isNotNull)\ndfIngresoLaboral.count",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:12:29-0500",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=115",
+              "$$hashKey": "object:6823"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595211046764_150592959",
+      "id": "paragraph_1595211046764_150592959",
+      "dateCreated": "2020-07-19T21:10:46-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:6553",
+      "dateFinished": "2020-07-19T21:12:31-0500",
+      "dateStarted": "2020-07-19T21:12:29-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdfIngresoLaboral\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [ingreso_laboral: int]\n\u001b[1m\u001b[34mres19\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m = 504742\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=116",
+              "$$hashKey": "object:7029"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=117",
+              "$$hashKey": "object:7030"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=118",
+              "$$hashKey": "object:7031"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=119",
+              "$$hashKey": "object:7032"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=120",
+              "$$hashKey": "object:7033"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=121",
+              "$$hashKey": "object:7034"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595211139654_677908087",
+      "id": "paragraph_1595211139654_677908087",
+      "dateCreated": "2020-07-19T21:12:19-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:6671",
+      "text": "// Desviación estándar\nval cantValoresEnDifRangos = scala.collection.mutable.ListBuffer[Long]()\nval minValue = 0.0\nval maxValue = 146030\nval bins = 5.0\nval range = (maxValue - minValue) / bins\nvar minCounter = minValue\nvar maxCounter = range\nwhile(minCounter < maxValue){\n    val valoresEnUnRango = dfIngresoLaboral.where($\"ingreso_laboral\".between(minCounter,maxCounter))\n    cantValoresEnDifRangos.+=(valoresEnUnRango.count())\n    minCounter = maxCounter\n    maxCounter = maxCounter + range\n}\nprintln(\"Valores en diferentes rangos:\")\ncantValoresEnDifRangos.foreach(println)\nval avg = dfIngresoLaboral.select(mean(\"ingreso_laboral\"))\n    .first()(0).asInstanceOf[Double]",
+      "dateUpdated": "2020-07-19T21:12:40-0500",
+      "dateFinished": "2020-07-19T21:12:52-0500",
+      "dateStarted": "2020-07-19T21:12:40-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Valores en diferentes rangos:\n504714\n18\n7\n1\n2\n\u001b[1m\u001b[34mcantValoresEnDifRangos\u001b[0m: \u001b[1m\u001b[32mscala.collection.mutable.ListBuffer[Long]\u001b[0m = ListBuffer(504714, 18, 7, 1, 2)\n\u001b[1m\u001b[34mminValue\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = 0.0\n\u001b[1m\u001b[34mmaxValue\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m = 146030\n\u001b[1m\u001b[34mbins\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = 5.0\n\u001b[1m\u001b[34mrange\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = 29206.0\n\u001b[1m\u001b[34mminCounter\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = 146030.0\n\u001b[1m\u001b[34mmaxCounter\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = 175236.0\n\u001b[1m\u001b[34mavg\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = 487.10984027483346\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=122",
+              "$$hashKey": "object:7165"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595211160820_1034580651",
+      "id": "paragraph_1595211160820_1034580651",
+      "dateCreated": "2020-07-19T21:12:40-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:6833",
+      "text": "// Cálculo de la Desviación estándar\n\nval stdDesv = dfIngresoLaboral.select(stddev(\"ingreso_laboral\"))\n    .first()(0).asInstanceOf[Double]",
+      "dateUpdated": "2020-07-19T21:12:56-0500",
+      "dateFinished": "2020-07-19T21:12:58-0500",
+      "dateStarted": "2020-07-19T21:12:56-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mstdDesv\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = 767.7250086176327\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595211176619_-1571171554",
+      "id": "paragraph_1595211176619_-1571171554",
+      "dateCreated": "2020-07-19T21:12:56-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:7064",
+      "text": "// Cálculo de límites\nval inferior = avg - 3 * stdDesv\nval superior = avg + 3 * stdDesv",
+      "dateUpdated": "2020-07-19T21:13:08-0500",
+      "dateFinished": "2020-07-19T21:13:08-0500",
+      "dateStarted": "2020-07-19T21:13:08-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34minferior\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = -1816.0651855780648\n\u001b[1m\u001b[34msuperior\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = 2790.2848661277317\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=123",
+              "$$hashKey": "object:7409"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=124",
+              "$$hashKey": "object:7410"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=125",
+              "$$hashKey": "object:7411"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=126",
+              "$$hashKey": "object:7412"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595211188202_-1466823464",
+      "id": "paragraph_1595211188202_-1466823464",
+      "dateCreated": "2020-07-19T21:13:08-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:7175",
+      "text": "// Filtrar\nval valoresMenoresLInferior = dfIngresoLaboral.where($\"ingreso_laboral\" < inferior)\nvaloresMenoresLInferior.describe().show\n\nval valoresMayoresLSuperior = dfIngresoLaboral.where($\"ingreso_laboral\" > superior)\nvaloresMayoresLSuperior.describe().show\n\nvaloresMayoresLSuperior.orderBy($\"ingreso_laboral\".desc).show\n\nval dataSinOutliertsStdDev = dfIngresoLaboral.where($\"ingreso_laboral\" > inferior && $\"ingreso_laboral\" < superior)\ndataSinOutliertsStdDev.select(\"ingreso_laboral\").summary().show",
+      "dateUpdated": "2020-07-19T21:13:16-0500",
+      "dateFinished": "2020-07-19T21:13:26-0500",
+      "dateStarted": "2020-07-19T21:13:16-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+---------------+\n|summary|ingreso_laboral|\n+-------+---------------+\n|  count|              0|\n|   mean|           null|\n| stddev|           null|\n|    min|           null|\n|    max|           null|\n+-------+---------------+\n\n+-------+------------------+\n|summary|   ingreso_laboral|\n+-------+------------------+\n|  count|              4780|\n|   mean|4656.4282426778245|\n| stddev|5222.9384211051565|\n|    min|              2792|\n|    max|            146030|\n+-------+------------------+\n\n+---------------+\n|ingreso_laboral|\n+---------------+\n|         146030|\n|         120000|\n|         100000|\n|          83000|\n|          82200|\n|          81352|\n|          80000|\n|          70000|\n|          60504|\n|          60000|\n|          55000|\n|          55000|\n|          50000|\n|          49800|\n|          45000|\n|          44234|\n|          40000|\n|          38500|\n|          34330|\n|          33300|\n+---------------+\nonly showing top 20 rows\n\n+-------+------------------+\n|summary|   ingreso_laboral|\n+-------+------------------+\n|  count|            499962|\n|   mean| 447.2481268576412|\n| stddev|408.04105313414834|\n|    min|                 0|\n|    25%|               168|\n|    50%|               363|\n|    75%|               572|\n|    max|              2790|\n+-------+------------------+\n\n\u001b[1m\u001b[34mvaloresMenoresLInferior\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [ingreso_laboral: int]\n\u001b[1m\u001b[34mvaloresMayoresLSuperior\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [ingreso_laboral: int]\n\u001b[1m\u001b[34mdataSinOutliertsStdDev\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [ingreso_laboral: int]\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/text",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595211196749_-370678498",
+      "id": "paragraph_1595211196749_-370678498",
+      "dateCreated": "2020-07-19T21:13:16-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:7275",
+      "text": "%md Calculo de Cuartiles",
+      "dateUpdated": "2020-07-19T21:19:57-0500",
+      "dateFinished": "2020-07-19T21:19:54-0500",
+      "dateStarted": "2020-07-19T21:19:54-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p>Calculo de Cuartiles</p>\n\n</div>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "// Obtener cuartiles\ndata.select(\"ingreso_laboral\").summary().show",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:20:04-0500",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=127",
+              "$$hashKey": "object:7929"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595211600428_-903841108",
+      "id": "paragraph_1595211600428_-903841108",
+      "dateCreated": "2020-07-19T21:20:00-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:7823",
+      "dateFinished": "2020-07-19T21:20:07-0500",
+      "dateStarted": "2020-07-19T21:20:04-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+------------------+\n|summary|   ingreso_laboral|\n+-------+------------------+\n|  count|            504742|\n|   mean|487.10984027483346|\n| stddev| 767.7250086176327|\n|    min|                 0|\n|    25%|               170|\n|    50%|               370|\n|    75%|               588|\n|    max|            146030|\n+-------+------------------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=129",
+              "$$hashKey": "object:8102"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595211622767_-1377981220",
+      "id": "paragraph_1595211622767_-1377981220",
+      "dateCreated": "2020-07-19T21:20:22-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:7934",
+      "text": "// Cuartiles\nval cuartiles = dfIngresoLaboral.stat.approxQuantile(\"ingreso_laboral\", Array(0.25,0.50,0.75), 0.0)\nval q1 = cuartiles(0)\nval q2 = cuartiles(1)\nval q3 = cuartiles(2)",
+      "dateUpdated": "2020-07-19T21:20:47-0500",
+      "dateFinished": "2020-07-19T21:20:51-0500",
+      "dateStarted": "2020-07-19T21:20:47-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mcuartiles\u001b[0m: \u001b[1m\u001b[32mArray[Double]\u001b[0m = Array(170.0, 370.0, 588.0)\n\u001b[1m\u001b[34mq1\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = 170.0\n\u001b[1m\u001b[34mq2\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = 370.0\n\u001b[1m\u001b[34mq3\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = 588.0\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595211277427_-146512435",
+      "id": "paragraph_1595211277427_-146512435",
+      "dateCreated": "2020-07-19T21:14:37-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:7424",
+      "text": "// Calcular rango intercuartil\nval iqr = q3 -q1\n// Calcular los límites\nval inferiorIQR = q1 - 1.5 * iqr\nval superiorIQR = q3 + 1.5 * iqr",
+      "dateUpdated": "2020-07-19T21:21:18-0500",
+      "dateFinished": "2020-07-19T21:20:53-0500",
+      "dateStarted": "2020-07-19T21:20:53-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34miqr\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = 418.0\n\u001b[1m\u001b[34minferiorIQR\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = -457.0\n\u001b[1m\u001b[34msuperiorIQR\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = 1215.0\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=130",
+              "$$hashKey": "object:8181"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595211280847_-1653840120",
+      "id": "paragraph_1595211280847_-1653840120",
+      "dateCreated": "2020-07-19T21:14:40-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:7504",
+      "text": "val valoresMenoresInferiorIqr = dfIngresoLaboral.where($\"ingreso_laboral\" < inferiorIQR)\nvaloresMenoresInferiorIqr.summary().show",
+      "dateUpdated": "2020-07-19T21:21:26-0500",
+      "dateFinished": "2020-07-19T21:21:29-0500",
+      "dateStarted": "2020-07-19T21:21:26-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+---------------+\n|summary|ingreso_laboral|\n+-------+---------------+\n|  count|              0|\n|   mean|           null|\n| stddev|           null|\n|    min|           null|\n|    25%|           null|\n|    50%|           null|\n|    75%|           null|\n|    max|           null|\n+-------+---------------+\n\n\u001b[1m\u001b[34mvaloresMenoresInferiorIqr\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [ingreso_laboral: int]\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=131",
+              "$$hashKey": "object:8234"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595211329322_-790959179",
+      "id": "paragraph_1595211329322_-790959179",
+      "dateCreated": "2020-07-19T21:15:29-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:7608",
+      "text": "val valoresMayoresSuperiorIqr = dfIngresoLaboral.where($\"ingreso_laboral\" > superiorIQR)\nvaloresMayoresSuperiorIqr.summary().show",
+      "dateUpdated": "2020-07-19T21:21:32-0500",
+      "dateFinished": "2020-07-19T21:21:34-0500",
+      "dateStarted": "2020-07-19T21:21:32-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+------------------+\n|summary|   ingreso_laboral|\n+-------+------------------+\n|  count|             31762|\n|   mean|2123.6617026635604|\n| stddev|2316.7354162181887|\n|    min|              1216|\n|    25%|              1400|\n|    50%|              1655|\n|    75%|              2200|\n|    max|            146030|\n+-------+------------------+\n\n\u001b[1m\u001b[34mvaloresMayoresSuperiorIqr\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [ingreso_laboral: int]\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=132",
+              "$$hashKey": "object:8335"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595211348144_188554087",
+      "id": "paragraph_1595211348144_188554087",
+      "dateCreated": "2020-07-19T21:15:48-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:7709",
+      "text": "val dataSinOutliertsIQR = dfIngresoLaboral.where($\"ingreso_laboral\" > inferiorIQR && $\"ingreso_laboral\" < superiorIQR)\ndataSinOutliertsIQR.select(\"ingreso_laboral\").summary().show",
+      "dateUpdated": "2020-07-19T21:21:35-0500",
+      "dateFinished": "2020-07-19T21:21:38-0500",
+      "dateStarted": "2020-07-19T21:21:35-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+------------------+\n|summary|   ingreso_laboral|\n+-------+------------------+\n|  count|            472900|\n|   mean|377.06883484880524|\n| stddev| 276.6314900863582|\n|    min|                 0|\n|    25%|               155|\n|    50%|               350|\n|    75%|               510|\n|    max|              1214|\n+-------+------------------+\n\n\u001b[1m\u001b[34mdataSinOutliertsIQR\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [ingreso_laboral: int]\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=133",
+              "$$hashKey": "object:8484"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595211695533_1566897549",
+      "id": "paragraph_1595211695533_1566897549",
+      "dateCreated": "2020-07-19T21:21:35-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:8241",
+      "text": "dataSinOutliertsStdDev.select(\"ingreso_laboral\").summary().show",
+      "dateUpdated": "2020-07-19T21:22:23-0500",
+      "dateFinished": "2020-07-19T21:22:02-0500",
+      "dateStarted": "2020-07-19T21:21:59-0500",
+      "title": "Comparando ambas aproximaciones",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+------------------+\n|summary|   ingreso_laboral|\n+-------+------------------+\n|  count|            499962|\n|   mean| 447.2481268576412|\n| stddev|408.04105313414834|\n|    min|                 0|\n|    25%|               168|\n|    50%|               363|\n|    75%|               572|\n|    max|              2790|\n+-------+------------------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=134",
+              "$$hashKey": "object:8612"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595211719335_-2113363008",
+      "id": "paragraph_1595211719335_-2113363008",
+      "dateCreated": "2020-07-19T21:21:59-0500",
+      "status": "ABORT",
+      "focus": true,
+      "$$hashKey": "object:8346",
+      "text": "dataSinOutliertsIQR.select(\"ingreso_laboral\").summary().show",
+      "dateUpdated": "2020-07-19T21:22:49-0500",
+      "dateFinished": "2020-07-19T21:22:52-0500",
+      "dateStarted": "2020-07-19T21:22:49-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+------------------+\n|summary|   ingreso_laboral|\n+-------+------------------+\n|  count|            472900|\n|   mean|377.06883484880524|\n| stddev| 276.6314900863582|\n|    min|                 0|\n|    25%|               155|\n|    50%|               350|\n|    75%|               510|\n|    max|              1214|\n+-------+------------------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595211769547_689303584",
+      "id": "paragraph_1595211769547_689303584",
+      "dateCreated": "2020-07-19T21:22:49-0500",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:8511"
+    }
+  ],
+  "name": "Avance1_PAvanzada",
+  "id": "2FFMWH8X6",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/Avance1_PAvanzada"
+}
