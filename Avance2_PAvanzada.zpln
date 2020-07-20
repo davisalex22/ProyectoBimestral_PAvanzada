@@ -3,19 +3,19 @@
     {
       "text": "import org.apache.spark.sql.types._\nimport org.apache.spark.sql.functions._\nval myDataSchema = StructType(\n  Array(\n    StructField(\"id\",DecimalType(26, 0),true),\n    StructField(\"anio\",IntegerType,true),\n    StructField(\"mes\",IntegerType,true),\n    StructField(\"provincia\",IntegerType,true),\n    StructField(\"canton\",IntegerType,true),\n    StructField(\"area\",StringType,true),\n    StructField(\"genero\",StringType,true),\n    StructField(\"edad\",IntegerType,true),\n    StructField(\"estado_civil\",StringType,true),\n    StructField(\"nivel_de_instruccion\",StringType,true),\n    StructField(\"etnia\",StringType,true),\n    StructField(\"ingreso_laboral\",IntegerType,true),\n    StructField(\"condicion_actividad\",StringType,true),\n    StructField(\"sectorizacion\",StringType,true),\n    StructField(\"grupo_ocupacion\",StringType,true),\n    StructField(\"rama_actividad\",StringType,true),\n    StructField(\"factor_expansion\",DoubleType,true)\n  ));",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T15:30:51-0500",
+      "dateUpdated": "2020-07-19T21:00:48-0500",
       "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {},
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -33,31 +33,31 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594589741163_953275550",
+      "jobName": "paragraph_1595209683009_1454010916",
       "id": "paragraph_1594589741163_953275550",
-      "dateCreated": "2020-07-12T16:35:41-0500",
-      "dateStarted": "2020-07-18T15:30:51-0500",
-      "dateFinished": "2020-07-18T15:30:54-0500",
+      "dateCreated": "2020-07-19T20:48:03-0500",
       "status": "FINISHED",
       "focus": true,
-      "$$hashKey": "object:6341"
+      "$$hashKey": "object:348",
+      "dateFinished": "2020-07-19T21:00:50-0500",
+      "dateStarted": "2020-07-19T21:00:48-0500"
     },
     {
-      "text": "\nval data = spark\n\t  .read\n\t  .option(\"inferSchema\",\"true\")\n\t  .option(\"header\",\"true\")\n\t  .option(\"delimiter\",\"\\t\")\n\t  .csv(\"/home/erick/Descargas/dataprogra.csv\")",
+      "text": "\nval data = spark\n\t  .read\n\t  .option(\"inferSchema\",\"true\")\n\t  .option(\"header\",\"true\")\n\t  .option(\"delimiter\",\"\\t\")\n\t  .csv(\"/home/david/Escritorio/Datos_ENEMDU_PEA_v2.csv\")",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T15:30:57-0500",
+      "dateUpdated": "2020-07-19T21:02:58-0500",
       "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {},
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -81,42 +81,42 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=0",
-              "$$hashKey": "object:11796"
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=0",
+              "$$hashKey": "object:5970"
             },
             {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=1",
-              "$$hashKey": "object:11797"
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=1",
+              "$$hashKey": "object:5971"
             }
           ],
           "interpreterSettingId": "spark"
         }
       },
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594589753060_-1353525488",
+      "jobName": "paragraph_1595209683011_-910066793",
       "id": "paragraph_1594589753060_-1353525488",
-      "dateCreated": "2020-07-12T16:35:53-0500",
-      "dateStarted": "2020-07-18T15:30:57-0500",
-      "dateFinished": "2020-07-18T15:31:12-0500",
+      "dateCreated": "2020-07-19T20:48:03-0500",
       "status": "FINISHED",
-      "$$hashKey": "object:6342"
+      "$$hashKey": "object:349",
+      "dateFinished": "2020-07-19T21:03:09-0500",
+      "dateStarted": "2020-07-19T21:02:58-0500"
     },
     {
       "text": "// Separacion de etnias\n\nval dataI = data.where($\"etnia\" === \"1 - Indígena\")\nval dataA = data.where($\"etnia\" === \"2 - Afroecuatoriano\")\nval dataN = data.where($\"etnia\" === \"3 - Negro\")\nval dataMu = data.where($\"etnia\" === \"4 - Mulato\")\nval dataMo = data.where($\"etnia\" === \"5 - Montubio\")\nval dataMe = data.where($\"etnia\" === \"6 - Mestizo\")\nval dataB = data.where($\"etnia\" === \"7 - Blanco\")\nval dataO = data.where($\"etnia\" === \"8 - Otro\")",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T16:41:27-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {},
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -134,30 +134,28 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594589798744_21385150",
+      "jobName": "paragraph_1595209683011_1056079404",
       "id": "paragraph_1594589798744_21385150",
-      "dateCreated": "2020-07-12T16:36:38-0500",
-      "dateStarted": "2020-07-18T16:41:27-0500",
-      "dateFinished": "2020-07-18T16:41:30-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6343"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:350"
     },
     {
       "text": "// Promedio de ingreso laboral en la columna etnias\n\n\n\ndataA.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Afroecuatoriano\").sort($\"anio\".desc).show();\ndataN.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Negros\").sort($\"anio\".desc).show();\ndataMu.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Mulato\").sort($\"anio\".desc).show();\ndataMo.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Montubio\").sort($\"anio\".desc).show();\ndataMe.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Mestizos\").sort($\"anio\".desc).show();\ndataB.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Blancos\").sort($\"anio\".desc).show();\ndataO.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Otros\").sort($\"anio\".desc).show();\n\n",
       "user": "anonymous",
-      "dateUpdated": "2020-07-16T20:56:19-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {},
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -175,30 +173,28 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594589837548_-1223429766",
+      "jobName": "paragraph_1595209683012_-1346343866",
       "id": "paragraph_1594589837548_-1223429766",
-      "dateCreated": "2020-07-12T16:37:17-0500",
-      "dateStarted": "2020-07-12T17:00:50-0500",
-      "dateFinished": "2020-07-12T17:01:23-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6344"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:351"
     },
     {
       "text": "val SFN = dataN.where($\"sectorizacion\" === \"1 - Sector Formal\")\nval SIN = dataN.where($\"sectorizacion\" === \"2 - Sector Informal\")\nval EDN = dataN.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\nval NCN = dataN.where($\"sectorizacion\" === \"4 - No Clasificados por Sector\")\n\nprintln(\"Etnia negra en Sector formal \"+ SFN.count)\nprintln(\"Etnia negra en Sector informal \"+ SIN.count)\nprintln(\"Etnia negra en Sector empleo domestico \"+ EDN.count)\nprintln(\"Etnia negra en No Clasificados por Sector \"+ NCN.count)",
       "user": "anonymous",
-      "dateUpdated": "2020-07-12T16:54:54-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {},
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -216,30 +212,28 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594589945590_-1860922717",
+      "jobName": "paragraph_1595209683012_460785001",
       "id": "paragraph_1594589945590_-1860922717",
-      "dateCreated": "2020-07-12T16:39:05-0500",
-      "dateStarted": "2020-07-12T16:54:54-0500",
-      "dateFinished": "2020-07-12T16:55:07-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6345"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:352"
     },
     {
       "text": "val SFB = dataB.where($\"sectorizacion\" === \"1 - Sector Formal\")\nval SIB = dataB.where($\"sectorizacion\" === \"2 - Sector Informal\")\nval EDB = dataB.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\nval NCB = dataB.where($\"sectorizacion\" === \"4 - No Clasificados por Sector\")\n\nprintln(\"Etnia blanca en Sector formal \"+ SFB.count)\nprintln(\"Etnia blanca en Sector informal \"+ SIB.count)\nprintln(\"Etnia blanca en Sector empleo domestico \"+ EDB.count)\nprintln(\"Etnia blanca en No Clasificados por Sector \"+ NCB.count)",
       "user": "anonymous",
-      "dateUpdated": "2020-07-12T16:55:33-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {},
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -257,30 +251,28 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594590894843_-1617372934",
+      "jobName": "paragraph_1595209683012_-1491627968",
       "id": "paragraph_1594590894843_-1617372934",
-      "dateCreated": "2020-07-12T16:54:54-0500",
-      "dateStarted": "2020-07-12T16:55:33-0500",
-      "dateFinished": "2020-07-12T16:55:45-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6346"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:353"
     },
     {
       "text": "val SFM = dataMe.where($\"sectorizacion\" === \"1 - Sector Formal\")\nval SIM = dataMe.where($\"sectorizacion\" === \"2 - Sector Informal\")\nval EDM = dataMe.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\nval NCM = dataMe.where($\"sectorizacion\" === \"4 - No Clasificados por Sector\")\n\nprintln(\"Etnia mestiza en Sector formal \"+ SFM.count)\nprintln(\"Etnia mestiza en Sector informal \"+ SIM.count)\nprintln(\"Etnia mestiza en Sector empleo domestico \"+ EDM.count)\nprintln(\"Etnia mestiza en No Clasificados por Sector \"+ NCM.count)",
       "user": "anonymous",
-      "dateUpdated": "2020-07-12T16:56:13-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {},
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -298,30 +290,28 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594590933219_1197123414",
+      "jobName": "paragraph_1595209683013_163449128",
       "id": "paragraph_1594590933219_1197123414",
-      "dateCreated": "2020-07-12T16:55:33-0500",
-      "dateStarted": "2020-07-12T16:56:13-0500",
-      "dateFinished": "2020-07-12T16:56:25-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6347"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:354"
     },
     {
       "text": "val SUM = dataMe.where($\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\nval SNUM = dataMe.where($\"nivel_de_instruccion\" === \"08 - Superior no universitario\")\nval PGM = dataMe.where($\"nivel_de_instruccion\" === \"10 - Post-grado\")\n\nprintln(f\"${(SUM.count / data.count.toDouble) * 100}%.2f%%Mestizos universitaria\\n${(SNUM.count / data.count.toDouble) * 100}%.2f%%Mestizos no universitario\\n${(PGM.count / data.count.toDouble) * 100}%.2f%%Mestizos post grado\")\n\nval SUB = dataB.where($\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\nval SNUB = dataB.where($\"nivel_de_instruccion\" === \"08 - Superior no universitario\")\nval PGB = dataB.where($\"nivel_de_instruccion\" === \"10 - Post-grado\")\n\nprintln(f\"${(SUB.count / data.count.toDouble) * 100}%.2f%%Blancos universitaria\\n${(SNUB.count / data.count.toDouble) * 100}%.2f%%Blancos no universitario\\n${(PGB.count / data.count.toDouble) * 100}%.2f%%Blancos post grado\")\n\n\nval SUN = dataN.where($\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\nval SNUN = dataN.where($\"nivel_de_instruccion\" === \"08 - Superior no universitario\")\nval PGN = dataN.where($\"nivel_de_instruccion\" === \"10 - Post-grado\")\n\nprintln(f\"${(SUN.count / data.count.toDouble) * 100}%.2f%%Etnia negra universitaria\\n${(SNUN.count / data.count.toDouble) * 100}%.2f%%Etnia negra no universitaria\\n${(PGN.count / data.count.toDouble) * 100}%.2f%%Etnia negra con post grado\")",
       "user": "anonymous",
-      "dateUpdated": "2020-07-12T16:56:32-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {},
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -339,23 +329,28 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594590973506_1925931599",
+      "jobName": "paragraph_1595209683013_-1329484371",
       "id": "paragraph_1594590973506_1925931599",
-      "dateCreated": "2020-07-12T16:56:13-0500",
-      "dateStarted": "2020-07-12T16:56:32-0500",
-      "dateFinished": "2020-07-12T16:57:07-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6348"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:355"
     },
     {
       "title": "Avances 16/07/2020 Grupo ocupacion con etnias afroecuatorianas",
       "text": "z.show(dataA.stat.crosstab(\"condicion_actividad\", \"anio\").orderBy(\"condicion_actividad_anio\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T16:43:06-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
+        "title": true,
         "results": {
           "0": {
             "graph": {
@@ -550,14 +545,7 @@
             "helium": {}
           }
         },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala",
-        "title": true
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -573,66 +561,30 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=89",
-              "$$hashKey": "object:48831"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=90",
-              "$$hashKey": "object:48832"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=91",
-              "$$hashKey": "object:48833"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=92",
-              "$$hashKey": "object:48834"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=93",
-              "$$hashKey": "object:48835"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=94",
-              "$$hashKey": "object:48836"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594591031926_-198642923",
+      "jobName": "paragraph_1595209683013_-636828549",
       "id": "paragraph_1594591031926_-198642923",
-      "dateCreated": "2020-07-12T16:57:11-0500",
-      "dateStarted": "2020-07-18T16:42:16-0500",
-      "dateFinished": "2020-07-18T16:42:29-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6350"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:356"
     },
     {
       "text": "val empNopleno = dataA.where($\"condicion_actividad\" === \"4 - Otro empleo no pleno\")\nval empNoremunerado = dataA.where($\"condicion_actividad\" === \"5 - Empleo no remunerado\")\nval empNoclasificado = dataA.where($\"condicion_actividad\" === \"6 - Empleo no clasificado\")\nval dempAbierto = dataA.where($\"condicion_actividad\" === \"7 - Desempleo abierto\")\nval dempOculto = dataA.where($\"condicion_actividad\" === \"8 - Desempleo oculto\")",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T16:43:22-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {},
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -650,23 +602,28 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594951159198_418330902",
+      "jobName": "paragraph_1595209683014_-1386816555",
       "id": "paragraph_1594951159198_418330902",
-      "dateCreated": "2020-07-16T20:59:19-0500",
-      "dateStarted": "2020-07-18T16:43:22-0500",
-      "dateFinished": "2020-07-18T16:43:24-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6351"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:357"
     },
     {
       "title": "Cual es el promedio de edad de afroecuatorianos que se encuentran en una condicion no favorable dentro de la data",
       "text": "// Promedio de edad de afroecuatorianos con un empleo no pleno\nempNopleno.groupBy(\"anio\").pivot(\"genero\").agg(round(avg(\"edad\"))).orderBy(\"anio\").show()",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T16:45:23-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
+        "title": true,
         "results": {
           "0": {
             "graph": {
@@ -731,14 +688,7 @@
             "helium": {}
           }
         },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala",
-        "title": true
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -754,42 +704,28 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=95",
-              "$$hashKey": "object:49056"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=96",
-              "$$hashKey": "object:49057"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594952791058_-1127560960",
+      "jobName": "paragraph_1595209683014_533532546",
       "id": "paragraph_1594952791058_-1127560960",
-      "dateCreated": "2020-07-16T21:26:31-0500",
-      "dateStarted": "2020-07-18T16:43:51-0500",
-      "dateFinished": "2020-07-18T16:44:20-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6352"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:358"
     },
     {
       "text": "// Promedio de edad de afroecuatorianos con un empleo no remunerado\nempNoremunerado.groupBy(\"anio\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"anio\").show()",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T16:45:33-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
         "results": {
           "0": {
             "graph": {
@@ -848,13 +784,7 @@
             "helium": {}
           }
         },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -870,42 +800,28 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=99",
-              "$$hashKey": "object:49143"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=100",
-              "$$hashKey": "object:49144"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594953168769_225748749",
+      "jobName": "paragraph_1595209683016_-1896322048",
       "id": "paragraph_1594953168769_225748749",
-      "dateCreated": "2020-07-16T21:32:48-0500",
-      "dateStarted": "2020-07-18T16:45:33-0500",
-      "dateFinished": "2020-07-18T16:45:58-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6353"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:359"
     },
     {
       "text": "// Promedio de edad de afroecuatorianos con un empleo no clasificado\nempNoclasificado.groupBy(\"anio\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"anio\").show()",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T16:46:12-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
         "results": {
           "0": {
             "graph": {
@@ -959,13 +875,7 @@
             "helium": {}
           }
         },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -981,50 +891,30 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=101",
-              "$$hashKey": "object:49220"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=102",
-              "$$hashKey": "object:49221"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594953459757_171229628",
+      "jobName": "paragraph_1595209683016_-188021434",
       "id": "paragraph_1594953459757_171229628",
-      "dateCreated": "2020-07-16T21:37:39-0500",
-      "dateStarted": "2020-07-18T16:46:12-0500",
-      "dateFinished": "2020-07-18T16:46:36-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6354"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:360"
     },
     {
       "text": "// Promedio de edad de afroecuatorianos con un desempleo abierto\ndempAbierto.groupBy(\"anio\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"anio\").show()",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T16:47:27-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {},
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -1040,50 +930,30 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=103",
-              "$$hashKey": "object:49277"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=104",
-              "$$hashKey": "object:49278"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594953506056_-40473246",
+      "jobName": "paragraph_1595209683017_751031811",
       "id": "paragraph_1594953506056_-40473246",
-      "dateCreated": "2020-07-16T21:38:26-0500",
-      "dateStarted": "2020-07-18T16:47:27-0500",
-      "dateFinished": "2020-07-18T16:47:52-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6355"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:361"
     },
     {
       "text": "// Promedio de edad de afroecuatorianos con un desempleo oculto\ndempOculto.groupBy(\"anio\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"anio\").show()",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T16:49:31-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {},
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -1099,43 +969,30 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=105",
-              "$$hashKey": "object:49334"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=106",
-              "$$hashKey": "object:49335"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594953818958_-1825798281",
+      "jobName": "paragraph_1595209683017_-2109553605",
       "id": "paragraph_1594953818958_-1825798281",
-      "dateCreated": "2020-07-16T21:43:38-0500",
-      "dateStarted": "2020-07-18T16:49:31-0500",
-      "dateFinished": "2020-07-18T16:49:56-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6356"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:362"
     },
     {
       "title": "Con lo datos de la tabla podemos conocer los estados civiles de  las personas afroecuatorianas",
       "text": "// Estado civil de las afroecuatorianos con un empleo no pleno\nz.show(empNopleno.groupBy(\"estado_civil\").pivot(\"anio\").count().orderBy(\"estado_civil\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T17:11:50-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
+        "title": true,
         "results": {
           "0": {
             "graph": {
@@ -1212,14 +1069,7 @@
             "helium": {}
           }
         },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala",
-        "title": true
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -1235,579 +1085,30 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=109",
-              "$$hashKey": "object:56177"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=110",
-              "$$hashKey": "object:56178"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594953919130_1520721483",
+      "jobName": "paragraph_1595209683019_1487912349",
       "id": "paragraph_1594953919130_1520721483",
-      "dateCreated": "2020-07-16T21:45:19-0500",
-      "dateStarted": "2020-07-18T16:51:11-0500",
-      "dateFinished": "2020-07-18T16:51:36-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6357"
-    },
-    {
-      "text": "// Estado civil de las afroecuatorianosafroecuatorianos con un empleo no remunerado\nz.show(empNoremunerado.groupBy(\"estado_civil\").pivot(\"anio\").count().orderBy(\"estado_civil\"))",
-      "user": "anonymous",
-      "dateUpdated": "2020-07-18T16:56:30-0500",
-      "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "multiBarChart",
-              "height": 300,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "2015": "string",
-                      "2016": "string",
-                      "2017": "string",
-                      "2018": "string",
-                      "2019": "string",
-                      "estado_civil": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                },
-                "multiBarChart": {
-                  "rotate": {
-                    "degree": "-45"
-                  },
-                  "xLabelStatus": "default"
-                }
-              },
-              "commonSetting": {},
-              "keys": [
-                {
-                  "name": "estado_civil",
-                  "index": 0,
-                  "aggr": "sum"
-                }
-              ],
-              "groups": [],
-              "values": [
-                {
-                  "name": "2015",
-                  "index": 1,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2016",
-                  "index": 2,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2017",
-                  "index": 3,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2018",
-                  "index": 4,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2019",
-                  "index": 5,
-                  "aggr": "sum"
-                }
-              ]
-            },
-            "helium": {}
-          }
-        },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "estado_civil\t2015\t2016\t2017\t2018\t2019\n1 - Casado(a)\t45\t25\t33\t17\t21\n2 - Separado(a)\t1\t3\t5\t4\t3\n4 - Viudo(a)\tnull\t1\tnull\tnull\t1\n5 - Unión libre\t23\t22\t36\t18\t23\n6 - Soltero(a)\t75\t64\t76\t26\t38\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=111",
-              "$$hashKey": "object:52228"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=112",
-              "$$hashKey": "object:52229"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594954131936_-1172504253",
-      "id": "paragraph_1594954131936_-1172504253",
-      "dateCreated": "2020-07-16T21:48:51-0500",
-      "dateStarted": "2020-07-18T16:52:54-0500",
-      "dateFinished": "2020-07-18T16:53:18-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6358"
-    },
-    {
-      "text": "// Estado civil de las  con un empleo no clasificado\nz.show(empNoclasificado.groupBy(\"estado_civil\").pivot(\"anio\").count().orderBy(\"estado_civil\"))",
-      "user": "anonymous",
-      "dateUpdated": "2020-07-18T16:57:13-0500",
-      "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "multiBarChart",
-              "height": 300,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "2015": "string",
-                      "2016": "string",
-                      "2017": "string",
-                      "2018": "string",
-                      "2019": "string",
-                      "estado_civil": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                },
-                "multiBarChart": {
-                  "rotate": {
-                    "degree": "-45"
-                  },
-                  "xLabelStatus": "default"
-                }
-              },
-              "commonSetting": {},
-              "keys": [
-                {
-                  "name": "estado_civil",
-                  "index": 0,
-                  "aggr": "sum"
-                }
-              ],
-              "groups": [],
-              "values": [
-                {
-                  "name": "2015",
-                  "index": 1,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2016",
-                  "index": 2,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2017",
-                  "index": 3,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2018",
-                  "index": 4,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2019",
-                  "index": 5,
-                  "aggr": "sum"
-                }
-              ]
-            },
-            "helium": {}
-          }
-        },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "estado_civil\t2015\t2016\t2017\t2018\t2019\n1 - Casado(a)\t1\t3\tnull\tnull\t5\n2 - Separado(a)\tnull\tnull\tnull\tnull\t1\n5 - Unión libre\t1\t3\tnull\t1\t3\n6 - Soltero(a)\tnull\t3\t1\t2\t8\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=113",
-              "$$hashKey": "object:52288"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=114",
-              "$$hashKey": "object:52289"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594954283870_-1986215118",
-      "id": "paragraph_1594954283870_-1986215118",
-      "dateCreated": "2020-07-16T21:51:23-0500",
-      "dateStarted": "2020-07-18T16:53:53-0500",
-      "dateFinished": "2020-07-18T16:54:17-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6359"
-    },
-    {
-      "text": "// Estado civil afroecuatorianos con un desempleo abierto\nz.show(dempAbierto.groupBy(\"estado_civil\").pivot(\"anio\").count().orderBy(\"estado_civil\"))",
-      "user": "anonymous",
-      "dateUpdated": "2020-07-18T16:57:09-0500",
-      "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "multiBarChart",
-              "height": 300,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "2015": "string",
-                      "2016": "string",
-                      "2017": "string",
-                      "2018": "string",
-                      "2019": "string",
-                      "estado_civil": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                },
-                "multiBarChart": {
-                  "rotate": {
-                    "degree": "-45"
-                  },
-                  "xLabelStatus": "default"
-                }
-              },
-              "commonSetting": {},
-              "keys": [
-                {
-                  "name": "estado_civil",
-                  "index": 0,
-                  "aggr": "sum"
-                }
-              ],
-              "groups": [],
-              "values": [
-                {
-                  "name": "2015",
-                  "index": 1,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2016",
-                  "index": 2,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2017",
-                  "index": 3,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2018",
-                  "index": 4,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2019",
-                  "index": 5,
-                  "aggr": "sum"
-                }
-              ]
-            },
-            "helium": {}
-          }
-        },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "estado_civil\t2015\t2016\t2017\t2018\t2019\n1 - Casado(a)\t16\t9\t14\t4\t9\n2 - Separado(a)\t10\t11\t13\t4\t7\n3 - Divorciado(a)\t1\t1\t1\tnull\tnull\n4 - Viudo(a)\t2\tnull\tnull\t2\t1\n5 - Unión libre\t45\t32\t34\t17\t21\n6 - Soltero(a)\t74\t80\t97\t38\t57\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=115",
-              "$$hashKey": "object:52278"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=116",
-              "$$hashKey": "object:52279"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594954353093_14481530",
-      "id": "paragraph_1594954353093_14481530",
-      "dateCreated": "2020-07-16T21:52:33-0500",
-      "dateStarted": "2020-07-18T16:54:47-0500",
-      "dateFinished": "2020-07-18T16:55:12-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6360"
-    },
-    {
-      "text": "// Estado civil de las afroecuatorianos con un desempleo oculto\nz.show(dempOculto.groupBy(\"estado_civil\").pivot(\"anio\").count().orderBy(\"estado_civil\"))",
-      "user": "anonymous",
-      "dateUpdated": "2020-07-18T16:57:22-0500",
-      "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "multiBarChart",
-              "height": 300,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "2015": "string",
-                      "2016": "string",
-                      "2017": "string",
-                      "2018": "string",
-                      "2019": "string",
-                      "estado_civil": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                },
-                "multiBarChart": {
-                  "rotate": {
-                    "degree": "-45"
-                  },
-                  "xLabelStatus": "default"
-                }
-              },
-              "commonSetting": {},
-              "keys": [
-                {
-                  "name": "estado_civil",
-                  "index": 0,
-                  "aggr": "sum"
-                }
-              ],
-              "groups": [],
-              "values": [
-                {
-                  "name": "2015",
-                  "index": 1,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2016",
-                  "index": 2,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2017",
-                  "index": 3,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2018",
-                  "index": 4,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2019",
-                  "index": 5,
-                  "aggr": "sum"
-                }
-              ]
-            },
-            "helium": {}
-          }
-        },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "estado_civil\t2015\t2016\t2017\t2018\t2019\n1 - Casado(a)\t4\t3\t1\t1\t1\n2 - Separado(a)\t1\t3\tnull\t1\tnull\n4 - Viudo(a)\t2\tnull\tnull\t1\tnull\n5 - Unión libre\t21\t9\t8\tnull\t3\n6 - Soltero(a)\t21\t13\t21\t18\t15\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=117",
-              "$$hashKey": "object:52467"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=118",
-              "$$hashKey": "object:52468"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594954499159_1706357434",
-      "id": "paragraph_1594954499159_1706357434",
-      "dateCreated": "2020-07-16T21:54:59-0500",
-      "dateStarted": "2020-07-18T16:57:22-0500",
-      "dateFinished": "2020-07-18T16:57:46-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6361"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:363"
     },
     {
       "title": "Que nivel de educacion recibio cada una de estas personas",
       "text": "// Nivel de instruccion de las afroecuatorianos con un empleo no pleno\nz.show(empNopleno.groupBy(\"nivel_de_instruccion\").count().orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T16:58:06-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
+        "title": true,
         "results": {
           "0": {
             "graph": {
@@ -1860,14 +1161,7 @@
             "helium": {}
           }
         },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala",
-        "title": true
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -1883,38 +1177,28 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=119",
-              "$$hashKey": "object:52749"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594954551322_-133067703",
+      "jobName": "paragraph_1595209683021_587849958",
       "id": "paragraph_1594954551322_-133067703",
-      "dateCreated": "2020-07-16T21:55:51-0500",
-      "dateStarted": "2020-07-18T16:58:06-0500",
-      "dateFinished": "2020-07-18T16:58:18-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6362"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:368"
     },
     {
       "text": "// Nivel de instruccion de las afroecuatorianos con un empleo no remunerado\nz.show(empNoremunerado.groupBy(\"nivel_de_instruccion\").count().orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T16:58:43-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
         "results": {
           "0": {
             "graph": {
@@ -1946,13 +1230,7 @@
             "helium": {}
           }
         },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -1968,38 +1246,28 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=120",
-              "$$hashKey": "object:52999"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594956019986_-1828124474",
+      "jobName": "paragraph_1595209683021_1750333653",
       "id": "paragraph_1594956019986_-1828124474",
-      "dateCreated": "2020-07-16T22:20:19-0500",
-      "dateStarted": "2020-07-18T16:58:43-0500",
-      "dateFinished": "2020-07-18T16:58:54-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6363"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:369"
     },
     {
       "text": "// Nivel de instruccion de las afroecuatorianos con un empleo no clasificado\nz.show(empNoclasificado.groupBy(\"nivel_de_instruccion\").count().orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T16:59:31-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
         "results": {
           "0": {
             "graph": {
@@ -2031,13 +1299,7 @@
             "helium": {}
           }
         },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -2053,38 +1315,28 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=121",
-              "$$hashKey": "object:53247"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594956106687_-1597090037",
+      "jobName": "paragraph_1595209683022_-2029815151",
       "id": "paragraph_1594956106687_-1597090037",
-      "dateCreated": "2020-07-16T22:21:46-0500",
-      "dateStarted": "2020-07-18T16:59:31-0500",
-      "dateFinished": "2020-07-18T16:59:42-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6364"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:370"
     },
     {
       "text": "// Nivel de instruccion de las afroecuatorianos con un desempleo abierto\nz.show(dempAbierto.groupBy(\"nivel_de_instruccion\").count().orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T17:00:13-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
         "results": {
           "0": {
             "graph": {
@@ -2116,13 +1368,7 @@
             "helium": {}
           }
         },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -2138,38 +1384,28 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=122",
-              "$$hashKey": "object:53495"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594956233336_-1997328417",
+      "jobName": "paragraph_1595209683023_-2111586254",
       "id": "paragraph_1594956233336_-1997328417",
-      "dateCreated": "2020-07-16T22:23:53-0500",
-      "dateStarted": "2020-07-18T17:00:13-0500",
-      "dateFinished": "2020-07-18T17:00:24-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6365"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:371"
     },
     {
       "text": "// Nivel de instruccion de las afroecuatorianos con un desempleo oculto\nz.show(dempOculto.groupBy(\"nivel_de_instruccion\").count().orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T17:00:48-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
         "results": {
           "0": {
             "graph": {
@@ -2201,13 +1437,7 @@
             "helium": {}
           }
         },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -2223,39 +1453,30 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=123",
-              "$$hashKey": "object:53743"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594956299360_-715363378",
+      "jobName": "paragraph_1595209683023_-992634215",
       "id": "paragraph_1594956299360_-715363378",
-      "dateCreated": "2020-07-16T22:24:59-0500",
-      "dateStarted": "2020-07-18T17:00:48-0500",
-      "dateFinished": "2020-07-18T17:01:00-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6366"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:372"
     },
     {
       "title": "Con esto cual es el promedio de sueldo que reciben estas personas",
       "text": "// Sueldo promedio de  afroecuatorianos con empleo no pleno\nz.show(empNopleno.groupBy(\"nivel_de_instruccion\").pivot(\"genero\").agg(round(avg(\"ingreso_laboral\"))).orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T17:01:27-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
+        "title": true,
         "results": {
           "0": {
             "graph": {
@@ -2328,14 +1549,7 @@
             "helium": {}
           }
         },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala",
-        "title": true
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -2351,269 +1565,28 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=124",
-              "$$hashKey": "object:54027"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=125",
-              "$$hashKey": "object:54028"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594956334902_874025213",
+      "jobName": "paragraph_1595209683024_877291157",
       "id": "paragraph_1594956334902_874025213",
-      "dateCreated": "2020-07-16T22:25:34-0500",
-      "dateStarted": "2020-07-18T17:01:27-0500",
-      "dateFinished": "2020-07-18T17:01:54-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6367"
-    },
-    {
-      "text": "// Sueldo promedio de afroecuatorianos con empleo no remunerado\nz.show(empNoremunerado.groupBy(\"nivel_de_instruccion\").pivot(\"genero\").agg(round(avg(\"ingreso_laboral\"))).orderBy(\"nivel_de_instruccion\"))",
-      "user": "anonymous",
-      "dateUpdated": "2020-07-18T17:02:54-0500",
-      "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "multiBarChart",
-              "height": 300,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "nivel_de_instruccion": "string",
-                      "1 - Hombre": "string",
-                      "2 - Mujer": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                },
-                "multiBarChart": {
-                  "rotate": {
-                    "degree": "-45"
-                  },
-                  "xLabelStatus": "default"
-                }
-              },
-              "commonSetting": {},
-              "keys": [
-                {
-                  "name": "nivel_de_instruccion",
-                  "index": 0,
-                  "aggr": "sum"
-                }
-              ],
-              "groups": [],
-              "values": [
-                {
-                  "name": "1 - Hombre",
-                  "index": 1,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2 - Mujer",
-                  "index": 2,
-                  "aggr": "sum"
-                }
-              ]
-            },
-            "helium": {}
-          }
-        },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "nivel_de_instruccion\t1 - Hombre\t2 - Mujer\n01 - Ninguno\tnull\tnull\n02 - Centro de alfabetización\tnull\tnull\n04 - Primaria\tnull\tnull\n05 - Educación Básica\tnull\tnull\n06 - Secundaria\tnull\tnull\n07 - Educación  Media\tnull\tnull\n08 - Superior no universitario\tnull\tnull\n09 - Superior Universitario\tnull\tnull\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=126",
-              "$$hashKey": "object:54315"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=127",
-              "$$hashKey": "object:54316"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594956842039_1357478362",
-      "id": "paragraph_1594956842039_1357478362",
-      "dateCreated": "2020-07-16T22:34:02-0500",
-      "dateStarted": "2020-07-18T17:02:54-0500",
-      "dateFinished": "2020-07-18T17:03:19-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6368"
-    },
-    {
-      "text": "// Sueldo promedio de afroecuatorianos con empleo no clasificado\nz.show(empNoclasificado.groupBy(\"nivel_de_instruccion\").pivot(\"genero\").agg(round(avg(\"ingreso_laboral\"))).orderBy(\"nivel_de_instruccion\"))",
-      "user": "anonymous",
-      "dateUpdated": "2020-07-18T17:03:43-0500",
-      "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "multiBarChart",
-              "height": 300,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "nivel_de_instruccion": "string",
-                      "1 - Hombre": "string",
-                      "2 - Mujer": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                },
-                "multiBarChart": {
-                  "rotate": {
-                    "degree": "-45"
-                  },
-                  "xLabelStatus": "default"
-                }
-              },
-              "commonSetting": {},
-              "keys": [
-                {
-                  "name": "nivel_de_instruccion",
-                  "index": 0,
-                  "aggr": "sum"
-                }
-              ],
-              "groups": [],
-              "values": [
-                {
-                  "name": "1 - Hombre",
-                  "index": 1,
-                  "aggr": "sum"
-                }
-              ]
-            },
-            "helium": {}
-          }
-        },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "nivel_de_instruccion\t1 - Hombre\t2 - Mujer\n04 - Primaria\tnull\tnull\n05 - Educación Básica\tnull\tnull\n06 - Secundaria\tnull\tnull\n07 - Educación  Media\tnull\tnull\n08 - Superior no universitario\tnull\tnull\n09 - Superior Universitario\tnull\tnull\n10 - Post-grado\tnull\tnull\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=128",
-              "$$hashKey": "object:54603"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=129",
-              "$$hashKey": "object:54604"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594956962544_827698012",
-      "id": "paragraph_1594956962544_827698012",
-      "dateCreated": "2020-07-16T22:36:02-0500",
-      "dateStarted": "2020-07-18T17:03:43-0500",
-      "dateFinished": "2020-07-18T17:04:08-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6369"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:373"
     },
     {
       "text": "// Sueldo promedio de afroecuatorianos con desempleo abierto\nz.show(dempAbierto.groupBy(\"nivel_de_instruccion\").pivot(\"genero\").agg(round(avg(\"ingreso_laboral\"))).orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T17:04:36-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
         "results": {
           "0": {
             "graph": {
@@ -2673,13 +1646,7 @@
             "helium": {}
           }
         },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -2695,159 +1662,30 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=130",
-              "$$hashKey": "object:54894"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=131",
-              "$$hashKey": "object:54895"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594957052413_-1709138982",
+      "jobName": "paragraph_1595209683032_805943032",
       "id": "paragraph_1594957052413_-1709138982",
-      "dateCreated": "2020-07-16T22:37:32-0500",
-      "dateStarted": "2020-07-18T17:04:36-0500",
-      "dateFinished": "2020-07-18T17:05:02-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6370"
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:376"
     },
     {
-      "text": "// Sueldo promedio de afroecuatorianos con desempleo abierto\nz.show(dempOculto.groupBy(\"nivel_de_instruccion\").pivot(\"genero\").agg(round(avg(\"ingreso_laboral\"))).orderBy(\"nivel_de_instruccion\"))",
+      "title": "Que grupo ocupacion tienen mas incidencias de condicion de empleo en Ecuador",
+      "text": "// grupo ocupacion afroecuatorianos que tienen un empleo no pleno\nz.show(empNopleno.groupBy(\"grupo_ocupacion\").pivot(\"genero\").count().orderBy(\"grupo_ocupacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T17:05:37-0500",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
       "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "multiBarChart",
-              "height": 300,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "nivel_de_instruccion": "string",
-                      "1 - Hombre": "string",
-                      "2 - Mujer": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                },
-                "multiBarChart": {
-                  "rotate": {
-                    "degree": "-45"
-                  },
-                  "xLabelStatus": "default"
-                }
-              },
-              "commonSetting": {},
-              "keys": [
-                {
-                  "name": "nivel_de_instruccion",
-                  "index": 0,
-                  "aggr": "sum"
-                }
-              ],
-              "groups": [],
-              "values": [
-                {
-                  "name": "1 - Hombre",
-                  "index": 1,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2 - Mujer",
-                  "index": 2,
-                  "aggr": "sum"
-                }
-              ]
-            },
-            "helium": {}
-          }
-        },
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "nivel_de_instruccion\t1 - Hombre\t2 - Mujer\n01 - Ninguno\t8.0\tnull\n02 - Centro de alfabetización\tnull\tnull\n04 - Primaria\t150.0\t0.0\n05 - Educación Básica\t0.0\t0.0\n06 - Secundaria\t48.0\t0.0\n07 - Educación  Media\t75.0\t0.0\n08 - Superior no universitario\tnull\tnull\n09 - Superior Universitario\t0.0\t146.0\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=132",
-              "$$hashKey": "object:55182"
-            },
-            {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=133",
-              "$$hashKey": "object:55183"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594957129327_1514843673",
-      "id": "paragraph_1594957129327_1514843673",
-      "dateCreated": "2020-07-16T22:38:49-0500",
-      "dateStarted": "2020-07-18T17:05:37-0500",
-      "dateFinished": "2020-07-18T17:06:03-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:6371"
-    },
-    {
-      "title": "Que grupo ocupacion tienen mas incidencias de condicion de empleo en Ecuador",
-      "text": "// grupo ocupacion afroecuatorianos que tienen un empleo no pleno\nz.show(empNopleno.groupBy(\"grupo_ocupacion\").pivot(\"genero\").count().orderBy(\"grupo_ocupacion\"))",
-      "user": "anonymous",
-      "dateUpdated": "2020-07-18T17:06:50-0500",
-      "config": {
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
+        "title": true,
         "results": {
           "0": {
             "graph": {
@@ -2885,6 +1723,221 @@
               "keys": [
                 {
                   "name": "grupo_ocupacion",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "1 - Hombre",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2 - Mujer",
+                  "index": 2,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "grupo_ocupacion\t1 - Hombre\t2 - Mujer\n01 - Personal direct./admin. pública y empresas\t1\t1\n02 - Profesionales científicos e intelectuales\t11\t15\n03 - Técnicos y profesionales de nivel medio\t18\t12\n04 - Empleados de oficina\t12\t11\n05 - Trabajad. de los servicios y comerciantes\t139\t388\n06 - Trabajad. calificados agropecuarios y pesqueros\t506\t148\n07 - Oficiales operarios y artesanos\t137\t47\n08 - Operadores de instalac. máquinas y montad.\t71\t4\n09 - Trabajadores no calificados, ocupaciones elementales\t251\t244\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209683034_-910047223",
+      "id": "paragraph_1594957177607_-1232891908",
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:378"
+    },
+    {
+      "text": "// grupo ocupacion afroecuatorianos que tienen un empleo no clasificado\nz.show(empNoclasificado.groupBy(\"grupo_ocupacion\").pivot(\"genero\").count().orderBy(\"grupo_ocupacion\"))",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "grupo_ocupacion": "string",
+                      "1 - Hombre": "string",
+                      "2 - Mujer": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "rotate"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "grupo_ocupacion",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "1 - Hombre",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2 - Mujer",
+                  "index": 2,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "grupo_ocupacion\t1 - Hombre\t2 - Mujer\n01 - Personal direct./admin. pública y empresas\t2\tnull\n02 - Profesionales científicos e intelectuales\t5\t5\n03 - Técnicos y profesionales de nivel medio\t3\t3\n04 - Empleados de oficina\tnull\t1\n05 - Trabajad. de los servicios y comerciantes\t2\t2\n06 - Trabajad. calificados agropecuarios y pesqueros\t2\tnull\n07 - Oficiales operarios y artesanos\t3\tnull\n08 - Operadores de instalac. máquinas y montad.\t2\tnull\n09 - Trabajadores no calificados, ocupaciones elementales\t1\tnull\n10 - Fuerzas Armadas\t1\tnull\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209683035_-491680058",
+      "id": "paragraph_1594957996823_159686994",
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:380"
+    },
+    {
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:03:57-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595209683036_673211197",
+      "id": "paragraph_1595108278967_-1814349563",
+      "dateCreated": "2020-07-19T20:48:03-0500",
+      "status": "READY",
+      "$$hashKey": "object:381",
+      "title": "David Avances 19/07/2020"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": true,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "etnia": "string",
+                      "1 - Hombre": "string",
+                      "2 - Mujer": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "etnia",
                   "index": 0,
                   "aggr": "sum"
                 }
@@ -2919,15 +1972,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "grupo_ocupacion\t1 - Hombre\t2 - Mujer\n01 - Personal direct./admin. pública y empresas\t1\t1\n02 - Profesionales científicos e intelectuales\t11\t15\n03 - Técnicos y profesionales de nivel medio\t18\t12\n04 - Empleados de oficina\t12\t11\n05 - Trabajad. de los servicios y comerciantes\t139\t388\n06 - Trabajad. calificados agropecuarios y pesqueros\t506\t148\n07 - Oficiales operarios y artesanos\t137\t47\n08 - Operadores de instalac. máquinas y montad.\t71\t4\n09 - Trabajadores no calificados, ocupaciones elementales\t251\t244\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {
         "jobUrl": {
@@ -2937,30 +1981,41 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=134",
-              "$$hashKey": "object:55470"
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=2",
+              "$$hashKey": "object:11616"
             },
             {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=135",
-              "$$hashKey": "object:55471"
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=3",
+              "$$hashKey": "object:11617"
             }
           ],
           "interpreterSettingId": "spark"
         }
       },
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594957177607_-1232891908",
-      "id": "paragraph_1594957177607_-1232891908",
-      "dateCreated": "2020-07-16T22:39:37-0500",
-      "dateStarted": "2020-07-18T17:06:50-0500",
-      "dateFinished": "2020-07-18T17:07:18-0500",
+      "jobName": "paragraph_1595210362994_-2027147942",
+      "id": "paragraph_1595210362994_-2027147942",
+      "dateCreated": "2020-07-19T20:59:22-0500",
       "status": "FINISHED",
-      "$$hashKey": "object:6372"
+      "focus": true,
+      "$$hashKey": "object:5614",
+      "dateUpdated": "2020-07-19T21:10:37-0500",
+      "dateFinished": "2020-07-19T21:03:39-0500",
+      "dateStarted": "2020-07-19T21:03:22-0500",
+      "title": "Conteo de personas de cada etnia clasifica por genero                  ",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "etnia\t1 - Hombre\t2 - Mujer\n1 - Indígena\t39157\t36342\n2 - Afroecuatoriano\t4617\t3585\n3 - Negro\t5062\t3389\n4 - Mulato\t3660\t2276\n5 - Montubio\t16064\t7183\n6 - Mestizo\t279951\t211972\n7 - Blanco\t5453\t3756\n8 - Otro\t214\t95\n"
+          }
+        ]
+      },
+      "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))"
     },
     {
-      "text": "// grupo ocupacion afroecuatorianos que tienen un empleo no remunerado\nz.show(empNoremunerado.groupBy(\"grupo_ocupacion\").pivot(\"genero\").count().orderBy(\"grupo_ocupacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T17:07:55-0500",
       "config": {
         "colWidth": 12,
         "fontSize": 9,
@@ -2968,7 +2023,7 @@
         "results": {
           "0": {
             "graph": {
-              "mode": "multiBarChart",
+              "mode": "table",
               "height": 300,
               "optionOpen": false,
               "setting": {
@@ -2976,7 +2031,7 @@
                   "tableGridState": {},
                   "tableColumnTypeState": {
                     "names": {
-                      "grupo_ocupacion": "string",
+                      "etnia": "string",
                       "1 - Hombre": "string",
                       "2 - Mujer": "string"
                     },
@@ -2990,37 +2045,10 @@
                   },
                   "updated": false,
                   "initialized": false
-                },
-                "multiBarChart": {
-                  "rotate": {
-                    "degree": "-45"
-                  },
-                  "xLabelStatus": "rotate"
                 }
               },
-              "commonSetting": {},
-              "keys": [
-                {
-                  "name": "grupo_ocupacion",
-                  "index": 0,
-                  "aggr": "sum"
-                }
-              ],
-              "groups": [],
-              "values": [
-                {
-                  "name": "1 - Hombre",
-                  "index": 1,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2 - Mujer",
-                  "index": 2,
-                  "aggr": "sum"
-                }
-              ]
-            },
-            "helium": {}
+              "commonSetting": {}
+            }
           }
         },
         "editorSetting": {
@@ -3029,20 +2057,12 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/scala",
+        "title": true
       },
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "grupo_ocupacion\t1 - Hombre\t2 - Mujer\n03 - Técnicos y profesionales de nivel medio\tnull\t1\n04 - Empleados de oficina\tnull\t2\n05 - Trabajad. de los servicios y comerciantes\t28\t95\n06 - Trabajad. calificados agropecuarios y pesqueros\t1\t1\n08 - Operadores de instalac. máquinas y montad.\t4\tnull\n09 - Trabajadores no calificados, ocupaciones elementales\t164\t264\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {
@@ -3053,30 +2073,41 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=136",
-              "$$hashKey": "object:55758"
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=8",
+              "$$hashKey": "object:10423"
             },
             {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=137",
-              "$$hashKey": "object:55759"
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=9",
+              "$$hashKey": "object:10424"
             }
           ],
           "interpreterSettingId": "spark"
         }
       },
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594957555087_-1105987512",
-      "id": "paragraph_1594957555087_-1105987512",
-      "dateCreated": "2020-07-16T22:45:55-0500",
-      "dateStarted": "2020-07-18T17:07:55-0500",
-      "dateFinished": "2020-07-18T17:08:20-0500",
+      "jobName": "paragraph_1595210693426_1613594662",
+      "id": "paragraph_1595210693426_1613594662",
+      "dateCreated": "2020-07-19T21:04:53-0500",
       "status": "FINISHED",
-      "$$hashKey": "object:6373"
+      "focus": true,
+      "$$hashKey": "object:8780",
+      "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"etnia\"))",
+      "dateUpdated": "2020-07-19T21:06:09-0500",
+      "dateFinished": "2020-07-19T21:05:07-0500",
+      "dateStarted": "2020-07-19T21:04:56-0500",
+      "title": "Edad promedio de las personas de cada etnia por género",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "etnia\t1 - Hombre\t2 - Mujer\n1 - Indígena\t38\t39\n2 - Afroecuatoriano\t39\t39\n3 - Negro\t39\t40\n4 - Mulato\t40\t40\n5 - Montubio\t43\t43\n6 - Mestizo\t41\t41\n7 - Blanco\t44\t44\n8 - Otro\t43\t42\n"
+          }
+        ]
+      }
     },
     {
-      "text": "// grupo ocupacion afroecuatorianos que tienen un empleo no clasificado\nz.show(empNoclasificado.groupBy(\"grupo_ocupacion\").pivot(\"genero\").count().orderBy(\"grupo_ocupacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-18T17:09:22-0500",
       "config": {
         "colWidth": 12,
         "fontSize": 9,
@@ -3084,7 +2115,7 @@
         "results": {
           "0": {
             "graph": {
-              "mode": "multiBarChart",
+              "mode": "table",
               "height": 300,
               "optionOpen": false,
               "setting": {
@@ -3092,7 +2123,198 @@
                   "tableGridState": {},
                   "tableColumnTypeState": {
                     "names": {
-                      "grupo_ocupacion": "string",
+                      "2015": "string",
+                      "2016": "string",
+                      "2017": "string",
+                      "2018": "string",
+                      "2019": "string",
+                      "sectorizacion": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=12",
+              "$$hashKey": "object:10856"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=13",
+              "$$hashKey": "object:10857"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595210411095_-1694523353",
+      "id": "paragraph_1595210411095_-1694523353",
+      "dateCreated": "2020-07-19T21:00:11-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:5710",
+      "text": "z.show(data.groupBy(\"sectorizacion\").pivot(\"anio\").count.orderBy(\"sectorizacion\"))",
+      "dateUpdated": "2020-07-19T21:09:03-0500",
+      "dateFinished": "2020-07-19T21:09:13-0500",
+      "dateStarted": "2020-07-19T21:09:03-0500",
+      "title": "Conteo de las personas de cada sector en cada año",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "sectorizacion\t2015\t2016\t2017\t2018\t2019\nnull\t5687\t5251\t5846\t4626\t4851\n1 - Sector Formal\t61346\t49261\t63713\t53674\t53775\n2 - Sector Informal\t55047\t48546\t62307\t52309\t52980\n3 - Empleo Doméstico\t2522\t2249\t3002\t2660\t2806\n4 - No Clasificados por Sector\t8342\t5853\t5785\t4931\t5407\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "2015": "string",
+                      "2016": "string",
+                      "2017": "string",
+                      "2018": "string",
+                      "2019": "string",
+                      "etnia": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=6",
+              "$$hashKey": "object:10500"
+            },
+            {
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=7",
+              "$$hashKey": "object:10501"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595210646436_-893613200",
+      "id": "paragraph_1595210646436_-893613200",
+      "dateCreated": "2020-07-19T21:04:06-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:6734",
+      "text": "z.show(data.groupBy(\"etnia\").pivot(\"anio\").avg(\"ingreso_laboral\").where($\"etnia\".isNotNull)orderBy(\"etnia\"))",
+      "dateUpdated": "2020-07-19T21:07:47-0500",
+      "dateFinished": "2020-07-19T21:04:46-0500",
+      "dateStarted": "2020-07-19T21:04:33-0500",
+      "title": "Promedio del ingreso laboral de cada etnia por año",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "etnia\t2015\t2016\t2017\t2018\t2019\n1 - Indígena\t291.6655518394649\t281.2302359271523\t290.9101227509669\t312.27034080442127\t325.32051469513084\n2 - Afroecuatoriano\t411.2017434620174\t400.29624277456645\t452.31573033707866\t469.77282377919323\t485.53057384760115\n3 - Negro\t394.89690721649487\t379.14643799472293\t422.3720238095238\t386.5911654135338\t383.14963119072706\n4 - Mulato\t413.2036888532478\t386.2193074501574\t395.49725274725273\t402.54987834549877\t387.36475409836066\n5 - Montubio\t358.34414715719066\t352.58051044083527\t373.0661553211889\t307.2650913423352\t302.4964403542282\n6 - Mestizo\t513.3691551452475\t491.1641972578505\t525.1980497870074\t532.2717226516984\t518.0325121290404\n7 - Blanco\t667.7136904761904\t554.7198443579766\t624.7062146892655\t706.4891871737509\t624.4534623976173\n8 - Otro\t838.7450980392157\t508.8709677419355\t799.0410958904109\t924.96875\t795.0\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "etnia": "string",
                       "1 - Hombre": "string",
                       "2 - Mujer": "string"
                     },
@@ -3106,37 +2328,10 @@
                   },
                   "updated": false,
                   "initialized": false
-                },
-                "multiBarChart": {
-                  "rotate": {
-                    "degree": "-45"
-                  },
-                  "xLabelStatus": "rotate"
                 }
               },
-              "commonSetting": {},
-              "keys": [
-                {
-                  "name": "grupo_ocupacion",
-                  "index": 0,
-                  "aggr": "sum"
-                }
-              ],
-              "groups": [],
-              "values": [
-                {
-                  "name": "1 - Hombre",
-                  "index": 1,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2 - Mujer",
-                  "index": 2,
-                  "aggr": "sum"
-                }
-              ]
-            },
-            "helium": {}
+              "commonSetting": {}
+            }
           }
         },
         "editorSetting": {
@@ -3145,20 +2340,12 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/scala",
+        "title": true
       },
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "grupo_ocupacion\t1 - Hombre\t2 - Mujer\n01 - Personal direct./admin. pública y empresas\t2\tnull\n02 - Profesionales científicos e intelectuales\t5\t5\n03 - Técnicos y profesionales de nivel medio\t3\t3\n04 - Empleados de oficina\tnull\t1\n05 - Trabajad. de los servicios y comerciantes\t2\t2\n06 - Trabajad. calificados agropecuarios y pesqueros\t2\tnull\n07 - Oficiales operarios y artesanos\t3\tnull\n08 - Operadores de instalac. máquinas y montad.\t2\tnull\n09 - Trabajadores no calificados, ocupaciones elementales\t1\tnull\n10 - Fuerzas Armadas\t1\tnull\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {
@@ -3169,25 +2356,38 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=138",
-              "$$hashKey": "object:56046"
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=10",
+              "$$hashKey": "object:10538"
             },
             {
-              "jobUrl": "http://ericksito.local:4040/jobs/job?id=139",
-              "$$hashKey": "object:56047"
+              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=11",
+              "$$hashKey": "object:10539"
             }
           ],
           "interpreterSettingId": "spark"
         }
       },
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1594957996823_159686994",
-      "id": "paragraph_1594957996823_159686994",
-      "dateCreated": "2020-07-16T22:53:16-0500",
-      "dateStarted": "2020-07-18T17:09:22-0500",
-      "dateFinished": "2020-07-18T17:09:45-0500",
+      "jobName": "paragraph_1595210673695_-1393770346",
+      "id": "paragraph_1595210673695_-1393770346",
+      "dateCreated": "2020-07-19T21:04:33-0500",
       "status": "FINISHED",
-      "$$hashKey": "object:6374"
+      "focus": true,
+      "$$hashKey": "object:7713",
+      "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").agg(avg(\"ingreso_laboral\")).orderBy(\"etnia\"))",
+      "dateUpdated": "2020-07-19T21:08:40-0500",
+      "dateFinished": "2020-07-19T21:05:44-0500",
+      "dateStarted": "2020-07-19T21:05:33-0500",
+      "title": "Promedio del ingreso laboral de cada etnia por genero",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "etnia\t1 - Hombre\t2 - Mujer\n1 - Indígena\t329.1896678473568\t240.41782236647978\n2 - Afroecuatoriano\t472.2173373075012\t391.78610403783193\n3 - Negro\t421.86531690140845\t350.39304219096965\n4 - Mulato\t439.81171803478793\t321.5201323772752\n5 - Montubio\t347.4767961979312\t276.48603234614575\n6 - Mestizo\t559.5263578981225\t451.16832253949565\n7 - Blanco\t687.0872008324662\t545.9616858237548\n8 - Otro\t788.6198830409356\t776.1379310344828\n"
+          }
+        ]
+      }
     },
     {
       "user": "anonymous",
@@ -3211,16 +2411,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595108278967_-1814349563",
-      "id": "paragraph_1595108278967_-1814349563",
-      "dateCreated": "2020-07-18T16:37:58-0500",
+      "jobName": "paragraph_1595210733093_-1286460396",
+      "id": "paragraph_1595210733093_-1286460396",
+      "dateCreated": "2020-07-19T21:05:33-0500",
       "status": "READY",
       "focus": true,
-      "$$hashKey": "object:47597"
+      "$$hashKey": "object:9599"
     }
   ],
   "name": "avances2",
-  "id": "2FD4W9EZE",
+  "id": "2FG132G3E",
   "defaultInterpreterGroup": "spark",
   "version": "0.9.0-preview1",
   "noteParams": {},
