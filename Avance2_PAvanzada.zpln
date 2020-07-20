@@ -3,7 +3,7 @@
     {
       "text": "import org.apache.spark.sql.types._\nimport org.apache.spark.sql.functions._\nval myDataSchema = StructType(\n  Array(\n    StructField(\"id\",DecimalType(26, 0),true),\n    StructField(\"anio\",IntegerType,true),\n    StructField(\"mes\",IntegerType,true),\n    StructField(\"provincia\",IntegerType,true),\n    StructField(\"canton\",IntegerType,true),\n    StructField(\"area\",StringType,true),\n    StructField(\"genero\",StringType,true),\n    StructField(\"edad\",IntegerType,true),\n    StructField(\"estado_civil\",StringType,true),\n    StructField(\"nivel_de_instruccion\",StringType,true),\n    StructField(\"etnia\",StringType,true),\n    StructField(\"ingreso_laboral\",IntegerType,true),\n    StructField(\"condicion_actividad\",StringType,true),\n    StructField(\"sectorizacion\",StringType,true),\n    StructField(\"grupo_ocupacion\",StringType,true),\n    StructField(\"rama_actividad\",StringType,true),\n    StructField(\"factor_expansion\",DoubleType,true)\n  ));",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:00:48-0500",
+      "dateUpdated": "2020-07-19T21:33:51-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -33,19 +33,19 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683009_1454010916",
+      "jobName": "paragraph_1595212300026_384997846",
       "id": "paragraph_1594589741163_953275550",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "FINISHED",
       "focus": true,
-      "$$hashKey": "object:348",
-      "dateFinished": "2020-07-19T21:00:50-0500",
-      "dateStarted": "2020-07-19T21:00:48-0500"
+      "$$hashKey": "object:440",
+      "dateFinished": "2020-07-19T21:33:52-0500",
+      "dateStarted": "2020-07-19T21:33:51-0500"
     },
     {
-      "text": "\nval data = spark\n\t  .read\n\t  .option(\"inferSchema\",\"true\")\n\t  .option(\"header\",\"true\")\n\t  .option(\"delimiter\",\"\\t\")\n\t  .csv(\"/home/david/Escritorio/Datos_ENEMDU_PEA_v2.csv\")",
+      "text": "val data = spark\n\t  .read\n\t  .option(\"inferSchema\",\"true\")\n\t  .option(\"header\",\"true\")\n\t  .option(\"delimiter\",\"\\t\")\n\t  .csv(\"/home/davisalex22/Datos_ENEMDU_PEA_v2.csv\")",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:02:58-0500",
+      "dateUpdated": "2020-07-19T21:34:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -81,30 +81,30 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=0",
-              "$$hashKey": "object:5970"
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=135",
+              "$$hashKey": "object:7345"
             },
             {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=1",
-              "$$hashKey": "object:5971"
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=136",
+              "$$hashKey": "object:7346"
             }
           ],
           "interpreterSettingId": "spark"
         }
       },
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683011_-910066793",
+      "jobName": "paragraph_1595212300026_-896843833",
       "id": "paragraph_1594589753060_-1353525488",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "FINISHED",
-      "$$hashKey": "object:349",
-      "dateFinished": "2020-07-19T21:03:09-0500",
-      "dateStarted": "2020-07-19T21:02:58-0500"
+      "$$hashKey": "object:441",
+      "dateFinished": "2020-07-19T21:34:42-0500",
+      "dateStarted": "2020-07-19T21:34:38-0500"
     },
     {
-      "text": "// Separacion de etnias\n\nval dataI = data.where($\"etnia\" === \"1 - Indígena\")\nval dataA = data.where($\"etnia\" === \"2 - Afroecuatoriano\")\nval dataN = data.where($\"etnia\" === \"3 - Negro\")\nval dataMu = data.where($\"etnia\" === \"4 - Mulato\")\nval dataMo = data.where($\"etnia\" === \"5 - Montubio\")\nval dataMe = data.where($\"etnia\" === \"6 - Mestizo\")\nval dataB = data.where($\"etnia\" === \"7 - Blanco\")\nval dataO = data.where($\"etnia\" === \"8 - Otro\")",
+      "text": "// Separacion de etnias\nval dataI = data.where($\"etnia\" === \"1 - Indígena\")\nval dataA = data.where($\"etnia\" === \"2 - Afroecuatoriano\")\nval dataN = data.where($\"etnia\" === \"3 - Negro\")\nval dataMu = data.where($\"etnia\" === \"4 - Mulato\")\nval dataMo = data.where($\"etnia\" === \"5 - Montubio\")\nval dataMe = data.where($\"etnia\" === \"6 - Mestizo\")\nval dataB = data.where($\"etnia\" === \"7 - Blanco\")\nval dataO = data.where($\"etnia\" === \"8 - Otro\")",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:34:48-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -134,16 +134,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683011_1056079404",
+      "jobName": "paragraph_1595212300026_-873457526",
       "id": "paragraph_1594589798744_21385150",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:350"
+      "$$hashKey": "object:442"
     },
     {
-      "text": "// Promedio de ingreso laboral en la columna etnias\n\n\n\ndataA.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Afroecuatoriano\").sort($\"anio\".desc).show();\ndataN.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Negros\").sort($\"anio\".desc).show();\ndataMu.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Mulato\").sort($\"anio\".desc).show();\ndataMo.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Montubio\").sort($\"anio\".desc).show();\ndataMe.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Mestizos\").sort($\"anio\".desc).show();\ndataB.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Blancos\").sort($\"anio\".desc).show();\ndataO.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Otros\").sort($\"anio\".desc).show();\n\n",
+      "text": "// Promedio de ingreso laboral en la columna etnias\n\ndataA.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Afroecuatoriano\").sort($\"anio\".desc).show();\ndataN.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Negros\").sort($\"anio\".desc).show();\ndataMu.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Mulato\").sort($\"anio\".desc).show();\ndataMo.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Montubio\").sort($\"anio\".desc).show();\ndataMe.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Mestizos\").sort($\"anio\".desc).show();\ndataB.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Blancos\").sort($\"anio\".desc).show();\ndataO.groupBy(\"anio\").avg(\"ingreso_laboral\").as(\"sueldo promedio Otros\").sort($\"anio\".desc).show();\n",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:35:01-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -173,16 +173,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683012_-1346343866",
+      "jobName": "paragraph_1595212300027_457394931",
       "id": "paragraph_1594589837548_-1223429766",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:351"
+      "$$hashKey": "object:443"
     },
     {
       "text": "val SFN = dataN.where($\"sectorizacion\" === \"1 - Sector Formal\")\nval SIN = dataN.where($\"sectorizacion\" === \"2 - Sector Informal\")\nval EDN = dataN.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\nval NCN = dataN.where($\"sectorizacion\" === \"4 - No Clasificados por Sector\")\n\nprintln(\"Etnia negra en Sector formal \"+ SFN.count)\nprintln(\"Etnia negra en Sector informal \"+ SIN.count)\nprintln(\"Etnia negra en Sector empleo domestico \"+ EDN.count)\nprintln(\"Etnia negra en No Clasificados por Sector \"+ NCN.count)",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -212,16 +212,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683012_460785001",
+      "jobName": "paragraph_1595212300027_-1756430913",
       "id": "paragraph_1594589945590_-1860922717",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:352"
+      "$$hashKey": "object:444"
     },
     {
       "text": "val SFB = dataB.where($\"sectorizacion\" === \"1 - Sector Formal\")\nval SIB = dataB.where($\"sectorizacion\" === \"2 - Sector Informal\")\nval EDB = dataB.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\nval NCB = dataB.where($\"sectorizacion\" === \"4 - No Clasificados por Sector\")\n\nprintln(\"Etnia blanca en Sector formal \"+ SFB.count)\nprintln(\"Etnia blanca en Sector informal \"+ SIB.count)\nprintln(\"Etnia blanca en Sector empleo domestico \"+ EDB.count)\nprintln(\"Etnia blanca en No Clasificados por Sector \"+ NCB.count)",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -251,16 +251,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683012_-1491627968",
+      "jobName": "paragraph_1595212300027_125030470",
       "id": "paragraph_1594590894843_-1617372934",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:353"
+      "$$hashKey": "object:445"
     },
     {
       "text": "val SFM = dataMe.where($\"sectorizacion\" === \"1 - Sector Formal\")\nval SIM = dataMe.where($\"sectorizacion\" === \"2 - Sector Informal\")\nval EDM = dataMe.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\nval NCM = dataMe.where($\"sectorizacion\" === \"4 - No Clasificados por Sector\")\n\nprintln(\"Etnia mestiza en Sector formal \"+ SFM.count)\nprintln(\"Etnia mestiza en Sector informal \"+ SIM.count)\nprintln(\"Etnia mestiza en Sector empleo domestico \"+ EDM.count)\nprintln(\"Etnia mestiza en No Clasificados por Sector \"+ NCM.count)",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -290,16 +290,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683013_163449128",
+      "jobName": "paragraph_1595212300027_-1905417740",
       "id": "paragraph_1594590933219_1197123414",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:354"
+      "$$hashKey": "object:446"
     },
     {
       "text": "val SUM = dataMe.where($\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\nval SNUM = dataMe.where($\"nivel_de_instruccion\" === \"08 - Superior no universitario\")\nval PGM = dataMe.where($\"nivel_de_instruccion\" === \"10 - Post-grado\")\n\nprintln(f\"${(SUM.count / data.count.toDouble) * 100}%.2f%%Mestizos universitaria\\n${(SNUM.count / data.count.toDouble) * 100}%.2f%%Mestizos no universitario\\n${(PGM.count / data.count.toDouble) * 100}%.2f%%Mestizos post grado\")\n\nval SUB = dataB.where($\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\nval SNUB = dataB.where($\"nivel_de_instruccion\" === \"08 - Superior no universitario\")\nval PGB = dataB.where($\"nivel_de_instruccion\" === \"10 - Post-grado\")\n\nprintln(f\"${(SUB.count / data.count.toDouble) * 100}%.2f%%Blancos universitaria\\n${(SNUB.count / data.count.toDouble) * 100}%.2f%%Blancos no universitario\\n${(PGB.count / data.count.toDouble) * 100}%.2f%%Blancos post grado\")\n\n\nval SUN = dataN.where($\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\nval SNUN = dataN.where($\"nivel_de_instruccion\" === \"08 - Superior no universitario\")\nval PGN = dataN.where($\"nivel_de_instruccion\" === \"10 - Post-grado\")\n\nprintln(f\"${(SUN.count / data.count.toDouble) * 100}%.2f%%Etnia negra universitaria\\n${(SNUN.count / data.count.toDouble) * 100}%.2f%%Etnia negra no universitaria\\n${(PGN.count / data.count.toDouble) * 100}%.2f%%Etnia negra con post grado\")",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -329,17 +329,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683013_-1329484371",
+      "jobName": "paragraph_1595212300027_1832872580",
       "id": "paragraph_1594590973506_1925931599",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:355"
+      "$$hashKey": "object:447"
     },
     {
       "title": "Avances 16/07/2020 Grupo ocupacion con etnias afroecuatorianas",
       "text": "z.show(dataA.stat.crosstab(\"condicion_actividad\", \"anio\").orderBy(\"condicion_actividad_anio\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -563,16 +563,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683013_-636828549",
+      "jobName": "paragraph_1595212300027_1484114018",
       "id": "paragraph_1594591031926_-198642923",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:356"
+      "$$hashKey": "object:448"
     },
     {
       "text": "val empNopleno = dataA.where($\"condicion_actividad\" === \"4 - Otro empleo no pleno\")\nval empNoremunerado = dataA.where($\"condicion_actividad\" === \"5 - Empleo no remunerado\")\nval empNoclasificado = dataA.where($\"condicion_actividad\" === \"6 - Empleo no clasificado\")\nval dempAbierto = dataA.where($\"condicion_actividad\" === \"7 - Desempleo abierto\")\nval dempOculto = dataA.where($\"condicion_actividad\" === \"8 - Desempleo oculto\")",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -602,17 +602,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683014_-1386816555",
+      "jobName": "paragraph_1595212300027_1091858118",
       "id": "paragraph_1594951159198_418330902",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:357"
+      "$$hashKey": "object:449"
     },
     {
       "title": "Cual es el promedio de edad de afroecuatorianos que se encuentran en una condicion no favorable dentro de la data",
       "text": "// Promedio de edad de afroecuatorianos con un empleo no pleno\nempNopleno.groupBy(\"anio\").pivot(\"genero\").agg(round(avg(\"edad\"))).orderBy(\"anio\").show()",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -706,16 +706,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683014_533532546",
+      "jobName": "paragraph_1595212300027_2096395214",
       "id": "paragraph_1594952791058_-1127560960",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:358"
+      "$$hashKey": "object:450"
     },
     {
       "text": "// Promedio de edad de afroecuatorianos con un empleo no remunerado\nempNoremunerado.groupBy(\"anio\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"anio\").show()",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -802,16 +802,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683016_-1896322048",
+      "jobName": "paragraph_1595212300027_1198367197",
       "id": "paragraph_1594953168769_225748749",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:359"
+      "$$hashKey": "object:451"
     },
     {
       "text": "// Promedio de edad de afroecuatorianos con un empleo no clasificado\nempNoclasificado.groupBy(\"anio\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"anio\").show()",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -893,16 +893,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683016_-188021434",
+      "jobName": "paragraph_1595212300027_1388127136",
       "id": "paragraph_1594953459757_171229628",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:360"
+      "$$hashKey": "object:452"
     },
     {
       "text": "// Promedio de edad de afroecuatorianos con un desempleo abierto\ndempAbierto.groupBy(\"anio\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"anio\").show()",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -932,16 +932,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683017_751031811",
+      "jobName": "paragraph_1595212300027_-1763569888",
       "id": "paragraph_1594953506056_-40473246",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:361"
+      "$$hashKey": "object:453"
     },
     {
       "text": "// Promedio de edad de afroecuatorianos con un desempleo oculto\ndempOculto.groupBy(\"anio\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"anio\").show()",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -971,17 +971,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683017_-2109553605",
+      "jobName": "paragraph_1595212300027_-1441585424",
       "id": "paragraph_1594953818958_-1825798281",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:362"
+      "$$hashKey": "object:454"
     },
     {
       "title": "Con lo datos de la tabla podemos conocer los estados civiles de  las personas afroecuatorianas",
       "text": "// Estado civil de las afroecuatorianos con un empleo no pleno\nz.show(empNopleno.groupBy(\"estado_civil\").pivot(\"anio\").count().orderBy(\"estado_civil\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1087,17 +1087,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683019_1487912349",
+      "jobName": "paragraph_1595212300027_-16898825",
       "id": "paragraph_1594953919130_1520721483",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:363"
+      "$$hashKey": "object:455"
     },
     {
       "title": "Que nivel de educacion recibio cada una de estas personas",
       "text": "// Nivel de instruccion de las afroecuatorianos con un empleo no pleno\nz.show(empNopleno.groupBy(\"nivel_de_instruccion\").count().orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1179,16 +1179,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683021_587849958",
+      "jobName": "paragraph_1595212300027_-1414962063",
       "id": "paragraph_1594954551322_-133067703",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:368"
+      "$$hashKey": "object:456"
     },
     {
       "text": "// Nivel de instruccion de las afroecuatorianos con un empleo no remunerado\nz.show(empNoremunerado.groupBy(\"nivel_de_instruccion\").count().orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1248,16 +1248,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683021_1750333653",
+      "jobName": "paragraph_1595212300027_406030824",
       "id": "paragraph_1594956019986_-1828124474",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:369"
+      "$$hashKey": "object:457"
     },
     {
       "text": "// Nivel de instruccion de las afroecuatorianos con un empleo no clasificado\nz.show(empNoclasificado.groupBy(\"nivel_de_instruccion\").count().orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1317,16 +1317,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683022_-2029815151",
+      "jobName": "paragraph_1595212300027_427220480",
       "id": "paragraph_1594956106687_-1597090037",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:370"
+      "$$hashKey": "object:458"
     },
     {
       "text": "// Nivel de instruccion de las afroecuatorianos con un desempleo abierto\nz.show(dempAbierto.groupBy(\"nivel_de_instruccion\").count().orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1386,16 +1386,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683023_-2111586254",
+      "jobName": "paragraph_1595212300028_382141298",
       "id": "paragraph_1594956233336_-1997328417",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:371"
+      "$$hashKey": "object:459"
     },
     {
       "text": "// Nivel de instruccion de las afroecuatorianos con un desempleo oculto\nz.show(dempOculto.groupBy(\"nivel_de_instruccion\").count().orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1455,17 +1455,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683023_-992634215",
+      "jobName": "paragraph_1595212300028_-180510503",
       "id": "paragraph_1594956299360_-715363378",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:372"
+      "$$hashKey": "object:460"
     },
     {
       "title": "Con esto cual es el promedio de sueldo que reciben estas personas",
       "text": "// Sueldo promedio de  afroecuatorianos con empleo no pleno\nz.show(empNopleno.groupBy(\"nivel_de_instruccion\").pivot(\"genero\").agg(round(avg(\"ingreso_laboral\"))).orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1567,16 +1567,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683024_877291157",
+      "jobName": "paragraph_1595212300028_1460299176",
       "id": "paragraph_1594956334902_874025213",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:373"
+      "$$hashKey": "object:461"
     },
     {
       "text": "// Sueldo promedio de afroecuatorianos con desempleo abierto\nz.show(dempAbierto.groupBy(\"nivel_de_instruccion\").pivot(\"genero\").agg(round(avg(\"ingreso_laboral\"))).orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1664,17 +1664,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683032_805943032",
+      "jobName": "paragraph_1595212300028_-1354516275",
       "id": "paragraph_1594957052413_-1709138982",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:376"
+      "$$hashKey": "object:462"
     },
     {
       "title": "Que grupo ocupacion tienen mas incidencias de condicion de empleo en Ecuador",
       "text": "// grupo ocupacion afroecuatorianos que tienen un empleo no pleno\nz.show(empNopleno.groupBy(\"grupo_ocupacion\").pivot(\"genero\").count().orderBy(\"grupo_ocupacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1762,16 +1762,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683034_-910047223",
+      "jobName": "paragraph_1595212300028_-2134109805",
       "id": "paragraph_1594957177607_-1232891908",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:378"
+      "$$hashKey": "object:463"
     },
     {
       "text": "// grupo ocupacion afroecuatorianos que tienen un empleo no clasificado\nz.show(empNoclasificado.groupBy(\"grupo_ocupacion\").pivot(\"genero\").count().orderBy(\"grupo_ocupacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T20:48:03-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1858,15 +1858,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683035_-491680058",
+      "jobName": "paragraph_1595212300028_765435613",
       "id": "paragraph_1594957996823_159686994",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:380"
+      "$$hashKey": "object:464"
     },
     {
+      "title": "David Avances 19/07/2020",
       "user": "anonymous",
-      "dateUpdated": "2020-07-19T21:03:57-0500",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1877,9 +1878,9 @@
         "colWidth": 12,
         "editorMode": "ace/mode/scala",
         "fontSize": 9,
+        "title": true,
         "results": {},
-        "enabled": true,
-        "title": true
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -1888,12 +1889,579 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595209683036_673211197",
+      "jobName": "paragraph_1595212300028_407133646",
       "id": "paragraph_1595108278967_-1814349563",
-      "dateCreated": "2020-07-19T20:48:03-0500",
+      "dateCreated": "2020-07-19T21:31:40-0500",
       "status": "READY",
-      "$$hashKey": "object:381",
-      "title": "David Avances 19/07/2020"
+      "$$hashKey": "object:465"
+    },
+    {
+      "title": "Conteo de personas de cada etnia clasifica por genero                  ",
+      "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:33:07-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "etnia": "string",
+                      "1 - Hombre": "string",
+                      "2 - Mujer": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "etnia",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "1 - Hombre",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2 - Mujer",
+                  "index": 2,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "etnia\t1 - Hombre\t2 - Mujer\n1 - Indígena\t39157\t36342\n2 - Afroecuatoriano\t4617\t3585\n3 - Negro\t5062\t3389\n4 - Mulato\t3660\t2276\n5 - Montubio\t16064\t7183\n6 - Mestizo\t279951\t211972\n7 - Blanco\t5453\t3756\n8 - Otro\t214\t95\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595212300028_551676431",
+      "id": "paragraph_1595210362994_-2027147942",
+      "dateCreated": "2020-07-19T21:31:40-0500",
+      "status": "READY",
+      "$$hashKey": "object:466"
+    },
+    {
+      "title": "Edad promedio de las personas de cada etnia por género",
+      "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"etnia\"))",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:35:30-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "etnia": "string",
+                      "1 - Hombre": "string",
+                      "2 - Mujer": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "etnia",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "1 - Hombre",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "etnia\t1 - Hombre\t2 - Mujer\n1 - Indígena\t38\t39\n2 - Afroecuatoriano\t39\t39\n3 - Negro\t39\t40\n4 - Mulato\t40\t40\n5 - Montubio\t43\t43\n6 - Mestizo\t41\t41\n7 - Blanco\t44\t44\n8 - Otro\t43\t42\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=137",
+              "$$hashKey": "object:7628"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=138",
+              "$$hashKey": "object:7629"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595212300028_-1951812397",
+      "id": "paragraph_1595210693426_1613594662",
+      "dateCreated": "2020-07-19T21:31:40-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:467",
+      "dateFinished": "2020-07-19T21:35:38-0500",
+      "dateStarted": "2020-07-19T21:35:30-0500"
+    },
+    {
+      "title": "Conteo de las personas de cada sector en cada año",
+      "text": "z.show(data.groupBy(\"sectorizacion\").pivot(\"anio\").count.orderBy(\"sectorizacion\"))",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:33:39-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "2015": "string",
+                      "2016": "string",
+                      "2017": "string",
+                      "2018": "string",
+                      "2019": "string",
+                      "sectorizacion": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "sectorizacion",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "2015",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "sectorizacion\t2015\t2016\t2017\t2018\t2019\nnull\t5687\t5251\t5846\t4626\t4851\n1 - Sector Formal\t61346\t49261\t63713\t53674\t53775\n2 - Sector Informal\t55047\t48546\t62307\t52309\t52980\n3 - Empleo Doméstico\t2522\t2249\t3002\t2660\t2806\n4 - No Clasificados por Sector\t8342\t5853\t5785\t4931\t5407\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595212300028_703762034",
+      "id": "paragraph_1595210411095_-1694523353",
+      "dateCreated": "2020-07-19T21:31:40-0500",
+      "status": "READY",
+      "$$hashKey": "object:468"
+    },
+    {
+      "title": "Promedio del ingreso laboral de cada etnia por año",
+      "text": "z.show(data.groupBy(\"etnia\").pivot(\"anio\").avg(\"ingreso_laboral\").where($\"etnia\".isNotNull)orderBy(\"etnia\"))",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "2015": "string",
+                      "2016": "string",
+                      "2017": "string",
+                      "2018": "string",
+                      "2019": "string",
+                      "etnia": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "etnia\t2015\t2016\t2017\t2018\t2019\n1 - Indígena\t291.6655518394649\t281.2302359271523\t290.9101227509669\t312.27034080442127\t325.32051469513084\n2 - Afroecuatoriano\t411.2017434620174\t400.29624277456645\t452.31573033707866\t469.77282377919323\t485.53057384760115\n3 - Negro\t394.89690721649487\t379.14643799472293\t422.3720238095238\t386.5911654135338\t383.14963119072706\n4 - Mulato\t413.2036888532478\t386.2193074501574\t395.49725274725273\t402.54987834549877\t387.36475409836066\n5 - Montubio\t358.34414715719066\t352.58051044083527\t373.0661553211889\t307.2650913423352\t302.4964403542282\n6 - Mestizo\t513.3691551452475\t491.1641972578505\t525.1980497870074\t532.2717226516984\t518.0325121290404\n7 - Blanco\t667.7136904761904\t554.7198443579766\t624.7062146892655\t706.4891871737509\t624.4534623976173\n8 - Otro\t838.7450980392157\t508.8709677419355\t799.0410958904109\t924.96875\t795.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595212300028_170129435",
+      "id": "paragraph_1595210646436_-893613200",
+      "dateCreated": "2020-07-19T21:31:40-0500",
+      "status": "READY",
+      "$$hashKey": "object:469"
+    },
+    {
+      "title": "Promedio del ingreso laboral de cada etnia por genero",
+      "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").agg(avg(\"ingreso_laboral\")).orderBy(\"etnia\"))",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:31:40-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "etnia": "string",
+                      "1 - Hombre": "string",
+                      "2 - Mujer": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "etnia\t1 - Hombre\t2 - Mujer\n1 - Indígena\t329.1896678473568\t240.41782236647978\n2 - Afroecuatoriano\t472.2173373075012\t391.78610403783193\n3 - Negro\t421.86531690140845\t350.39304219096965\n4 - Mulato\t439.81171803478793\t321.5201323772752\n5 - Montubio\t347.4767961979312\t276.48603234614575\n6 - Mestizo\t559.5263578981225\t451.16832253949565\n7 - Blanco\t687.0872008324662\t545.9616858237548\n8 - Otro\t788.6198830409356\t776.1379310344828\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595212300028_-246181095",
+      "id": "paragraph_1595210673695_-1393770346",
+      "dateCreated": "2020-07-19T21:31:40-0500",
+      "status": "READY",
+      "$$hashKey": "object:470"
+    },
+    {
+      "user": "anonymous",
+      "dateUpdated": "2020-07-19T21:37:16-0500",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "2015": "string",
+                      "2016": "string",
+                      "2017": "string",
+                      "2018": "string",
+                      "2019": "string",
+                      "etnia": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "etnia",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "2015",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=139",
+              "$$hashKey": "object:8606"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=140",
+              "$$hashKey": "object:8607"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595212300028_-1926445098",
+      "id": "paragraph_1595210733093_-1286460396",
+      "dateCreated": "2020-07-19T21:31:40-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:471",
+      "text": "z.show(data.where($\"rama_actividad\" === \"06 - F. Construcción\").groupBy(\"etnia\").pivot(\"anio\").count.orderBy(\"etnia\"))",
+      "dateFinished": "2020-07-19T21:37:10-0500",
+      "dateStarted": "2020-07-19T21:37:01-0500",
+      "title": "Cantidad de personas por etnia de cada anio en el sector de la construccion",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "etnia\t2015\t2016\t2017\t2018\t2019\n1 - Indígena\t1417\t964\t1157\t560\t578\n2 - Afroecuatoriano\t121\t100\t137\t59\t65\n3 - Negro\t150\t97\t147\t94\t48\n4 - Mulato\t104\t84\t98\t60\t82\n5 - Montubio\t141\t99\t156\t163\t186\n6 - Mestizo\t6513\t4787\t5933\t5300\t4898\n7 - Blanco\t90\t58\t94\t68\t68\n8 - Otro\t11\t2\t7\t1\t4\n"
+          }
+        ]
+      }
     },
     {
       "user": "anonymous",
@@ -1906,7 +2474,7 @@
             "graph": {
               "mode": "multiBarChart",
               "height": 300,
-              "optionOpen": true,
+              "optionOpen": false,
               "setting": {
                 "table": {
                   "tableGridState": {},
@@ -1981,127 +2549,38 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=2",
-              "$$hashKey": "object:11616"
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=145",
+              "$$hashKey": "object:10188"
             },
             {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=3",
-              "$$hashKey": "object:11617"
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=146",
+              "$$hashKey": "object:10189"
             }
           ],
           "interpreterSettingId": "spark"
         }
       },
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595210362994_-2027147942",
-      "id": "paragraph_1595210362994_-2027147942",
-      "dateCreated": "2020-07-19T20:59:22-0500",
+      "jobName": "paragraph_1595212621737_1354047431",
+      "id": "paragraph_1595212621737_1354047431",
+      "dateCreated": "2020-07-19T21:37:01-0500",
       "status": "FINISHED",
       "focus": true,
-      "$$hashKey": "object:5614",
-      "dateUpdated": "2020-07-19T21:10:37-0500",
-      "dateFinished": "2020-07-19T21:03:39-0500",
-      "dateStarted": "2020-07-19T21:03:22-0500",
-      "title": "Conteo de personas de cada etnia clasifica por genero                  ",
+      "$$hashKey": "object:7788",
+      "text": "val dataMe = data.where($\"etnia\" === \"6 - Mestizo\" || $\"etnia\" === \"5 - Montubio\")\nz.show(dataMe.groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))",
+      "dateUpdated": "2020-07-19T21:38:22-0500",
+      "dateFinished": "2020-07-19T21:38:13-0500",
+      "dateStarted": "2020-07-19T21:38:06-0500",
       "results": {
         "code": "SUCCESS",
         "msg": [
           {
             "type": "TABLE",
-            "data": "etnia\t1 - Hombre\t2 - Mujer\n1 - Indígena\t39157\t36342\n2 - Afroecuatoriano\t4617\t3585\n3 - Negro\t5062\t3389\n4 - Mulato\t3660\t2276\n5 - Montubio\t16064\t7183\n6 - Mestizo\t279951\t211972\n7 - Blanco\t5453\t3756\n8 - Otro\t214\t95\n"
-          }
-        ]
-      },
-      "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))"
-    },
-    {
-      "user": "anonymous",
-      "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 300,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "etnia": "string",
-                      "1 - Hombre": "string",
-                      "2 - Mujer": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            }
-          }
-        },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala",
-        "title": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=8",
-              "$$hashKey": "object:10423"
-            },
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=9",
-              "$$hashKey": "object:10424"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595210693426_1613594662",
-      "id": "paragraph_1595210693426_1613594662",
-      "dateCreated": "2020-07-19T21:04:53-0500",
-      "status": "FINISHED",
-      "focus": true,
-      "$$hashKey": "object:8780",
-      "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").agg(round(avg(\"edad\")).cast(IntegerType)).orderBy(\"etnia\"))",
-      "dateUpdated": "2020-07-19T21:06:09-0500",
-      "dateFinished": "2020-07-19T21:05:07-0500",
-      "dateStarted": "2020-07-19T21:04:56-0500",
-      "title": "Edad promedio de las personas de cada etnia por género",
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
+            "data": "etnia\t1 - Hombre\t2 - Mujer\n5 - Montubio\t16064\t7183\n6 - Mestizo\t279951\t211972\n"
+          },
           {
-            "type": "TABLE",
-            "data": "etnia\t1 - Hombre\t2 - Mujer\n1 - Indígena\t38\t39\n2 - Afroecuatoriano\t39\t39\n3 - Negro\t39\t40\n4 - Mulato\t40\t40\n5 - Montubio\t43\t43\n6 - Mestizo\t41\t41\n7 - Blanco\t44\t44\n8 - Otro\t43\t42\n"
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdataMe\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
           }
         ]
       }
@@ -2115,7 +2594,7 @@
         "results": {
           "0": {
             "graph": {
-              "mode": "table",
+              "mode": "multiBarChart",
               "height": 300,
               "optionOpen": false,
               "setting": {
@@ -2123,12 +2602,8 @@
                   "tableGridState": {},
                   "tableColumnTypeState": {
                     "names": {
-                      "2015": "string",
-                      "2016": "string",
-                      "2017": "string",
-                      "2018": "string",
-                      "2019": "string",
-                      "sectorizacion": "string"
+                      "etnia": "string",
+                      "count": "string"
                     },
                     "updated": false
                   },
@@ -2140,9 +2615,30 @@
                   },
                   "updated": false,
                   "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
                 }
               },
-              "commonSetting": {}
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "etnia",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
             },
             "helium": {}
           }
@@ -2169,225 +2665,34 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=12",
-              "$$hashKey": "object:10856"
-            },
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=13",
-              "$$hashKey": "object:10857"
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=147",
+              "$$hashKey": "object:10971"
             }
           ],
           "interpreterSettingId": "spark"
         }
       },
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595210411095_-1694523353",
-      "id": "paragraph_1595210411095_-1694523353",
-      "dateCreated": "2020-07-19T21:00:11-0500",
+      "jobName": "paragraph_1595212640085_1470747113",
+      "id": "paragraph_1595212640085_1470747113",
+      "dateCreated": "2020-07-19T21:37:20-0500",
       "status": "FINISHED",
       "focus": true,
-      "$$hashKey": "object:5710",
-      "text": "z.show(data.groupBy(\"sectorizacion\").pivot(\"anio\").count.orderBy(\"sectorizacion\"))",
-      "dateUpdated": "2020-07-19T21:09:03-0500",
-      "dateFinished": "2020-07-19T21:09:13-0500",
-      "dateStarted": "2020-07-19T21:09:03-0500",
-      "title": "Conteo de las personas de cada sector en cada año",
+      "$$hashKey": "object:8622",
+      "dateUpdated": "2020-07-19T21:38:54-0500",
+      "dateFinished": "2020-07-19T21:38:49-0500",
+      "dateStarted": "2020-07-19T21:38:45-0500",
+      "title": "Cantidad de personas del sector rural que tienen un nivel de instruccion superior universitario de todas las etnias",
       "results": {
         "code": "SUCCESS",
         "msg": [
           {
             "type": "TABLE",
-            "data": "sectorizacion\t2015\t2016\t2017\t2018\t2019\nnull\t5687\t5251\t5846\t4626\t4851\n1 - Sector Formal\t61346\t49261\t63713\t53674\t53775\n2 - Sector Informal\t55047\t48546\t62307\t52309\t52980\n3 - Empleo Doméstico\t2522\t2249\t3002\t2660\t2806\n4 - No Clasificados por Sector\t8342\t5853\t5785\t4931\t5407\n"
+            "data": "etnia\tcount\n1 - Indígena\t1724\n2 - Afroecuatoriano\t133\n3 - Negro\t82\n4 - Mulato\t39\n5 - Montubio\t487\n6 - Mestizo\t12020\n7 - Blanco\t199\n8 - Otro\t16\n"
           }
         ]
-      }
-    },
-    {
-      "user": "anonymous",
-      "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 300,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "2015": "string",
-                      "2016": "string",
-                      "2017": "string",
-                      "2018": "string",
-                      "2019": "string",
-                      "etnia": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            }
-          }
-        },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala",
-        "title": true
       },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=6",
-              "$$hashKey": "object:10500"
-            },
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=7",
-              "$$hashKey": "object:10501"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595210646436_-893613200",
-      "id": "paragraph_1595210646436_-893613200",
-      "dateCreated": "2020-07-19T21:04:06-0500",
-      "status": "FINISHED",
-      "focus": true,
-      "$$hashKey": "object:6734",
-      "text": "z.show(data.groupBy(\"etnia\").pivot(\"anio\").avg(\"ingreso_laboral\").where($\"etnia\".isNotNull)orderBy(\"etnia\"))",
-      "dateUpdated": "2020-07-19T21:07:47-0500",
-      "dateFinished": "2020-07-19T21:04:46-0500",
-      "dateStarted": "2020-07-19T21:04:33-0500",
-      "title": "Promedio del ingreso laboral de cada etnia por año",
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "etnia\t2015\t2016\t2017\t2018\t2019\n1 - Indígena\t291.6655518394649\t281.2302359271523\t290.9101227509669\t312.27034080442127\t325.32051469513084\n2 - Afroecuatoriano\t411.2017434620174\t400.29624277456645\t452.31573033707866\t469.77282377919323\t485.53057384760115\n3 - Negro\t394.89690721649487\t379.14643799472293\t422.3720238095238\t386.5911654135338\t383.14963119072706\n4 - Mulato\t413.2036888532478\t386.2193074501574\t395.49725274725273\t402.54987834549877\t387.36475409836066\n5 - Montubio\t358.34414715719066\t352.58051044083527\t373.0661553211889\t307.2650913423352\t302.4964403542282\n6 - Mestizo\t513.3691551452475\t491.1641972578505\t525.1980497870074\t532.2717226516984\t518.0325121290404\n7 - Blanco\t667.7136904761904\t554.7198443579766\t624.7062146892655\t706.4891871737509\t624.4534623976173\n8 - Otro\t838.7450980392157\t508.8709677419355\t799.0410958904109\t924.96875\t795.0\n"
-          }
-        ]
-      }
-    },
-    {
-      "user": "anonymous",
-      "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 300,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "etnia": "string",
-                      "1 - Hombre": "string",
-                      "2 - Mujer": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            }
-          }
-        },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala",
-        "title": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=10",
-              "$$hashKey": "object:10538"
-            },
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=11",
-              "$$hashKey": "object:10539"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595210673695_-1393770346",
-      "id": "paragraph_1595210673695_-1393770346",
-      "dateCreated": "2020-07-19T21:04:33-0500",
-      "status": "FINISHED",
-      "focus": true,
-      "$$hashKey": "object:7713",
-      "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").agg(avg(\"ingreso_laboral\")).orderBy(\"etnia\"))",
-      "dateUpdated": "2020-07-19T21:08:40-0500",
-      "dateFinished": "2020-07-19T21:05:44-0500",
-      "dateStarted": "2020-07-19T21:05:33-0500",
-      "title": "Promedio del ingreso laboral de cada etnia por genero",
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "etnia\t1 - Hombre\t2 - Mujer\n1 - Indígena\t329.1896678473568\t240.41782236647978\n2 - Afroecuatoriano\t472.2173373075012\t391.78610403783193\n3 - Negro\t421.86531690140845\t350.39304219096965\n4 - Mulato\t439.81171803478793\t321.5201323772752\n5 - Montubio\t347.4767961979312\t276.48603234614575\n6 - Mestizo\t559.5263578981225\t451.16832253949565\n7 - Blanco\t687.0872008324662\t545.9616858237548\n8 - Otro\t788.6198830409356\t776.1379310344828\n"
-          }
-        ]
-      }
+      "text": "z.show(data.where($\"area\" === \"2 - Rural\" && $\"nivel_de_instruccion\" === \"09 - Superior Universitario\").groupBy(\"etnia\").count.orderBy(\"etnia\"))"
     },
     {
       "user": "anonymous",
@@ -2411,16 +2716,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1595210733093_-1286460396",
-      "id": "paragraph_1595210733093_-1286460396",
-      "dateCreated": "2020-07-19T21:05:33-0500",
+      "jobName": "paragraph_1595212725607_-975288635",
+      "id": "paragraph_1595212725607_-975288635",
+      "dateCreated": "2020-07-19T21:38:45-0500",
       "status": "READY",
       "focus": true,
-      "$$hashKey": "object:9599"
+      "$$hashKey": "object:10212"
     }
   ],
   "name": "avances2",
-  "id": "2FG132G3E",
+  "id": "2FGJKBM9J",
   "defaultInterpreterGroup": "spark",
   "version": "0.9.0-preview1",
   "noteParams": {},
