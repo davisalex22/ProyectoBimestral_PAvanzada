@@ -1,0 +1,2540 @@
+﻿{
+  "paragraphs": [
+    {
+      "title": "Esquema",
+      "text": "import org.apache.spark.sql.types._\nimport org.apache.spark.sql.functions._\nval myDataSchema = StructType(\n  Array(\n    StructField(\"id\",DecimalType(26, 0),true),\n    StructField(\"anio\",IntegerType,true),\n    StructField(\"mes\",IntegerType,true),\n    StructField(\"provincia\",IntegerType,true),\n    StructField(\"canton\",IntegerType,true),\n    StructField(\"area\",StringType,true),\n    StructField(\"genero\",StringType,true),\n    StructField(\"edad\",IntegerType,true),\n    StructField(\"estado_civil\",StringType,true),\n    StructField(\"nivel_de_instruccion\",StringType,true),\n    StructField(\"etnia\",StringType,true),\n    StructField(\"ingreso_laboral\",IntegerType,true),\n    StructField(\"condicion_actividad\",StringType,true),\n    StructField(\"sectorizacion\",StringType,true),\n    StructField(\"grupo_ocupacion\",StringType,true),\n    StructField(\"rama_actividad\",StringType,true),\n    StructField(\"factor_expansion\",DoubleType,true)\n  ));",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-26T16:02:49-0500",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.types._\nimport org.apache.spark.sql.functions._\n\u001b[1m\u001b[34mmyDataSchema\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.types.StructType\u001b[0m = StructType(StructField(id,DecimalType(26,0),true), StructField(anio,IntegerType,true), StructField(mes,IntegerType,true), StructField(provincia,IntegerType,true), StructField(canton,IntegerType,true), StructField(area,StringType,true), StructField(genero,StringType,true), StructField(edad,IntegerType,true), StructField(estado_civil,StringType,true), StructField(nivel_de_instruccion,StringType,true), StructField(etnia,StringType,true), StructField(ingreso_laboral,IntegerType,true), StructField(condicion_actividad,StringType,true), StructField(sectorizacion,StringType,true), StructField(grupo_ocupacion,StringType,true), StructField(ram..."
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595797302277_1409279875",
+      "id": "paragraph_1595797302277_1409279875",
+      "dateCreated": "2020-07-26T16:01:42-0500",
+      "dateStarted": "2020-07-26T16:02:49-0500",
+      "dateFinished": "2020-07-26T16:03:05-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:105"
+    },
+    {
+      "title": "Lectura de CSV",
+      "text": "val data = spark\n\t  .read\n\t  .option(\"inferSchema\",\"true\")\n\t  .option(\"header\",\"true\")\n\t  .option(\"delimiter\",\"\\t\")\n\t  .csv(\"/home/davisalex22/Datos_ENEMDU_PEA_v2.csv\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-26T16:04:31-0500",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdata\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=2",
+              "$$hashKey": "object:417"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=3",
+              "$$hashKey": "object:418"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595797344192_-1132658780",
+      "id": "paragraph_1595797344192_-1132658780",
+      "dateCreated": "2020-07-26T16:02:24-0500",
+      "dateStarted": "2020-07-26T16:04:31-0500",
+      "dateFinished": "2020-07-26T16:04:37-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:106"
+    },
+    {
+      "text": "%md\n<H1 align=\"center\">Análisis Exploratorio de Datos ENEMDU</H1>\n<H2>Documentación Técnica</H2>",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-26T17:39:44-0500",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/text",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<H1 align=\"center\">Análisis Exploratorio de Datos ENEMDU</H1>\n<H2>Documentación Técnica</H2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595797365357_591785725",
+      "id": "paragraph_1595797365357_591785725",
+      "dateCreated": "2020-07-26T16:02:45-0500",
+      "dateStarted": "2020-07-26T17:39:31-0500",
+      "dateFinished": "2020-07-26T17:39:31-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:107"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-26T16:34:19-0500",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/text",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595799242818_165142088",
+      "id": "paragraph_1595799242818_165142088",
+      "dateCreated": "2020-07-26T16:34:02-0500",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:7538",
+      "title": "Consulta # 1"
+    },
+    {
+      "text": "z.show(data.stat.crosstab(\"condicion_actividad\", \"anio\").orderBy(\"condicion_actividad_anio\"))",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-26T16:34:30-0500",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "2015": "string",
+                      "2016": "string",
+                      "2017": "string",
+                      "2018": "string",
+                      "2019": "string",
+                      "condicion_actividad_anio": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "rotate"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "condicion_actividad_anio",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "2015",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2016",
+                  "index": 2,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2017",
+                  "index": 3,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2018",
+                  "index": 4,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2019",
+                  "index": 5,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "condicion_actividad_anio\t2015\t2016\t2017\t2018\t2019\n1 - Empleo Adecuado/Pleno\t55850\t41840\t53915\t46591\t45980\n2 - Subempleo por insuficiencia de tiempo de trabajo\t14245\t15794\t21813\t16792\t17886\n3 - Subempleo por insuficiencia de ingresos\t3525\t3828\t5908\t4163\t3597\n4 - Otro empleo no pleno\t38298\t30391\t35695\t32178\t32934\n5 - Empleo no remunerado\t14921\t13820\t17193\t13380\t13953\n6 - Empleo no clasificado\t418\t236\t283\t470\t618\n7 - Desempleo abierto\t4407\t4285\t4817\t3953\t4044\n8 - Desempleo oculto\t1280\t966\t1029\t673\t807\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=46",
+              "$$hashKey": "object:7663"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=47",
+              "$$hashKey": "object:7664"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=48",
+              "$$hashKey": "object:7665"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=49",
+              "$$hashKey": "object:7666"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=50",
+              "$$hashKey": "object:7667"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=51",
+              "$$hashKey": "object:7668"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595798412458_-574222663",
+      "id": "paragraph_1595798412458_-574222663",
+      "dateCreated": "2020-07-26T16:20:12-0500",
+      "dateStarted": "2020-07-26T16:30:48-0500",
+      "dateFinished": "2020-07-26T16:30:53-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:109",
+      "title": "Consulta # 1"
+    },
+    {
+      "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\").stat.crosstab(\"condicion_actividad\", \"anio\").orderBy(\"condicion_actividad_anio\"))",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-26T16:26:40-0500",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "2015": "string",
+                      "2016": "string",
+                      "2017": "string",
+                      "2018": "string",
+                      "2019": "string",
+                      "condicion_actividad_anio": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "rotate"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "condicion_actividad_anio",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "2015",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2016",
+                  "index": 2,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2017",
+                  "index": 3,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2018",
+                  "index": 4,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2019",
+                  "index": 5,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=22",
+              "$$hashKey": "object:4708"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=23",
+              "$$hashKey": "object:4709"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=24",
+              "$$hashKey": "object:4710"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=25",
+              "$$hashKey": "object:4711"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=26",
+              "$$hashKey": "object:4712"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=27",
+              "$$hashKey": "object:4713"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595798424377_-1044869980",
+      "id": "paragraph_1595798424377_-1044869980",
+      "dateCreated": "2020-07-26T16:20:24-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:110",
+      "dateFinished": "2020-07-26T16:26:36-0500",
+      "dateStarted": "2020-07-26T16:26:31-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "condicion_actividad_anio\t2015\t2016\t2017\t2018\t2019\n1 - Empleo Adecuado/Pleno\t724\t615\t837\t461\t521\n2 - Subempleo por insuficiencia de tiempo de trabajo\t254\t292\t427\t187\t249\n3 - Subempleo por insuficiencia de ingresos\t64\t53\t92\t36\t35\n4 - Otro empleo no pleno\t509\t421\t497\t286\t303\n5 - Empleo no remunerado\t144\t115\t150\t65\t86\n6 - Empleo no clasificado\t2\t9\t1\t3\t17\n7 - Desempleo abierto\t148\t133\t159\t65\t95\n8 - Desempleo oculto\t49\t28\t30\t21\t19\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595798525342_-1322144030",
+      "id": "paragraph_1595798525342_-1322144030",
+      "dateCreated": "2020-07-26T16:22:05-0500",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:838",
+      "dateUpdated": "2020-07-26T16:50:47-0500",
+      "title": "Consulta # 2",
+      "text": "%md\nDescripcion"
+    },
+    {
+      "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\")\n           .groupBy(\"nivel_de_instruccion\")\n           .count()\n           .orderBy(\"nivel_de_instruccion\"))",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-26T16:50:12-0500",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "nivel_de_instruccion": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "nivel_de_instruccion",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=54",
+              "$$hashKey": "object:13055"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595799293852_-456687849",
+      "id": "paragraph_1595799293852_-456687849",
+      "dateCreated": "2020-07-26T16:34:53-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:7779",
+      "dateFinished": "2020-07-26T16:40:04-0500",
+      "dateStarted": "2020-07-26T16:40:00-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "nivel_de_instruccion\tcount\n01 - Ninguno\t218\n02 - Centro de alfabetización\t20\n04 - Primaria\t2426\n05 - Educación Básica\t350\n06 - Secundaria\t2972\n07 - Educación  Media\t887\n08 - Superior no universitario\t120\n09 - Superior Universitario\t1136\n10 - Post-grado\t73\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595799441484_-982333077",
+      "id": "paragraph_1595799441484_-982333077",
+      "dateCreated": "2020-07-26T16:37:21-0500",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:7862",
+      "dateUpdated": "2020-07-26T16:40:53-0500",
+      "title": "Consulta # 3",
+      "text": "%md"
+    },
+    {
+      "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\").groupBy(\"nivel_de_instruccion\").pivot(\"genero\").agg(round(avg(\"ingreso_laboral\"))).orderBy(\"nivel_de_instruccion\"))",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-26T16:43:40-0500",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "nivel_de_instruccion": "string",
+                      "1 - Hombre": "string",
+                      "2 - Mujer": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "nivel_de_instruccion",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "1 - Hombre",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2 - Mujer",
+                  "index": 2,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=55",
+              "$$hashKey": "object:10467"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=56",
+              "$$hashKey": "object:10468"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595799654056_-1614270673",
+      "id": "paragraph_1595799654056_-1614270673",
+      "dateCreated": "2020-07-26T16:40:54-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:9346",
+      "dateFinished": "2020-07-26T16:43:27-0500",
+      "dateStarted": "2020-07-26T16:43:16-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "nivel_de_instruccion\t1 - Hombre\t2 - Mujer\n01 - Ninguno\t197.0\t152.0\n02 - Centro de alfabetización\t265.0\t429.0\n04 - Primaria\t343.0\t253.0\n05 - Educación Básica\t263.0\t192.0\n06 - Secundaria\t504.0\t301.0\n07 - Educación  Media\t347.0\t281.0\n08 - Superior no universitario\t905.0\t474.0\n09 - Superior Universitario\t933.0\t715.0\n10 - Post-grado\t1590.0\t1425.0\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "anio": "string",
+                      "1 - Hombre": "string",
+                      "2 - Mujer": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "pieChart": {}
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "anio",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "1 - Hombre",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2 - Mujer",
+                  "index": 2,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/text",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595799796295_-355254488",
+      "id": "paragraph_1595799796295_-355254488",
+      "dateCreated": "2020-07-26T16:43:16-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:9435",
+      "dateUpdated": "2020-07-26T16:49:26-0500",
+      "dateFinished": "2020-07-26T16:49:26-0500",
+      "dateStarted": "2020-07-26T16:49:26-0500",
+      "title": "Consulta # 4",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p>Descripcion</p>\n\n</div>"
+          }
+        ]
+      },
+      "text": "%md \nDescripcion"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "anio": "string",
+                      "1 - Hombre": "string",
+                      "2 - Mujer": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "pieChart": {},
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "anio",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "1 - Hombre",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2 - Mujer",
+                  "index": 2,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=61",
+              "$$hashKey": "object:13028"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=62",
+              "$$hashKey": "object:13029"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595800028755_1251201211",
+      "id": "paragraph_1595800028755_1251201211",
+      "dateCreated": "2020-07-26T16:47:08-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:10522",
+      "dateUpdated": "2020-07-26T16:49:38-0500",
+      "dateFinished": "2020-07-26T16:49:16-0500",
+      "dateStarted": "2020-07-26T16:49:07-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "anio\t1 - Hombre\t2 - Mujer\n2015\t461.0\t337.0\n2016\t422.0\t369.0\n2017\t483.0\t407.0\n2018\t499.0\t431.0\n2019\t514.0\t443.0\n"
+          }
+        ]
+      },
+      "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\")\n       .groupBy(\"anio\").pivot(\"genero\")\n       .agg(round(avg(\"ingreso_laboral\"))).orderBy(\"anio\"))"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595801172694_1861160965",
+      "id": "paragraph_1595801172694_1861160965",
+      "dateCreated": "2020-07-26T17:06:12-0500",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:19065",
+      "dateUpdated": "2020-07-26T17:06:27-0500",
+      "title": "Consulta # 5"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "grupo_ocupacion": "string",
+                      "1 - Hombre": "string",
+                      "2 - Mujer": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "pieChart": {},
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "rotate"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "grupo_ocupacion",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "1 - Hombre",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2 - Mujer",
+                  "index": 2,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=77",
+              "$$hashKey": "object:22676"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=78",
+              "$$hashKey": "object:22677"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595800106823_-364907899",
+      "id": "paragraph_1595800106823_-364907899",
+      "dateCreated": "2020-07-26T16:48:26-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:11431",
+      "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\" && $\"grupo_ocupacion\".isNotNull).groupBy(\"grupo_ocupacion\").pivot(\"genero\").count().orderBy(\"grupo_ocupacion\"))",
+      "dateUpdated": "2020-07-26T17:15:48-0500",
+      "dateFinished": "2020-07-26T17:15:39-0500",
+      "dateStarted": "2020-07-26T17:15:30-0500",
+      "title": "",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "grupo_ocupacion\t1 - Hombre\t2 - Mujer\n01 - Personal direct./admin. pública y empresas\t41\t23\n02 - Profesionales científicos e intelectuales\t166\t390\n03 - Técnicos y profesionales de nivel medio\t194\t113\n04 - Empleados de oficina\t99\t95\n05 - Trabajad. de los servicios y comerciantes\t746\t1155\n06 - Trabajad. calificados agropecuarios y pesqueros\t1045\t248\n07 - Oficiales operarios y artesanos\t609\t105\n08 - Operadores de instalac. máquinas y montad.\t372\t19\n09 - Trabajadores no calificados, ocupaciones elementales\t949\t1032\n10 - Fuerzas Armadas\t52\t2\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595800435704_347318149",
+      "id": "paragraph_1595800435704_347318149",
+      "dateCreated": "2020-07-26T16:53:55-0500",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:14762",
+      "dateUpdated": "2020-07-26T16:59:10-0500",
+      "title": "Consulta # 6",
+      "text": "%md"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "lineChart",
+              "height": 268,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "etnia": "string",
+                      "1 - Hombre": "string",
+                      "2 - Mujer": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "pieChart": {},
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "etnia",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "1 - Hombre",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2 - Mujer",
+                  "index": 2,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=67",
+              "$$hashKey": "object:16114"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=68",
+              "$$hashKey": "object:16115"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595800292774_606324939",
+      "id": "paragraph_1595800292774_606324939",
+      "dateCreated": "2020-07-26T16:51:32-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:13189",
+      "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))",
+      "dateUpdated": "2020-07-26T16:58:51-0500",
+      "dateFinished": "2020-07-26T16:57:47-0500",
+      "dateStarted": "2020-07-26T16:57:38-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "etnia\t1 - Hombre\t2 - Mujer\n1 - Indígena\t39157\t36342\n2 - Afroecuatoriano\t4617\t3585\n3 - Negro\t5062\t3389\n4 - Mulato\t3660\t2276\n5 - Montubio\t16064\t7183\n6 - Mestizo\t279951\t211972\n7 - Blanco\t5453\t3756\n8 - Otro\t214\t95\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595800658805_-1443972552",
+      "id": "paragraph_1595800658805_-1443972552",
+      "dateCreated": "2020-07-26T16:57:38-0500",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:14852",
+      "dateUpdated": "2020-07-26T17:00:30-0500",
+      "title": "Consulta # 7"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "lineChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "etnia": "string",
+                      "1 - Hombre": "string",
+                      "2 - Mujer": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "etnia",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "1 - Hombre",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2 - Mujer",
+                  "index": 2,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=69",
+              "$$hashKey": "object:17721"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=70",
+              "$$hashKey": "object:17722"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595800814770_-929282467",
+      "id": "paragraph_1595800814770_-929282467",
+      "dateCreated": "2020-07-26T17:00:14-0500",
+      "status": "ABORT",
+      "focus": true,
+      "$$hashKey": "object:16222",
+      "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\")\n                            .agg(round(avg(\"edad\")).cast(IntegerType))\n                            .orderBy(\"etnia\"))",
+      "dateUpdated": "2020-07-26T17:02:26-0500",
+      "dateFinished": "2020-07-26T17:01:35-0500",
+      "dateStarted": "2020-07-26T17:01:26-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "etnia\t1 - Hombre\t2 - Mujer\n1 - Indígena\t38\t39\n2 - Afroecuatoriano\t39\t39\n3 - Negro\t39\t40\n4 - Mulato\t40\t40\n5 - Montubio\t43\t43\n6 - Mestizo\t41\t41\n7 - Blanco\t44\t44\n8 - Otro\t43\t42\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595801210642_451070163",
+      "id": "paragraph_1595801210642_451070163",
+      "dateCreated": "2020-07-26T17:06:50-0500",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:19193",
+      "dateUpdated": "2020-07-26T17:07:18-0500",
+      "title": "Consulta # 8",
+      "text": "%md"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 7,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 294,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "sectorizacion0",
+                        "visible": true,
+                        "width": 208,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "20151",
+                        "visible": true,
+                        "width": 150,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "20162",
+                        "visible": true,
+                        "width": 150,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "20173",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "20184",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "20195",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1,
+                      "paginationPageSize": 250
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "2015": "string",
+                      "2016": "string",
+                      "2017": "string",
+                      "2018": "string",
+                      "2019": "string",
+                      "sectorizacion": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "sectorizacion",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "2015",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2016",
+                  "index": 2,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2017",
+                  "index": 3,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2018",
+                  "index": 4,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2019",
+                  "index": 5,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=71",
+              "$$hashKey": "object:21293"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=72",
+              "$$hashKey": "object:21294"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595800886939_-2053402092",
+      "id": "paragraph_1595800886939_-2053402092",
+      "dateCreated": "2020-07-26T17:01:26-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:16374",
+      "dateUpdated": "2020-07-26T17:09:19-0500",
+      "dateFinished": "2020-07-26T17:05:23-0500",
+      "dateStarted": "2020-07-26T17:05:14-0500",
+      "title": "Consulta # 8",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "sectorizacion\t2015\t2016\t2017\t2018\t2019\nnull\t5687\t5251\t5846\t4626\t4851\n1 - Sector Formal\t61346\t49261\t63713\t53674\t53775\n2 - Sector Informal\t55047\t48546\t62307\t52309\t52980\n3 - Empleo Doméstico\t2522\t2249\t3002\t2660\t2806\n4 - No Clasificados por Sector\t8342\t5853\t5785\t4931\t5407\n"
+          }
+        ]
+      },
+      "text": "z.show(data.groupBy(\"sectorizacion\").pivot(\"anio\").count.orderBy(\"sectorizacion\"))"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 5,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "2015": "string",
+                      "2016": "string",
+                      "2017": "string",
+                      "2018": "string",
+                      "2019": "string",
+                      "sectorizacion": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "rotate"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "sectorizacion",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "2015",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2019",
+                  "index": 5,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=73",
+              "$$hashKey": "object:21558"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=74",
+              "$$hashKey": "object:21559"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595801114971_227048157",
+      "id": "paragraph_1595801114971_227048157",
+      "dateCreated": "2020-07-26T17:05:14-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:17749",
+      "dateUpdated": "2020-07-26T17:10:10-0500",
+      "dateFinished": "2020-07-26T17:08:47-0500",
+      "dateStarted": "2020-07-26T17:08:39-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "sectorizacion\t2015\t2016\t2017\t2018\t2019\nnull\t5687\t5251\t5846\t4626\t4851\n1 - Sector Formal\t61346\t49261\t63713\t53674\t53775\n2 - Sector Informal\t55047\t48546\t62307\t52309\t52980\n3 - Empleo Doméstico\t2522\t2249\t3002\t2660\t2806\n4 - No Clasificados por Sector\t8342\t5853\t5785\t4931\t5407\n"
+          }
+        ]
+      },
+      "text": "z.show(data.groupBy(\"sectorizacion\")\n           .pivot(\"anio\")\n           .count\n           .orderBy(\"sectorizacion\"))"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595801901708_-830862959",
+      "id": "paragraph_1595801901708_-830862959",
+      "dateCreated": "2020-07-26T17:18:21-0500",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:23815",
+      "dateUpdated": "2020-07-26T17:18:44-0500",
+      "title": "Consulta # 9",
+      "text": "%md"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "lineChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "etnia": "string",
+                      "1 - Hombre": "string",
+                      "2 - Mujer": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "pieChart": {},
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "etnia",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "1 - Hombre",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2 - Mujer",
+                  "index": 2,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=79",
+              "$$hashKey": "object:23805"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=80",
+              "$$hashKey": "object:23806"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595801319682_269850659",
+      "id": "paragraph_1595801319682_269850659",
+      "dateCreated": "2020-07-26T17:08:39-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:19811",
+      "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").agg(avg(\"ingreso_laboral\")).orderBy(\"etnia\"))",
+      "dateUpdated": "2020-07-26T17:17:50-0500",
+      "dateFinished": "2020-07-26T17:17:15-0500",
+      "dateStarted": "2020-07-26T17:17:07-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "etnia\t1 - Hombre\t2 - Mujer\n1 - Indígena\t329.1896678473568\t240.41782236647978\n2 - Afroecuatoriano\t472.2173373075012\t391.78610403783193\n3 - Negro\t421.86531690140845\t350.39304219096965\n4 - Mulato\t439.81171803478793\t321.5201323772752\n5 - Montubio\t347.4767961979312\t276.48603234614575\n6 - Mestizo\t559.5263578981225\t451.16832253949565\n7 - Blanco\t687.0872008324662\t545.9616858237548\n8 - Otro\t788.6198830409356\t776.1379310344828\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595801925549_-905991312",
+      "id": "paragraph_1595801925549_-905991312",
+      "dateCreated": "2020-07-26T17:18:45-0500",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:23897",
+      "dateUpdated": "2020-07-26T17:22:27-0500",
+      "title": "Consulta # 10"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595802808364_1186568500",
+      "id": "paragraph_1595802808364_1186568500",
+      "dateCreated": "2020-07-26T17:33:28-0500",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:25508",
+      "dateUpdated": "2020-07-26T17:33:40-0500",
+      "title": "Consulta # 11"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "2015": "string",
+                      "2016": "string",
+                      "2017": "string",
+                      "2018": "string",
+                      "2019": "string",
+                      "etnia": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "etnia",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "2015",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2016",
+                  "index": 2,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2017",
+                  "index": 3,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2018",
+                  "index": 4,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2019",
+                  "index": 5,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=81",
+              "$$hashKey": "object:25598"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=82",
+              "$$hashKey": "object:25599"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595801827694_-332891911",
+      "id": "paragraph_1595801827694_-332891911",
+      "dateCreated": "2020-07-26T17:17:07-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:22694",
+      "dateUpdated": "2020-07-26T17:33:44-0500",
+      "dateFinished": "2020-07-26T17:32:28-0500",
+      "dateStarted": "2020-07-26T17:32:19-0500",
+      "title": "Consulta # 11",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "etnia\t2015\t2016\t2017\t2018\t2019\n1 - Indígena\t1417\t964\t1157\t560\t578\n2 - Afroecuatoriano\t121\t100\t137\t59\t65\n3 - Negro\t150\t97\t147\t94\t48\n4 - Mulato\t104\t84\t98\t60\t82\n5 - Montubio\t141\t99\t156\t163\t186\n6 - Mestizo\t6513\t4787\t5933\t5300\t4898\n7 - Blanco\t90\t58\t94\t68\t68\n8 - Otro\t11\t2\t7\t1\t4\n"
+          }
+        ]
+      },
+      "text": "z.show(data.where($\"rama_actividad\" === \"06 - F. Construcción\").groupBy(\"etnia\").pivot(\"anio\").count.orderBy(\"etnia\"))"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595802739720_1097852877",
+      "id": "paragraph_1595802739720_1097852877",
+      "dateCreated": "2020-07-26T17:32:19-0500",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:23996",
+      "dateUpdated": "2020-07-26T17:36:07-0500",
+      "title": "Consulta # 12",
+      "text": ""
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "etnia": "string",
+                      "1 - Hombre": "string",
+                      "2 - Mujer": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "forceY": false,
+                  "lineWithFocus": false,
+                  "isDateFormat": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "etnia",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "1 - Hombre",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "2 - Mujer",
+                  "index": 2,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=83",
+              "$$hashKey": "object:27107"
+            },
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=84",
+              "$$hashKey": "object:27108"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595802850428_2031264569",
+      "id": "paragraph_1595802850428_2031264569",
+      "dateCreated": "2020-07-26T17:34:10-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:25615",
+      "text": "val dataMe = data.where($\"etnia\" === \"6 - Mestizo\" || $\"etnia\" === \"5 - Montubio\")\nz.show(dataMe.groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))",
+      "dateUpdated": "2020-07-26T17:36:00-0500",
+      "dateFinished": "2020-07-26T17:34:43-0500",
+      "dateStarted": "2020-07-26T17:34:35-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "etnia\t1 - Hombre\t2 - Mujer\n5 - Montubio\t16064\t7183\n6 - Mestizo\t279951\t211972\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdataMe\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [id_persona: decimal(26,0), anio: int ... 15 more fields]\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595802875874_1550800977",
+      "id": "paragraph_1595802875874_1550800977",
+      "dateCreated": "2020-07-26T17:34:35-0500",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:25697",
+      "dateUpdated": "2020-07-26T17:37:18-0500",
+      "title": "Consulta # 13"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 6,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "lineChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "etnia": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "etnia",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=85",
+              "$$hashKey": "object:27972"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595802986559_-493911874",
+      "id": "paragraph_1595802986559_-493911874",
+      "dateCreated": "2020-07-26T17:36:26-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:27120",
+      "text": "z.show(data.where($\"area\" === \"2 - Rural\" && $\"nivel_de_instruccion\" === \"09 - Superior Universitario\").groupBy(\"etnia\").count.orderBy(\"etnia\"))",
+      "dateUpdated": "2020-07-26T17:37:22-0500",
+      "dateFinished": "2020-07-26T17:36:53-0500",
+      "dateStarted": "2020-07-26T17:36:49-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "etnia\tcount\n1 - Indígena\t1724\n2 - Afroecuatoriano\t133\n3 - Negro\t82\n4 - Mulato\t39\n5 - Montubio\t487\n6 - Mestizo\t12020\n7 - Blanco\t199\n8 - Otro\t16\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1595803009414_-1927598925",
+      "id": "paragraph_1595803009414_-1927598925",
+      "dateCreated": "2020-07-26T17:36:49-0500",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:27206"
+    }
+  ],
+  "name": "Presentacion_PAvanzada",
+  "id": "2FEK5TDVW",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/Presentacion_PAvanzada"
+}
