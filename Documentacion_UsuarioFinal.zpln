@@ -4,7 +4,7 @@
       "title": "Esquema",
       "text": "import org.apache.spark.sql.types._\nimport org.apache.spark.sql.functions._\nval myDataSchema = StructType(\n  Array(\n    StructField(\"id\",DecimalType(26, 0),true),\n    StructField(\"anio\",IntegerType,true),\n    StructField(\"mes\",IntegerType,true),\n    StructField(\"provincia\",IntegerType,true),\n    StructField(\"canton\",IntegerType,true),\n    StructField(\"area\",StringType,true),\n    StructField(\"genero\",StringType,true),\n    StructField(\"edad\",IntegerType,true),\n    StructField(\"estado_civil\",StringType,true),\n    StructField(\"nivel_de_instruccion\",StringType,true),\n    StructField(\"etnia\",StringType,true),\n    StructField(\"ingreso_laboral\",IntegerType,true),\n    StructField(\"condicion_actividad\",StringType,true),\n    StructField(\"sectorizacion\",StringType,true),\n    StructField(\"grupo_ocupacion\",StringType,true),\n    StructField(\"rama_actividad\",StringType,true),\n    StructField(\"factor_expansion\",DoubleType,true)\n  ));",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:21:41-0500",
+      "dateUpdated": "2020-07-29T20:55:55-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -35,20 +35,18 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823834_-1171996118",
+      "jobName": "paragraph_1596074155991_-361985602",
       "id": "paragraph_1595797302277_1409279875",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "dateStarted": "2020-07-29T20:21:41-0500",
-      "dateFinished": "2020-07-29T20:21:42-0500",
-      "status": "FINISHED",
+      "dateCreated": "2020-07-29T20:55:55-0500",
+      "status": "READY",
       "focus": true,
-      "$$hashKey": "object:13253"
+      "$$hashKey": "object:28"
     },
     {
       "title": "Lectura de CSV",
       "text": "val data = spark\n\t  .read\n\t  .option(\"inferSchema\",\"true\")\n\t  .option(\"header\",\"true\")\n\t  .option(\"delimiter\",\"\\t\")\n\t  .csv(\"/home/david/Descargas/Datos_ENEMDU_PEA_v2.csv\")",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:21:50-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -77,38 +75,18 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=23",
-              "$$hashKey": "object:14488"
-            },
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=24",
-              "$$hashKey": "object:14489"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823835_-303805809",
+      "jobName": "paragraph_1596074156000_360552170",
       "id": "paragraph_1595797344192_-1132658780",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "dateStarted": "2020-07-29T20:21:50-0500",
-      "dateFinished": "2020-07-29T20:21:55-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:13254"
+      "dateCreated": "2020-07-29T20:55:56-0500",
+      "status": "READY",
+      "$$hashKey": "object:29"
     },
     {
       "text": "%md\n<H1 align=\"center\">Análisis Exploratorio de Datos ENEMDU</H1>\n<H2>Documentación Técnica</H2>",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -139,17 +117,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823835_-1273901605",
+      "jobName": "paragraph_1596074156000_2114442344",
       "id": "paragraph_1595797365357_591785725",
-      "dateCreated": "2020-07-29T20:17:03-0500",
+      "dateCreated": "2020-07-29T20:55:56-0500",
       "status": "READY",
-      "$$hashKey": "object:13255"
+      "$$hashKey": "object:30"
     },
     {
       "title": "Consulta # 1",
-      "text": "%md\n",
+      "text": "%md\nBasados en las consultas anteriores realizadas dentro de la materia de programación avanzada, dentro data, nos quisimos concentrar en una minoría ya que seria interesante a nivel conceptual de como viven las minorías étnicas dentro de nuestro país, en este caso nos concentramos en la etnia afroecuatoriana.\n\nEl tema del empleo en Ecuador siempre ha sido un tema que nuestro país lucha día con día, fabricando oportunidades para cada uno de los ciudadanos dentro de la república, en la grafica se presenta que desde el año 2015 al 2019, el nivel de empleo adecuado ha ido disminuyendo a lo largo de los años, esto nos puede indicar que las personas afroecuatorianas no se han brindado oportunidades para tener un empleo pleno. Teniendo tener empleos con insuficiencia de tiempo e ingresos, teniendo que optar por dos empleos para satisfacer sus necesidades de él y su familia.\n",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T22:10:59-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -171,132 +149,27 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823835_-1096145627",
+      "jobName": "paragraph_1596074156000_-185799531",
       "id": "paragraph_1595799242818_165142088",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "status": "READY",
-      "$$hashKey": "object:13256"
-    },
-    {
-      "title": "Consulta # 1",
-      "text": "z.show(data.stat.crosstab(\"condicion_actividad\", \"anio\").orderBy(\"condicion_actividad_anio\"))",
-      "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
-      "config": {
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "colWidth": 12,
-        "editorMode": "ace/mode/scala",
-        "fontSize": 9,
-        "title": false,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "multiBarChart",
-              "height": 300,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "2015": "string",
-                      "2016": "string",
-                      "2017": "string",
-                      "2018": "string",
-                      "2019": "string",
-                      "condicion_actividad_anio": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                },
-                "multiBarChart": {
-                  "rotate": {
-                    "degree": "-45"
-                  },
-                  "xLabelStatus": "rotate"
-                }
-              },
-              "commonSetting": {},
-              "keys": [
-                {
-                  "name": "condicion_actividad_anio",
-                  "index": 0,
-                  "aggr": "sum"
-                }
-              ],
-              "groups": [],
-              "values": [
-                {
-                  "name": "2015",
-                  "index": 1,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2016",
-                  "index": 2,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2017",
-                  "index": 3,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2018",
-                  "index": 4,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "2019",
-                  "index": 5,
-                  "aggr": "sum"
-                }
-              ]
-            },
-            "helium": {}
-          }
-        },
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
+      "dateCreated": "2020-07-29T20:55:56-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:31",
+      "dateFinished": "2020-07-29T22:06:49-0500",
+      "dateStarted": "2020-07-29T22:06:49-0500",
       "results": {
         "code": "SUCCESS",
         "msg": [
           {
-            "type": "TABLE",
-            "data": "condicion_actividad_anio\t2015\t2016\t2017\t2018\t2019\n1 - Empleo Adecuado/Pleno\t55850\t41840\t53915\t46591\t45980\n2 - Subempleo por insuficiencia de tiempo de trabajo\t14245\t15794\t21813\t16792\t17886\n3 - Subempleo por insuficiencia de ingresos\t3525\t3828\t5908\t4163\t3597\n4 - Otro empleo no pleno\t38298\t30391\t35695\t32178\t32934\n5 - Empleo no remunerado\t14921\t13820\t17193\t13380\t13953\n6 - Empleo no clasificado\t418\t236\t283\t470\t618\n7 - Desempleo abierto\t4407\t4285\t4817\t3953\t4044\n8 - Desempleo oculto\t1280\t966\t1029\t673\t807\n"
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p>Basados en las consultas anteriores realizadas dentro de la materia de programacion avanzada, dentro data, nos quisimos concentrar en una minoria ya que seria interesante a nivel conceptual de como viven las minorias etnicas dentro de nuestro pais, en este caso nos concentramos en la etnia afroecuatoriana.</p>\n<p>El tema del empleo en Ecuador siempre ha sido un tema que nuestro pais lucha dia con dia, fabricando oportunidades para cada uno de los ciudadanos dentro de la republica, en la grafica se presenta que desde el anio 2015 al 2019, el nivel de empleo adecuado ha ido desminuyendo a lo largo de los anios, esto nos puede indicar que las personas afroecuatorianas no se han brindado oportunidades para tener un empleo pleno. teniendo tener empleos con insuficiencia de tiempo e ingresos, teniendo que optar por dos empleos para satisfacer sus necesidades de el y su familia.</p>\n\n</div>"
           }
         ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823835_1678754427",
-      "id": "paragraph_1595798412458_-574222663",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "status": "READY",
-      "$$hashKey": "object:13257"
+      }
     },
     {
       "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\").stat.crosstab(\"condicion_actividad\", \"anio\").orderBy(\"condicion_actividad_anio\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -401,17 +274,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823835_572264338",
+      "jobName": "paragraph_1596074156001_1803539369",
       "id": "paragraph_1595798424377_-1044869980",
-      "dateCreated": "2020-07-29T20:17:03-0500",
+      "dateCreated": "2020-07-29T20:55:56-0500",
       "status": "READY",
-      "$$hashKey": "object:13258"
+      "$$hashKey": "object:33"
     },
     {
       "title": "Consulta # 2",
-      "text": "%md\nDescripcion",
+      "text": "%md\nSabiendo lo anterior mencionado, es destacable mencionar el nivel de instruccion que recibio cada una de estas personas y mediante la interpretacion de la grafica podemos decir que la mayoria de personas afroecuatorianas recibio una educacion primaria y secundaria. Primaria con un 30% y Secundaria con un 36%. Esto nos dice que la educacion que recibieron estas personas no puede ser acorde a las necesidades de conocimiento que requiere un ser humano, ya que personas afroecuatorianas que lograron ir a la universidad son un 14% dentro de los participantes dentro de la data y aun mas alarmante tener un 1% de personas que lograron tener un postgrado. Ecuador puede decir que tiene personas afroecuatorianas que en su mayoria tiene un nivel de educacion primaria, secundaria. No dando esfuerzos y oportunidades a personas con  minoria etnica puedan tener un nivel de educacion universitario.",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T22:21:51-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -433,16 +306,27 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823835_-1854107050",
+      "jobName": "paragraph_1596074156001_977699331",
       "id": "paragraph_1595798525342_-1322144030",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "status": "READY",
-      "$$hashKey": "object:13259"
+      "dateCreated": "2020-07-29T20:55:56-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:34",
+      "dateFinished": "2020-07-29T22:21:51-0500",
+      "dateStarted": "2020-07-29T22:21:51-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p>Sabiendo lo anterior mencionado, es destacable mencionar el nivel de instruccion que recibio cada una de estas personas y mediante la interpretacion de la grafica podemos decir que la mayoria de personas afroecuatorianas recibio una educacion primaria y secundaria. Primaria con un 30% y Secundaria con un 36%. Esto nos dice que la educacion que recibieron estas personas no puede ser acorde a las necesidades de conocimiento que requiere un ser humano, ya que personas afroecuatorianas que lograron ir a la universidad son un 14% dentro de los participantes dentro de la data y aun mas alarmante tener un 1% de personas que lograron tener un postgrado. Ecuador puede decir que tiene personas afroecuatorianas que en su mayoria tiene un nivel de educacion primaria, secundaria. No dando esfuerzos y oportunidades a personas con  minoria etnica puedan tener un nivel de educacion universitario.</p>\n\n</div>"
+          }
+        ]
+      }
     },
     {
       "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\")\n           .groupBy(\"nivel_de_instruccion\")\n           .count()\n           .orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -523,26 +407,26 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823835_1367433774",
+      "jobName": "paragraph_1596074156001_1999878255",
       "id": "paragraph_1595799293852_-456687849",
-      "dateCreated": "2020-07-29T20:17:03-0500",
+      "dateCreated": "2020-07-29T20:55:56-0500",
       "status": "READY",
-      "$$hashKey": "object:13260"
+      "$$hashKey": "object:35"
     },
     {
       "title": "Consulta # 3",
-      "text": "%md",
+      "text": "%md\nTambién decir que el machismo en Ecuador es un tema que acoteja a las mujeres ecuatorianas afroecuatorianas. Esto se puede ver reflejado en el sueldo promedio que tienen de acuerdo a su nivel de instrucción. Lo cual en la grafica sé una clara desigualdad de sueldos.Teniendoo una desigualdad de entre 50 hasta 120 dolares aproximadamente, este tema debemos trabajar para que Ecuador tenga las mismas obligaciones y derechos para hombres y mujeres afroecuatorianos.",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T22:31:15-0500",
       "config": {
         "editorSetting": {
-          "language": "scala",
+          "language": "text",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
         "colWidth": 12,
-        "editorMode": "ace/mode/scala",
+        "editorMode": "ace/mode/text",
         "fontSize": 9,
         "title": true,
         "results": {},
@@ -555,16 +439,27 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823835_378117639",
+      "jobName": "paragraph_1596074156001_-1016125134",
       "id": "paragraph_1595799441484_-982333077",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "status": "READY",
-      "$$hashKey": "object:13261"
+      "dateCreated": "2020-07-29T20:55:56-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:36",
+      "dateFinished": "2020-07-29T22:31:15-0500",
+      "dateStarted": "2020-07-29T22:31:15-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p>También decir que el machismo en Ecuador es un tema que acoteja a las mujeres ecuatorianas afroecuatorianas. Esto se puede ver reflejado en el sueldo promedio que tienen de acuerdo a su nivel de instrucción. Lo cual en la grafica sé una clara desigualdad de sueldos.Teniendoo una desigualdad de entre 50 hasta 120 dolares aproximadamente, este tema debemos trabajar para que Ecuador tenga las mismas obligaciones y derechos para hombres y mujeres afroecuatorianos.</p>\n\n</div>"
+          }
+        ]
+      }
     },
     {
       "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\").groupBy(\"nivel_de_instruccion\").pivot(\"genero\").agg(round(avg(\"ingreso_laboral\"))).orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -651,17 +546,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823835_1735921669",
+      "jobName": "paragraph_1596074156001_366034178",
       "id": "paragraph_1595799654056_-1614270673",
-      "dateCreated": "2020-07-29T20:17:03-0500",
+      "dateCreated": "2020-07-29T20:55:56-0500",
       "status": "READY",
-      "$$hashKey": "object:13262"
+      "$$hashKey": "object:37"
     },
     {
       "title": "Consulta # 4",
-      "text": "%md \nDescripcion",
+      "text": "%md \nRefutando el punto anterior se puede ver que el sueldo promedio por año para hombres y mujeres afroecuatorianos se puede establecer una clara desigualdad en cuanto a cantidad de sueldo.",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T22:38:59-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -737,23 +632,25 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "<div class=\"markdown-body\">\n<p>Descripcion</p>\n\n</div>"
+            "data": "<div class=\"markdown-body\">\n<p>Refutando el punto anterior se puede ver que el sueldo promedio por año para hombres y mujeres afroecuatorianos se puede establecer una clara desigualdad en cuanto a cantidad de sueldo.</p>\n\n</div>"
           }
         ]
       },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823835_-1354311411",
+      "jobName": "paragraph_1596074156001_1410158504",
       "id": "paragraph_1595799796295_-355254488",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "status": "READY",
-      "$$hashKey": "object:13263"
+      "dateCreated": "2020-07-29T20:55:56-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:38",
+      "dateFinished": "2020-07-29T22:38:59-0500",
+      "dateStarted": "2020-07-29T22:38:59-0500"
     },
     {
       "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\")\n       .groupBy(\"anio\").pivot(\"genero\")\n       .agg(round(avg(\"ingreso_laboral\"))).orderBy(\"anio\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -853,25 +750,25 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823835_419087140",
+      "jobName": "paragraph_1596074156002_2024723859",
       "id": "paragraph_1595800028755_1251201211",
-      "dateCreated": "2020-07-29T20:17:03-0500",
+      "dateCreated": "2020-07-29T20:55:56-0500",
       "status": "READY",
-      "$$hashKey": "object:13264"
+      "$$hashKey": "object:39"
     },
     {
       "title": "Consulta # 5",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T22:45:23-0500",
       "config": {
         "editorSetting": {
-          "language": "scala",
+          "language": "text",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
         "colWidth": 12,
-        "editorMode": "ace/mode/scala",
+        "editorMode": "ace/mode/text",
         "fontSize": 9,
         "title": true,
         "results": {},
@@ -884,17 +781,29 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823835_705653281",
+      "jobName": "paragraph_1596074156002_-1257722959",
       "id": "paragraph_1595801172694_1861160965",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "status": "READY",
-      "$$hashKey": "object:13265"
+      "dateCreated": "2020-07-29T20:55:56-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:40",
+      "text": "%md\nEvidenciando los sueldos promedios nos damos cuenta que reciben lo equivalente a un sueldo básico vitalicio, tener en cuenta las ocupaciones que laboran las personas afroecuatorianas, lo cual nos permitió establecer que en su mayoría se dedican al comercio, agricultura y pescadera u ocupaciones elementales.",
+      "dateFinished": "2020-07-29T22:45:23-0500",
+      "dateStarted": "2020-07-29T22:45:23-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p>Evidenciando los sueldos promedios nos damos cuenta que reciben lo equivalente a un sueldo básico vitalicio, tener en cuenta las ocupaciones que laboran las personas afroecuatorianas, lo cual nos permitió establecer que en su mayoría se dedican al comercio, agricultura y pescadera u ocupaciones elementales.</p>\n\n</div>"
+          }
+        ]
+      }
     },
     {
       "title": "",
       "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\" && $\"grupo_ocupacion\".isNotNull).groupBy(\"grupo_ocupacion\").pivot(\"genero\").count().orderBy(\"grupo_ocupacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -983,17 +892,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823835_-1857436245",
+      "jobName": "paragraph_1596074156002_1706759791",
       "id": "paragraph_1595800106823_-364907899",
-      "dateCreated": "2020-07-29T20:17:03-0500",
+      "dateCreated": "2020-07-29T20:55:56-0500",
       "status": "READY",
-      "$$hashKey": "object:13266"
+      "$$hashKey": "object:41"
     },
     {
       "title": "Consulta # 6",
       "text": "%md\nEl Ecuador es un país muy diversificado, la cual cuenta con varias etnias que a pesar del pasar el tiempo se siguen presentado en la actualidad, según la data presentada por el INEC del empleo y desempleo, se pudo recolectar estos datos y procesarlos para poder realizar un análisis en cuanto a la capacidad económica que se presenta en los ecuatorianos en cada una de las etnias.\n\nPrimeramente, se realizó un conteo de las personas tanto hombres como mujeres se presentan en los datos de cada una de las etnias, y mediante la cual se obtuvo que el número de hombres y mujeres en cada una de las etnias tiene una correlación. Pero a demás de ello en los datos se presenta mayormente el número de personas de etnia mestiza que se da registrado y en su mayoría son hombre pero no con mucha diferencia, lo que se relaciona incluso con la cantidad total de habitantes del Ecuador, que son el 50.1% hombre y 49.9% mujeres como presenta la página Country meters en su pagina web https://countrymeters.info/es/Ecuador.\n",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:19:04-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1004,10 +913,10 @@
         "colWidth": 6,
         "editorMode": "ace/mode/text",
         "fontSize": 9,
+        "editorHide": true,
         "title": true,
         "results": {},
-        "enabled": true,
-        "editorHide": true
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -1025,18 +934,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823835_1141407351",
+      "jobName": "paragraph_1596074156002_-1346013961",
       "id": "paragraph_1595800435704_347318149",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "dateStarted": "2020-07-29T20:19:01-0500",
-      "dateFinished": "2020-07-29T20:19:01-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:13267"
+      "dateCreated": "2020-07-29T20:55:56-0500",
+      "status": "READY",
+      "$$hashKey": "object:42"
     },
     {
       "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1130,17 +1037,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823836_-850142060",
+      "jobName": "paragraph_1596074156002_1384422420",
       "id": "paragraph_1595800292774_606324939",
-      "dateCreated": "2020-07-29T20:17:03-0500",
+      "dateCreated": "2020-07-29T20:55:56-0500",
       "status": "READY",
-      "$$hashKey": "object:13268"
+      "$$hashKey": "object:43"
     },
     {
       "title": "Consulta # 7",
       "text": "%md\nSeguido de ellos con el fin de conocer las edades promedio de las personas de cada etnia se calculó el promedio y así ver los rangos de edades, los cuales nos da como resultado que en promedio las edades de hombres y mujeres en su mayoría son idénticas a excepción de la etnia Negra en la cual la edad promedio es 40 años que corresponde a las mujeres y en la etnia clasificada como Otros mayormente están los hombres con 43 años.",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:20:05-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1151,10 +1058,10 @@
         "colWidth": 6,
         "editorMode": "ace/mode/text",
         "fontSize": 9,
+        "editorHide": true,
         "title": true,
         "results": {},
-        "enabled": true,
-        "editorHide": true
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -1172,18 +1079,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823836_978055297",
+      "jobName": "paragraph_1596074156002_-794215762",
       "id": "paragraph_1595800658805_-1443972552",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "dateStarted": "2020-07-29T20:20:03-0500",
-      "dateFinished": "2020-07-29T20:20:03-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:13269"
+      "dateCreated": "2020-07-29T20:55:56-0500",
+      "status": "READY",
+      "$$hashKey": "object:44"
     },
     {
       "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\")\n                            .agg(round(avg(\"edad\")).cast(IntegerType))\n                            .orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1282,17 +1187,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823836_-903384828",
+      "jobName": "paragraph_1596074156002_-1426534723",
       "id": "paragraph_1595800814770_-929282467",
-      "dateCreated": "2020-07-29T20:17:03-0500",
+      "dateCreated": "2020-07-29T20:55:56-0500",
       "status": "READY",
-      "$$hashKey": "object:13270"
+      "$$hashKey": "object:45"
     },
     {
       "title": "Consulta # 8",
       "text": "%md \nUna vez obtenidos estos resultados se procedió a evaluar la cantidad de personas que desde el año 2015 al 2019 han trabajado en cada uno de los cuatro sectores de trabajo en el Ecuador y se obtuvo que en el empleo formal ha ido decreciendo el número de personas trabajando en este sector en comparación del 2015 hasta el año más reciente que presentan los datos que es del 2019, en el sector informal y en el no clasificado también ha existido el decaimiento. Pero por otro lado el sector de empleo Doméstico a tenido no muy excesivo, pero si un aumento, esto quiere decir que se está dando mucho más este tipo de empleo por la existencia de personas que optan por este debido a varios factores como falta de trabajo en los demás sectores.",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:20:45-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1303,10 +1208,10 @@
         "colWidth": 12,
         "editorMode": "ace/mode/text",
         "fontSize": 9,
+        "editorHide": true,
         "title": true,
         "results": {},
-        "enabled": true,
-        "editorHide": true
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -1324,19 +1229,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823836_-1345593824",
+      "jobName": "paragraph_1596074156003_1827333737",
       "id": "paragraph_1595801210642_451070163",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "dateStarted": "2020-07-29T20:20:43-0500",
-      "dateFinished": "2020-07-29T20:20:43-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:13271"
+      "dateCreated": "2020-07-29T20:55:56-0500",
+      "status": "READY",
+      "$$hashKey": "object:46"
     },
     {
       "title": "Consulta # 8",
       "text": "z.show(data.where($\"sectorizacion\".isNotNull).groupBy(\"sectorizacion\").pivot(\"anio\").count.orderBy(\"sectorizacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:23:48-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1515,38 +1418,18 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=27",
-              "$$hashKey": "object:15727"
-            },
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=28",
-              "$$hashKey": "object:15728"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823836_-326133040",
+      "jobName": "paragraph_1596074156003_-643710830",
       "id": "paragraph_1595800886939_-2053402092",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "dateStarted": "2020-07-29T20:23:48-0500",
-      "dateFinished": "2020-07-29T20:23:58-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:13272"
+      "dateCreated": "2020-07-29T20:55:56-0500",
+      "status": "READY",
+      "$$hashKey": "object:47"
     },
     {
       "text": "z.show(data.where($\"sectorizacion\".isNotNull).groupBy(\"sectorizacion\").pivot(\"anio\").count.orderBy(\"sectorizacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:24:00-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1634,39 +1517,19 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=29",
-              "$$hashKey": "object:15830"
-            },
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=30",
-              "$$hashKey": "object:15831"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823836_-826513400",
+      "jobName": "paragraph_1596074156003_-801049737",
       "id": "paragraph_1595801114971_227048157",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "dateStarted": "2020-07-29T20:24:00-0500",
-      "dateFinished": "2020-07-29T20:24:12-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:13273"
+      "dateCreated": "2020-07-29T20:55:56-0500",
+      "status": "READY",
+      "$$hashKey": "object:48"
     },
     {
       "title": "Consulta # 9",
       "text": "%md\nEn base a ello se optó a realizar el análisis de la cantidad de ingresos que han tenido las personas en estos años en sus diferentes sectores.  Cual nos dio como resultado Que en el sector formal es el sector que más tiene ingresos, pero a pesar de ello a tenido una baja de un 3.27 dólares, el sector informal de igual forma con un descenso de 2.94 dólares. En cambio, el sector de empleo doméstico a tenido un aumento con un promedio de ingresos de 29.07 dólares hasta el 2019.",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:27:53-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1677,10 +1540,10 @@
         "colWidth": 12,
         "editorMode": "ace/mode/text",
         "fontSize": 9,
+        "editorHide": true,
         "title": true,
         "results": {},
-        "enabled": true,
-        "editorHide": true
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -1698,18 +1561,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823836_-1249156238",
+      "jobName": "paragraph_1596074156003_1758422744",
       "id": "paragraph_1595801901708_-830862959",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "dateStarted": "2020-07-29T20:24:47-0500",
-      "dateFinished": "2020-07-29T20:24:47-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:13274"
+      "dateCreated": "2020-07-29T20:55:56-0500",
+      "status": "READY",
+      "$$hashKey": "object:49"
     },
     {
       "text": "z.show(data.where($\"sectorizacion\".isNotNull).groupBy(\"sectorizacion\").pivot(\"anio\").agg(avg(\"ingreso_laboral\")).orderBy(\"sectorizacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:25:43-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1804,39 +1665,19 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=31",
-              "$$hashKey": "object:15979"
-            },
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=32",
-              "$$hashKey": "object:15980"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823836_-2109455213",
+      "jobName": "paragraph_1596074156003_2145305131",
       "id": "paragraph_1595801319682_269850659",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "dateStarted": "2020-07-29T20:25:22-0500",
-      "dateFinished": "2020-07-29T20:25:33-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:13275"
+      "dateCreated": "2020-07-29T20:55:56-0500",
+      "status": "READY",
+      "$$hashKey": "object:50"
     },
     {
       "title": "Consulta # 10",
       "text": "%md\nEn base a ello se analizó que género es el que dedica más a este tipo de Empleo que ha tenido mas demanda en estos años por su crecimiento y se puede obtuvo que todas las etnias mayormente las mujeres son las que llevan a cabo este tipo de empleo con una diferencia muy excesiva y en otros casos que no existen hombre que trabajen en este sector de empleo como es el Empleo Doméstico.",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:27:48-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1847,10 +1688,10 @@
         "colWidth": 12,
         "editorMode": "ace/mode/text",
         "fontSize": 9,
+        "editorHide": true,
         "title": true,
         "results": {},
-        "enabled": true,
-        "editorHide": true
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -1868,22 +1709,26 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823836_1072822576",
+      "jobName": "paragraph_1596074156003_1343640827",
       "id": "paragraph_1595801925549_-905991312",
-      "dateCreated": "2020-07-29T20:17:03-0500",
-      "dateStarted": "2020-07-29T20:27:46-0500",
-      "dateFinished": "2020-07-29T20:27:46-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:13276"
+      "dateCreated": "2020-07-29T20:55:56-0500",
+      "status": "READY",
+      "$$hashKey": "object:51"
     },
     {
       "text": "z.show(data.where($\"sectorizacion\" === \"3 - Empleo Doméstico\").groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:26:15-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
         "colWidth": 12,
+        "editorMode": "ace/mode/scala",
         "fontSize": 9,
-        "enabled": true,
         "results": {
           "0": {
             "graph": {
@@ -1915,13 +1760,7 @@
             }
           }
         },
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
+        "enabled": true
       },
       "settings": {
         "params": {},
@@ -1937,38 +1776,18 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=33",
-              "$$hashKey": "object:16128"
-            },
-            {
-              "jobUrl": "http://david-virtualbox.local:4040/jobs/job?id=34",
-              "$$hashKey": "object:16129"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596072358640_1145100834",
+      "jobName": "paragraph_1596074156004_-1522642319",
       "id": "paragraph_1596072358640_1145100834",
-      "dateCreated": "2020-07-29T20:25:58-0500",
-      "dateStarted": "2020-07-29T20:26:02-0500",
-      "dateFinished": "2020-07-29T20:26:13-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:13277"
+      "dateCreated": "2020-07-29T20:55:56-0500",
+      "status": "READY",
+      "$$hashKey": "object:52"
     },
     {
       "title": "Consulta # 11",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1990,17 +1809,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823836_-1358236202",
+      "jobName": "paragraph_1596074156004_-1365247207",
       "id": "paragraph_1595802808364_1186568500",
-      "dateCreated": "2020-07-29T20:17:03-0500",
+      "dateCreated": "2020-07-29T20:55:56-0500",
       "status": "READY",
-      "$$hashKey": "object:13278"
+      "$$hashKey": "object:53"
     },
     {
       "title": "Consulta # 11",
       "text": "z.show(data.where($\"rama_actividad\" === \"06 - F. Construcción\").groupBy(\"etnia\").pivot(\"anio\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2106,17 +1925,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823836_1924854856",
+      "jobName": "paragraph_1596074156004_-521469851",
       "id": "paragraph_1595801827694_-332891911",
-      "dateCreated": "2020-07-29T20:17:03-0500",
+      "dateCreated": "2020-07-29T20:55:56-0500",
       "status": "READY",
-      "$$hashKey": "object:13279"
+      "$$hashKey": "object:54"
     },
     {
       "title": "Consulta # 12",
       "text": "",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2138,16 +1957,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823836_1058937040",
+      "jobName": "paragraph_1596074156004_807669068",
       "id": "paragraph_1595802739720_1097852877",
-      "dateCreated": "2020-07-29T20:17:03-0500",
+      "dateCreated": "2020-07-29T20:55:56-0500",
       "status": "READY",
-      "$$hashKey": "object:13280"
+      "$$hashKey": "object:55"
     },
     {
       "text": "val dataMe = data.where($\"etnia\" === \"6 - Mestizo\" || $\"etnia\" === \"5 - Montubio\")\nz.show(dataMe.groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2247,16 +2066,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823836_-1456457450",
+      "jobName": "paragraph_1596074156004_-2097523231",
       "id": "paragraph_1595802850428_2031264569",
-      "dateCreated": "2020-07-29T20:17:03-0500",
+      "dateCreated": "2020-07-29T20:55:56-0500",
       "status": "READY",
-      "$$hashKey": "object:13281"
+      "$$hashKey": "object:56"
     },
     {
       "title": "Consulta # 13",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2278,16 +2097,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823836_1999683836",
+      "jobName": "paragraph_1596074156004_541236386",
       "id": "paragraph_1595802875874_1550800977",
-      "dateCreated": "2020-07-29T20:17:03-0500",
+      "dateCreated": "2020-07-29T20:55:56-0500",
       "status": "READY",
-      "$$hashKey": "object:13282"
+      "$$hashKey": "object:57"
     },
     {
       "text": "z.show(data.where($\"area\" === \"2 - Rural\" && $\"nivel_de_instruccion\" === \"09 - Superior Universitario\").groupBy(\"etnia\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2368,15 +2187,15 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823837_536270341",
+      "jobName": "paragraph_1596074156014_649028834",
       "id": "paragraph_1595802986559_-493911874",
-      "dateCreated": "2020-07-29T20:17:03-0500",
+      "dateCreated": "2020-07-29T20:55:56-0500",
       "status": "READY",
-      "$$hashKey": "object:13283"
+      "$$hashKey": "object:58"
     },
     {
       "user": "anonymous",
-      "dateUpdated": "2020-07-29T20:17:03-0500",
+      "dateUpdated": "2020-07-29T20:55:56-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2397,15 +2216,15 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596071823837_242058143",
+      "jobName": "paragraph_1596074156014_-1823218154",
       "id": "paragraph_1595803009414_-1927598925",
-      "dateCreated": "2020-07-29T20:17:03-0500",
+      "dateCreated": "2020-07-29T20:55:56-0500",
       "status": "READY",
-      "$$hashKey": "object:13284"
+      "$$hashKey": "object:59"
     }
   ],
   "name": "Documentacion_UsuarioFinal",
-  "id": "2FEX4QM5J",
+  "id": "2FGFMD59U",
   "defaultInterpreterGroup": "spark",
   "version": "0.9.0-preview1",
   "noteParams": {},
