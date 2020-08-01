@@ -1,0 +1,67 @@
+
+/** ADD YOUR AWESOME CODES HERE **/
+body{
+    color:#000 !important;
+}
+.contenido{
+    margin: 20px 0;
+}
+.contenido .menu_temas{
+    height: 90vh;
+    color:#000;
+}
+.contenido .contenido_temas{
+    overflow-y:scroll; 
+    max-height: 90vh;
+    min-height: 90vh;
+}
+
+
+/*Para funcion Graficar*/
+input[type="number"]{
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #000;
+}
+input[type="text"],
+input[type="text"]{
+    width: 20px;
+    margin: 0 10px;
+    border:none;
+    border-bottom: 1px solid #000;
+}
+.graficas{
+    display: none;
+}
+.tabla{
+    border: 1px solid #e1e1e1;
+}
+.tabla th{
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+}
+.tabla td{
+    padding: 10px 20px;
+    border: 1px solid #000;
+}
+.errores_derivar,
+.errores_funcion{
+    width: 100%;
+    display: none;
+}
+
+/*grafica*/
+.grafica{
+    width: 500px;
+    height: 500px;
+}
+.contenido_funcion{
+    padding: 30px 0;
+    display: block;
+}
+.seccion_inicio{
+    margin: 30px 0;
+}
