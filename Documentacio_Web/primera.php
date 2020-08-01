@@ -32,7 +32,7 @@
             <div class="contenido_temas">
                 <div id="esquema">
                   <h2><b>Esquema Planeado</b></h2>
-                  <p>Una vez obtenida la data proporcianda del página:... se procedió a realizar el analisis de cada una de las columnas y su tipo de dato. Una vez determinada se planteó el siguiente esquema:<br/></p> 
+                  <p>Una vez obtenida la data proporcianda del página: <a href="https://www.ecuadorencifras.gob.ec/institucional/home/".$act.">Ecuador en cifras</a> se procedió a realizar el analisis de cada una de las columnas y su tipo de dato. Una vez determinada se planteó el siguiente esquema:<br/></p> 
                   <center><IMG src="" width="700" height="500"/><br/><br/></center>
                 </div>
                 <div id="carga_datos">
@@ -83,6 +83,38 @@
                     <p>primeramente al quere efectuar está consulta utilizamos sentencias sql con consultas nativas (ANSI-SQL), el cual seleccionamos la etnia, a la vez contamos cuantos son de la misma etnia y el sueldo promedio de esas etnias,
                         luego le decimos que la obtenga de la tabla personas, luego lo unimos con join con la tabla etnias que cod_canton de etnias sea igual al de cod_canton de la tabla personas. Donde le decimos que que delimite a las personas 
                         ingresos sea mayor a 400, todo esto con un where. y que los agrupe por las etnias con un groupBy y al final que los orderne con un groupBy con la tercera columna de nuestra consulta.<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+                </div>
+                <div id="consulta7">
+                    <h2><b>Conteo de las personas registradas por genero en cada una de las etnias</b></h2>
+                    <p>En la siguiente consulta se procedió primero a realizar la agrupación de las etnias con el groupBy, y seguido se crea un pivote de genero por la ventaja que nos permite realizar mas operaciones, el cual conjuntamente con el count el cual va contando y nos dará el número de personas clasificada por hombres y mujeres de cada una de las etnias. Finalmente para que se presenten ordenas se le aplica el orderBy y se le especifica en base que columna en este caso las etnias. Y para su visualización se implemente el z.show que en este caso se lo presenta con la gráfica de frecuencias.<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+                </div>
+            <div id="consulta8">
+                    <h2><b>Edad promedio de hombre y mujeres por cada una de las etnias registradas </b></h2>
+                    <p>En la siguiente consulta se realizó nuevamente la agrupación de las etnias con el empleo del groupBy y de igual forma con la utilización de un pivote el cual nos pemite la realizacion de mas operaciones en este caso del género, en la cual con el .agg se le agrega las edades se le calcula el promedio con el avg, la cual nos da en decimales, pero al momento de aplicarle el round se lo redondea y se lo castea a Integer para que nos de la edad promedio exacta de cada personas (hombres y mujeres) de cada etnia. Y de igual forma con el z.show para presentarla de forma vizual y dinámica un gráfico estadistico como se puede ver en una gráfica de frecuencias.<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+                </div>
+            <div id="consulta9">
+                    <h2><b>Conteo de las personas que laboran en cada tipo de Sectorización en cada año registrado</b></h2>
+                    <p>Para las siguientes representaciones se aplicó la misma consulta pero con diferente reprentación, la cual antes de su realización se excluyo los nulos con el isNotNull ya que se encontraban registros que no tenian en los datos de sectorización, seguido se agrupó la sectorización con el groupBy y presentar cada uno de los tipo de datos de esta columna, seguido con el empleo de un pivote de los años la cual nos permite realizar el conteo de los registros de cada año con el .count y se los ordena por el tipo de sectorizacion con el orderBy. Finalmente con el z.show se muestra el conteo de las personas que trabajan en cada uno de los años depende el tipo de trabajo, es decir de la sectorización, la cual en este caso se la presentó en tabla y en barras.<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+                </div>
+            <div id="consulta10">
+                    <h2><b>Ingreso laboral promedio de las personas que laboran en cada tipo de Sectorización en cada año</b></h2>
+                    <p>En la presente consulta se agrupo nuevamente con el groupBy de la sectorización pero excluyendo los nulos con el empleo del .isNotNull, se utilizó un pivote de los años y así poder realizar el .agg para agregar del promedio de los ingresos laborales con el uso del avg, en este caso se los ordenó con el orderBy de sectorización. De esta forma con el z.show se presenta la gráfica en tabla que nos refleja el promedio del ingreso laboraral.<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+                </div>
+                 <div id="consulta11">
+                    <h2><b>Cantidad de hombre y mujeres que se dedican al Empleo doméstico registrado en el Ecuador</b></h2>
+                    <p>Para la siguiente consulta se filtró primeramente los registro correspondientes al empleo doméstico con el data.where y se crea la igualadad con la sectorización, luego se procede a agrupar por cada una de las etnias y se creo un pivote del género y reflejar la cantidad hombres y mujeres con la ayuda del .count que nos cuenta la cantidad de registro y se los ordena por etnia con el orderBy.
+<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+                </div>
+                <div id="consulta12">
+                    <h2><b>Conteo de las personas dedicadas al empleo doméstico en cada provicia registrada</b></h2>
+                    <p>Para la siguiente consulta sql la realizó de la siguiente forma: con el SELECT se colocó las provincias y el conteo la cual nos presentará con un alias de persoans con empleo doméstico. Con el FROM se apunta a provincias la cual vamos a ocupar. Para llegar a cada una de las tablas que se necesita se emplea el JOIN, primero de cantones en donde se usa el cod_provincia y relacionar las provincias y los cantones, luego de ello para personas se relaciona con el cod_canton de cantones y la tabla personas, con la sentencia WHERE se ubica a todas aquellas personas con empleo doméstico. Y finalmente se los agrupa por provincia ordenando por la cantidad de personas.
+<br/><br/></p> 
                     <center><IMG src="" width="700" height="500"/><br/><br/></center>
                 </div>
             </div>
