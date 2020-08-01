@@ -10,7 +10,7 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <div id="home" class="first-section" style="background-image:url('uploads/portada.jpg');">
+            <div id="home" class="first-section" style="background-image:url('uploads/fondo_principal.jpg');">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 text-center">
@@ -26,7 +26,7 @@
             </div><!-- end section -->
         </div>
         <div class="item">
-            <div id="home" class="first-section" style="background-image:url('uploads/portada_1.jpg');">
+            <div id="home" class="first-section" style="background-image:url('uploads/fondo_principal.jpg');">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 text-center">
@@ -41,7 +41,7 @@
             </div><!-- end section -->
         </div>
         <div class="item">
-            <div id="home" class="first-section" style="background-image:url('uploads/portada_2.jpg');">
+            <div id="home" class="first-section" style="background-image:url('uploads/fondo_principal.jpg');">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 text-center">
@@ -79,7 +79,7 @@
                     <div class="message-box">
                         <h4>UTPL 2020</h4>
                         <h2>Documentación Técnica</h2>
-                        <p class="lead">Aqui explicación tecnica..</p>
+                        <p class="lead">En el siguiente apartado cuenta la explicación de cada una de las consultas que se llevaron a cabo para cada presentación, detallando la sintaxis empleada y su realización </p>
 
                         <p> </p>
 
@@ -90,7 +90,7 @@
 				<div class="col-md-6">
                     <div class="post-media wow fadeIn" >
                     <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/mvj_KLgO_5Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay></iframe> -->
-                        <img src="images/numeros.png" alt=""  width="400" height="300">
+                        <img src="images/tecnica.jpg" alt=""  width="500" height="300">
                         <!-- <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a> -->
                     </div><!-- end media -->
                 </div><!-- end col -->
@@ -103,7 +103,7 @@
                 <div class="col-md-6">
                     <div class="post-media wow fadeIn">
                     <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/mvj_KLgO_5Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay></iframe> -->
-                        <img src="images/funciones_mate.jpg" alt=""width="300" height="400"></b></b>
+                        <img src="images/usuario_final.jpg" alt=""width="300" height="400"></b></b>
                         <!-- <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a> -->
                     </div><!-- end media -->
                 </div><!-- end col -->
@@ -112,7 +112,7 @@
                     <div class="message-box">
                         <h4>UTPL 2020</h4>
                         <h2>Documentación Usuario Final</h2>
-                        <p class="lead">Aqui explicación usuario final</p>
+                        <p class="lead">En este apartado encontrará todos los resultados encontrados en cada una de las consultas realizadas y cuales son las conclusiones que las mismas nos reflejan </p>
 
                         <p> </p>
 

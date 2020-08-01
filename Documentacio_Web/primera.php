@@ -5,6 +5,7 @@
 <div class="all-title-box">
     <div class="container text-center">
         <h1>Documentación Técnica<span class="m_1"></span></h1>
+        <p class="lead" data-animation="animated fadeInLeft">Analisis de exploratorio de datos Empleo y desempleo del Ecuador</p>
     </div>
 </div>
 
@@ -30,13 +31,14 @@
         <div class="col-md-8 ">
             <div class="contenido_temas">
                 <div id="esquema">
-                  <h2><b>Esquema</b></h2>
-                  <p>Explicación<br/><br/></p> 
+                  <h2><b>Esquema Planeado</b></h2>
+                  <p>Una vez obtenida la data proporcianda del página:... se procedió a realizar el analisis de cada una de las columnas y su tipo de dato. Una vez determinada se planteó el siguiente esquema:<br/></p> 
                   <center><IMG src="" width="700" height="500"/><br/><br/></center>
                 </div>
                 <div id="carga_datos">
                     <h2><b>2. Carga de la data</b></h2>
-                    <p>Explicación<br/><br/></p> 
+                    <p>Para realizar el analisis se cargó la data con <td><a href="https://github.com/davisalex22/ProyectoBimestral_PAvanzada/wiki".$act.">Apache Zepellin</a> la cual se la realizó de la siguiente forma en la cual al esquema que se planteó anteriormente se le carga la data y de esta manera evitar que Spark no determine los difenrentes tipos de datos.</p> 
+
                     <center><IMG src="" width="700" height="500"/><br/><br/></center>
                 </div>
                 <div id="consulta1">
