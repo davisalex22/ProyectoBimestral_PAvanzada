@@ -368,7 +368,7 @@ ORDER BY 2 DESC;
 
                 </div>
 <h2><b><br><br>Links importantes</b></h2>
-                  <p> Repositorio del Proyecto: <a href="https://www.ecuadorencifras.gob.ec/institucional/home/" style="color:blue;">Click Aquí</a> <br/></p>
+                  <p> Repositorio del Proyecto: <a href="https://github.com/davisalex22/ProyectoBimestral_PAvanzada" style="color:blue;">Click Aquí</a> <br/></p>
                   <p> Ecuador en Cifras: <a href="https://www.ecuadorencifras.gob.ec/institucional/home/" style="color:blue;">Click Aquí</a>
                   <p> Información Detallada: <a href="https://github.com/davisalex22/ProyectoBimestral_PAvanzada/wiki" style="color:blue;">Click Aquí</a>
                   <p> Data Cantones Ecuador: <a href="https://www.utmachala.edu.ec/archivos/SNIESE/Codificacion_Provincia-Canton-Parroquia.xlsx" style="color:blue;">Click Aquí<br></a>

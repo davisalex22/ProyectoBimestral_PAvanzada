@@ -60,7 +60,7 @@
                     <img src="uploads/logo.png">         
                 </div>
                 <div class="footer-left">                   
-                    <p class="footer-company-name">Todos los derechos Reservados. &copy; 2019 </p>
+                    <p class="footer-company-name">Todos los derechos Reservados. &copy; 2020 </p>
                 </div>
 
             </div>

@@ -5,7 +5,7 @@
 <div class="all-title-box">
     <div class="container text-center">
         <h1><br>Documentación Usuario Final<span class="m_1"></h1>
-        <p class="lead" data-animation="animated fadeInLeft">Analisis de exploratorio de datos Empleo y desempleo del Ecuador</p>
+        <p class="lead" data-animation="animated fadeInLeft">Analisis de exploratorio de datos del empleo y desempleo del Ecuador</p>
     </div>
 </div>
 
@@ -136,6 +136,12 @@ El sector de la construcción se ve altamente golpeada por los problemas que atr
 <br/><br/></p> 
                     <iframe src="http://42e9d765490d.ngrok.io/#/notebook/2FG9QDTXR/paragraph/paragraph_1596318097989_799072919?asIframe" style="width: 1000px; height: 400px; border: 0px"></iframe>
                 </div>
+                <h2><b><br><br>Links importantes</b></h2>
+                  <p> Repositorio del Proyecto: <a href="https://github.com/davisalex22/ProyectoBimestral_PAvanzada" style="color:blue;">Click Aquí</a> <br/></p>
+                  <p> Ecuador en Cifras: <a href="https://www.ecuadorencifras.gob.ec/institucional/home/" style="color:blue;">Click Aquí</a>
+                  <p> Información Detallada: <a href="https://github.com/davisalex22/ProyectoBimestral_PAvanzada/wiki" style="color:blue;">Click Aquí</a>
+                  <p> Data Cantones Ecuador: <a href="https://www.utmachala.edu.ec/archivos/SNIESE/Codificacion_Provincia-Canton-Parroquia.xlsx" style="color:blue;">Click Aquí<br></a>
+
             </div>
         </div>
 </div>
