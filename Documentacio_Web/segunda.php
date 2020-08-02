@@ -17,7 +17,7 @@
      width="400"
      height="341"></div>
                 <div id="consulta1">
-                    <h2><b>Etnia afroecuatoriana lucha por la desigualdad.</b></h2>
+                    <h2><b>Etnia afroecuatoriana lucha por la igualdad.</b></h2>
                     <p>Basados en las consultas anteriores realizadas dentro de la materia de programación avanzada, dentro de la data, nos quisimos concentrar en una minoría, ya que es interesante a nivel conceptual de cómo viven las minorías étnicas dentro de nuestro país, en este caso nos concentramos en la etnia afroecuatoriana.
                     El tema del empleo en Ecuador siempre ha sido un tema que nuestro país lucha día con día, de acuerdo con la página Ecuador en cifras. En la gráfica se presenta que desde el año 2015 al 2019, el nivel de empleo adecuado ha ido disminuyendo a lo largo de los años, esto nos 
                     indica que el gobierno no ha brindado oportunidades para tener un empleo pleno, con sus respectivos beneficios que brinda el gobierno ecuatoriano. Debiendo tener empleos con insuficiencia de tiempo e ingresos u que optando por dos o más empleos para satisfacer las necesidades básicas de él y su familia.<br/><br/></p>
@@ -33,7 +33,7 @@
                     <iframe src="http://42e9d765490d.ngrok.io/#/notebook/2FG9QDTXR/paragraph/paragraph_1595799293852_-456687849?asIframe"style="width: 1000px; height: 400px; border: 0px"></iframe>
                 </div>
                 <div id="consulta3">
-                    <h2><b>Desigualdad en género afroecuatoriano</b></h2>
+                    <h2><b>Desigualdad en mujeres afroecuatorianas</b></h2>
                     <p>El machismo en Ecuador es un tema que acoteja a las mujeres ecuatorianas, en el caso de mujeres afroecuatorianas. 
                         Se puede ver reflejado en el sueldo promedio que tienen de acuerdo con su nivel de instrucción. 
                         Lo cual en la gráfica se puede observar una clara desigualdad de sueldos. Teniendo una desigualdad de entre 50 hasta 120 dólares aproximadamente, 
@@ -47,7 +47,7 @@
                     <iframe src="http://42e9d765490d.ngrok.io/#/notebook/2FG9QDTXR/paragraph/paragraph_1595800028755_1251201211?asIframe"style="width: 1000px; height: 400px; border: 0px"></iframe>
                 </div>
                 <div id="consulta5">
-                    <h2><b>Grupos ocupaciones que laboran géneros afroecuatorianos</b></h2>
+                    <h2><b>Grupos ocupaciones que laboran en géneros afroecuatorianos</b></h2>
                         <p>
                         Evidenciando los sueldos promedios por año para hombres y mujeres afroecuatorianos, nos damos cuenta de que reciben lo equivalente a un sueldo básico vitalicio, se puede valorar que ocupaciones pueden laborar las personas afroecuatorianas para recibir ese sueldo vitalicio.
                         teniendo en cuenta las ocupaciones que laboran las personas afroecuatorianas, lo cual nos permitió establecer que en su mayoría se dedican al comercio, agricultura y pescadera u ocupaciones elementales. Este tipo de ocupaciones son una de las más grandes ocupaciones dentro de nuestro país.
