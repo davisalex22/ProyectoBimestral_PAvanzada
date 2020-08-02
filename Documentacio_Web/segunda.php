@@ -90,6 +90,43 @@ Primeramente, se realizó un conteo de las personas tanto hombres como mujeres s
 <br/><br/></p> 
                     <center><IMG src="" width="700" height="500"/><br/><br/></center>
                 </div>
+                <div id="consulta13"><h2><b>Conteo de las personas registradas por rama de Construcción</b></h2>
+                    <p>La presente gráfica trata sobre las personas que se dedican a la rama de actividad construcción, clasificado por cada una de las etnias existentes en el país, tal como se puede observar a entre los años 2015 - 2019, la etnia que predomina en esta actividad es la mestiza seguida de la indígena, teniendo su mayor número en el 2015 en ambas etnias, pero a partir del 2017 existe una reducción, en cambio la etnia montubia tiene un ligero incremento al transcurrir del tiempo.
+El sector de la construcción se ve altamente golpeada por los problemas que atravieza el país, ante ello este 2020 se espera que aun exista una reducción significativa debido a la pandemia generada por el covid-19
+<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+                </div>
+                <div id="consulta14">
+                    <h2><b>Cantidad de hombres y mujeres de etnia Mestiza y Montubia</b></h2>
+                    <p>La presente gráfica trata sobre la cantidad de hombres y mujeres de la etnia mestiza y montubia, consideras de mayor presencia en Ecuador, tomando como referencia el Banco Mundial (https://datos.bancomundial.org/indicator/SP.POP.TOTL.FE.ZS), en algunos países actualmente el número de mujeres supera al de hombres, se puede evidenciar que en el caso de mestizos y montubios el género que predomina es el masculino, existiendo mayor diferencia en la etnia mestiza cuenta con un estimado del 59 %.
+<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+                </div>
+                <div id="consulta15">
+                    <h2><b>Conteo de Personas por etnia que pertenezcan al área rural y nivel de instrucción superio universitario</b></h2>
+                    <p>En la siguiente visualización, se muestra las personas de cada etnia que pertenecen al área rural y cuenta con un nivel de instrucción superior universitario, en el Ecuador una gran parte del las personas del área rural se dedican al campo, por lo cual no todas las personas acceden a un nivel de instrucción superior universitario, ante ello exite, una mayoria en la etnia mestiza con un total de 12020 personas que acceden a este nivel seguido de indígenas con 1724, sin embargo las etnias afroecuatoriano, negro, mulato, montubio y blanco no superan las 500 personas.
+
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+                </div>
+                <div id="consulta16">
+                    <h2><b>Conteo de personas por etnia que pertenecen al área urbana</b></h2>
+                    <p>La presente gráfica muestra el total de personas por cada etnia que pertenecen a la área urbana, como se muestra visualmente la etnia mestiza es la que mayor presencia tiene en el sector urbano con un 88 %, seguido de la indígena, la gran presencia de mestizos en el área urbana se da porque esta etnia se encuantra distribuida a lo largo del Ecuador, por ende su presencia aumentará a lo largo del tiempo.(http://palabrastendidasalviento.blogspot.com/2012/04/proximas-estaciones-quito-borbon-puyo.html)
+
+<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+                </div>
+                <div id="consulta17">
+                    <h2><b>Cantidad de personas por etnia de la provincia de Santa Elena</b></h2>
+                    <p>La siguiente tabla muestra el promedio de sueldo en cada una de las ramas de actividad, siendo las Actividades de organizaciones extraterritoriales la que recibe un sueldo promedio superior de $ 1709, esto corresponde a actividades de organizaciones internacionales, como las Naciones Unidas y los organismos especializados del sistema de las Naciones Unidas, órganos regionales, etc. Por otro lado la menos remunerada es la Agricultura, ganadería, casa y silvicultura y pesca. (http://www.actor-atlas.info/es2:9900)
+<br/><br/></p> 
+<center><IMG src="" width="700" height="500"/><br/><br/></center>
+                </div>
+                <div id="consulta18">
+                    <h2><b>Promedio de sueldo de cada Rama de Actividad</b></h2>
+                    <p>La siguiente tabla muestra el promedio de sueldo en cada una de las ramas de actividad, siendo las Actividades de organizaciones extraterritoriales la que recibe un sueldo promedio superior de $ 1709, esto corresponde a actividades de organizaciones internacionales, como las Naciones Unidas y los organismos especializados del sistema de las Naciones Unidas, órganos regionales, etc. Por otro lado la menos remunerada es la Agricultura, ganadería, casa y silvicultura y pesca. (http://www.actor-atlas.info/es2:9900)
+<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+                </div>
             </div>
         </div>
     </div>

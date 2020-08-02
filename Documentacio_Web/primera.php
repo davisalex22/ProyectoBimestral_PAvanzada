@@ -33,7 +33,7 @@
                 <div id="esquema">
                   <h2><b>Esquema Planeado</b></h2>
                   <p>Una vez obtenida la data proporcianda del página: <a href="https://www.ecuadorencifras.gob.ec/institucional/home/".$act.">Ecuador en cifras</a> se procedió a realizar el analisis de cada una de las columnas y su tipo de dato. Una vez determinada se planteó el siguiente esquema:<br/></p> 
-                  <center><IMG src="" width="700" height="500"/><br/><br/></center>
+                 <iframe src="http://4ecb8aad8d77.ngrok.io/#/notebook/2FGATDZNY/paragraph/paragraph_1595798412458_-574222663?asIframe" style="width: 500px; height: 130px; border: 0px"></iframe>
                 </div>
                 <div id="carga_datos">
                     <h2><b>2. Carga de la data</b></h2>
@@ -46,7 +46,7 @@
                     <p>En esta consulta  usamos un where delimitanto las etnias a solo etnias afroecuatorianas, luego agrupamos la columna nivel_instruccion y realizamos un pivot, el métod pivot nos brinda
                      gran cantidad de operaciones que necesitemos dentro de nuestra consulta (count, avg, round, min, max, etc). utlizamos un pivot con la columna genero que conjuntamente con la funcion avg permite sacar el promedio de sueldos de los generos afroecuatorianos y así ordenandolos 
                         con un orderBy. Y al final lo mostramos con z.show el cual es un método de zeppelin para presentar nuestras consultas de una manera más dinámica un gráfico estadístico.<br/><br/></p> 
-                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+
                 </div>
                  <div id="consulta2">
                     <h2><b>nivel de instruccion proporcionada a personas afroecuatorianas</b></h2>
@@ -62,8 +62,8 @@
                         luego agrupamos la columna nivel_instruccion y realizamos un pivot, el métod pivot nos brinda gran cantidad de operaciones que necesitemos dentro de nuestra consulta (count, avg, round, min, max, etc).
                          utlizamos un pivot con la columna genero que conjuntamente con la funcion avg permite sacar el promedio de sueldos de los generos afroecuatorianos y así ordenandolos 
                         con un orderBy. Y al final lo mostramos con z.show el cual es un método de zeppelin para presentar nuestras consultas de una manera más dinámica un gráfico estadístico.<br/><br/></p> 
-                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
                 </div>
+                    <center><IMG src="https://8c411e2b1360.ngrok.io/#/notebook/2FGVD8WSP/paragraph/paragraph_1595798412458_-574222663?asIframe" width="700" height="500"/><br/><br/></center>
                 <div id="consulta4">
                     <h2><b>promedio de ingreso laboral de hombres y mujeres afroecuatorianos</b></h2>
                     <p>Esta consulta sirve para sacar el sueldo promedio de generos de las etnias afroecuatorianas, la consulta es posible gracias a un where, 
@@ -116,6 +116,49 @@
                     <p>Para la siguiente consulta sql la realizó de la siguiente forma: con el SELECT se colocó las provincias y el conteo la cual nos presentará con un alias de persoans con empleo doméstico. Con el FROM se apunta a provincias la cual vamos a ocupar. Para llegar a cada una de las tablas que se necesita se emplea el JOIN, primero de cantones en donde se usa el cod_provincia y relacionar las provincias y los cantones, luego de ello para personas se relaciona con el cod_canton de cantones y la tabla personas, con la sentencia WHERE se ubica a todas aquellas personas con empleo doméstico. Y finalmente se los agrupa por provincia ordenando por la cantidad de personas.
 <br/><br/></p> 
                     <center><IMG src="" width="700" height="500"/><br/><br/></center>
+
+                </div>
+                <div id="consulta13">
+                    <h2><b>Conteo de las personas registradas por rama de Construcción</b></h2>
+                    <p>A continuación, se muestra gráficamente la cantidad de personas de cada etnia que se dedicaron durante los años 2015-2019 a la construcción, para obtener esta consulta se utilizó la data general, con una cláusula where en el cual se especifica la rama de construcción, seguido de un groupBy para agrupar por etnia, un pivot de anio para agrupar datos procedentes de otra tabla y finalmente un conteo (count) y ordenado por etnia (orderBy).
+<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+
+                </div>
+ <div id="consulta14">
+                    <h2><b>Cantidad de hombres y mujeres de etnia Mestiza y Montubia</b></h2>
+                    <p>En la siguiente consulta primero se establece una cláusula where para especificar la etnia Mestizo y Montubio,seguidamente una agrupacion por etnia con un groupBy haciendo un pivote de genero para agrupar los datos procedentes de otra tabla y posteriormente se realiza un conteo (count) y un ordenamiento (orderBy) por etnia.
+<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+
+                </div>
+ <div id="consulta15">
+                    <h2><b>Conteo de Personas por etnia que pertenezcan al área rural y nivel de instrucción superio universitario</b></h2>
+                    <p>En la siguiente consulta primero se establece una cláusula where para especificar la area rural y el nivel de instrucción superior universitario,seguidamente una agrupacion por etnia con un groupBy y posteriormente se realiza un conteo (count) y un ordenamiento (orderBy) por etnia. Además de usar z.show que es un contenedor de todo el sistema para funciones de utilidad comunes y datos específicos del usuario e implementa funciones para la entrada de datos, visualización de datos.
+<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+
+                </div>
+ <div id="consulta16">
+                    <h2><b>Conteo de personas por etnia que pertenecen al área urbana</b></h2>
+                    <p>Para la siguiente consulta sql utilizando mariadb se realizó de la siguiente forma: con el SELECT se selecciona la etnia y se reliza un conteo de personas que pertenecen al área urbana asignando un alias de “Total Área Urbana”. Con el FROM se señala a la tabla personas y para llegar a cada una de las tablas que se necesita se emplear el JOIN, primero al cod_etnia de personas luego al cod_etnia de etnias. Finalmente se los agrupa por etnia y ordena por el el total área urbana.
+<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></centers>
+
+                </div>
+ <div id="consulta17">
+                    <h2><b>Cantidad de personas por etnia de la provincia de Santa Elena</b></h2>
+                    <p>Para esta consulta previamente se realizo la lectura del csv denominado dataCantones que contiene una columna codCanton y nombreCanton, luego de ello se declaró una variable dataCanton, en el cual se aplica un join que sirve para la unión interna de tablas básicamente, luego dentro de un z.show usando la dataCanton se utiliza la cláusula where para especificar la provincia 23 (Santo Domingo),luego se agrupa por etnia (groupBy), seguidamente un pivot de nombreCanton,un conte de las personas (count) y un ordenamiento por etnia (orderBy).
+<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+
+                </div>
+ <div id="consulta18">
+                    <h2><b>Promedio de sueldo de cada Rama de Actividad</b></h2>
+                    <p>Para la siguiente consulta sql utilizando mariadb se realizó de la siguiente forma: con el SELECT se selecciona la rama actividad y se calcula el promedio de ingresos realizando un redondeo y asignando un alias de “Sueldo Promedio”. Con el FROM se señala a la tabla personas y para llegar a cada una de las tablas que se necesita se emplear el JOIN, primero al cod_rama de personas luego al cod_rama de Ramas_Actividad. Finalmente se los agrupa por rama y ordena por el sueldo promedio.
+<br/><br/></p> 
+                    <center><IMG src="" width="700" height="500"/><br/><br/></center>
+
                 </div>
             </div>
         </div>
