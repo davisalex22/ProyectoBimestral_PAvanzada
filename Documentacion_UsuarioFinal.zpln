@@ -4,7 +4,7 @@
       "title": "Esquema",
       "text": "import org.apache.spark.sql.types._\nimport org.apache.spark.sql.functions._\nval myDataSchema = StructType(\n  Array(\n    StructField(\"id\",DecimalType(26, 0),true),\n    StructField(\"anio\",IntegerType,true),\n    StructField(\"mes\",IntegerType,true),\n    StructField(\"provincia\",IntegerType,true),\n    StructField(\"canton\",IntegerType,true),\n    StructField(\"area\",StringType,true),\n    StructField(\"genero\",StringType,true),\n    StructField(\"edad\",IntegerType,true),\n    StructField(\"estado_civil\",StringType,true),\n    StructField(\"nivel_de_instruccion\",StringType,true),\n    StructField(\"etnia\",StringType,true),\n    StructField(\"ingreso_laboral\",IntegerType,true),\n    StructField(\"condicion_actividad\",StringType,true),\n    StructField(\"sectorizacion\",StringType,true),\n    StructField(\"grupo_ocupacion\",StringType,true),\n    StructField(\"rama_actividad\",StringType,true),\n    StructField(\"factor_expansion\",DoubleType,true)\n  ));",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:55:25-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -35,20 +35,18 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797859_1001800066",
+      "jobName": "paragraph_1596381518088_-2028562470",
       "id": "paragraph_1595797302277_1409279875",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "FINISHED",
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "READY",
       "focus": true,
-      "$$hashKey": "object:299",
-      "dateFinished": "2020-08-02T08:55:26-0500",
-      "dateStarted": "2020-08-02T08:55:25-0500"
+      "$$hashKey": "object:443"
     },
     {
       "title": "Lectura de CSV",
       "text": "val data = spark\n\t  .read\n\t  .option(\"inferSchema\",\"true\")\n\t  .option(\"header\",\"true\")\n\t  .option(\"delimiter\",\"\\t\")\n\t  .csv(\"/home/davisalex22/Programacion/Datos_ENEMDU_PEA_v2.csv\")",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:55:29-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -77,39 +75,19 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=56",
-              "$$hashKey": "object:11217"
-            },
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=57",
-              "$$hashKey": "object:11218"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797859_-1193625855",
+      "jobName": "paragraph_1596381518089_-850442020",
       "id": "paragraph_1595797344192_-1132658780",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:300",
-      "dateFinished": "2020-08-02T08:55:34-0500",
-      "dateStarted": "2020-08-02T08:55:29-0500"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "READY",
+      "$$hashKey": "object:444"
     },
     {
       "title": "USE DataBase",
       "text": "%mariadb\nUSE PAvanzada_Enemdu",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:58:02-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -140,18 +118,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797859_2029432278",
+      "jobName": "paragraph_1596381518089_778858916",
       "id": "paragraph_1596315510758_-96939889",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:301",
-      "dateFinished": "2020-08-02T08:58:02-0500",
-      "dateStarted": "2020-08-02T08:58:02-0500"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "READY",
+      "$$hashKey": "object:445"
     },
     {
       "text": "%md\n<H1 align=\"center\">Análisis Exploratorio de Datos ENEMDU</H1>\n<H2>Documentación UsuarioFinal</H2>",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:27:30-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -182,19 +158,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797859_-625802957",
+      "jobName": "paragraph_1596381518089_-1371908185",
       "id": "paragraph_1595797365357_591785725",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:302",
-      "dateFinished": "2020-08-02T08:27:30-0500",
-      "dateStarted": "2020-08-02T08:27:30-0500"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "READY",
+      "$$hashKey": "object:446"
     },
     {
       "title": "Consulta # 1",
       "text": "%md\nEn esta consulta procedemos a utilizar la función crosstab, función interesante en spark, ya que el método crosstab permite solo el conteo con los atributos que nosotros proporcionariamos ocacionando un nuevo dataFrame, también nos encontramos con un orderBy el cual nos ayuda a ordenar de mejor manera el método crosstab. Y al final lo mostramos con z.show el cual es un método de zeppelin para presentar nuestras consultas de una manera más dinámica un gráfico estadístico. \n",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -226,17 +200,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797860_-1496569090",
+      "jobName": "paragraph_1596381518089_1256443417",
       "id": "paragraph_1595799242818_165142088",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:303"
+      "$$hashKey": "object:447"
     },
     {
       "title": "Consulta # 1",
       "text": "z.show(data.stat.crosstab(\"condicion_actividad\", \"anio\").orderBy(\"condicion_actividad_anio\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -342,16 +316,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797860_520505413",
+      "jobName": "paragraph_1596381518089_-1412615977",
       "id": "paragraph_1595798412458_-574222663",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:304"
+      "$$hashKey": "object:448"
     },
     {
       "text": "%md\nEn esta consulta primeramente se realiza un where, esto sirve para delimitar el dataframe principal, en este caso lo delimitamos con etnias que sean iguales a afroecuatorianos, en la cual hacemos un crosstab, \nel cual permite el conteo de clumnas en las cuales nosotros querramos efectuar dicho método, de igual manera ordenamos nuestros datos con la función orderBy. Y al final lo mostramos con z.show el cual es un método de zeppelin para presentar nuestras consultas de una manera más dinámica un gráfico estadístico",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -382,16 +356,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797860_-1155678789",
+      "jobName": "paragraph_1596381518089_-57069734",
       "id": "paragraph_1596075047176_328302940",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:305"
+      "$$hashKey": "object:449"
     },
     {
       "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\").stat.crosstab(\"condicion_actividad\", \"anio\").orderBy(\"condicion_actividad_anio\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -496,17 +470,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797860_11382732",
+      "jobName": "paragraph_1596381518090_-1990933339",
       "id": "paragraph_1595798424377_-1044869980",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:306"
+      "$$hashKey": "object:450"
     },
     {
       "title": "Consulta # 2",
       "text": "%md\nEn esta consulta primero realizamos un where el cual delimito la dataframe, en este caso lo delimitamos con la etnia Afroecuatoriano, en el cual hacemos un groupBy el cual agrupa con la columna nivel_instruccion, el cual los cuenta todos los datos que son iguales dentro de la columna y al final ordenamos con un groupBy. Y al final lo mostramos con z.show el cual es un método de zeppelin para presentar nuestras consultas de una manera más dinámica un gráfico estadístico",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -538,16 +512,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797860_1562839413",
+      "jobName": "paragraph_1596381518090_1447357840",
       "id": "paragraph_1595798525342_-1322144030",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:307"
+      "$$hashKey": "object:451"
     },
     {
       "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\")\n           .groupBy(\"nivel_de_instruccion\")\n           .count()\n           .orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -628,17 +602,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797860_1797369352",
+      "jobName": "paragraph_1596381518091_1682775051",
       "id": "paragraph_1595799293852_-456687849",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:308"
+      "$$hashKey": "object:452"
     },
     {
       "title": "Consulta # 3",
       "text": "%md\nEn esta consulta  usamos un where delimitanto las etnias a solo etnias afroecuatorianas, luego agrupamos la columna nivel_instruccion y realizamos un pivot, el métod pivot nos brinda gran cantidad de operaciones que necesitemos dentro de nuestra consulta (count, avg, round, min, max, etc). utlizamos un pivot con la columna genero que conjuntamente con la funcion avg permite sacar el promedio de sueldos de los generos afroecuatorianos y así ordenandolos con un orderBy. Y al final lo mostramos con z.show el cual es un método de zeppelin para presentar nuestras consultas de una manera más dinámica un gráfico estadístico",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -670,16 +644,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797860_-1228319675",
+      "jobName": "paragraph_1596381518091_1528569555",
       "id": "paragraph_1595799441484_-982333077",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:309"
+      "$$hashKey": "object:453"
     },
     {
       "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\").groupBy(\"nivel_de_instruccion\").pivot(\"genero\").avg(\"ingreso_laboral\").orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -766,17 +740,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797860_193827803",
+      "jobName": "paragraph_1596381518091_701554336",
       "id": "paragraph_1595799654056_-1614270673",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:310"
+      "$$hashKey": "object:454"
     },
     {
       "title": "Consulta # 4",
       "text": "%md \nEsta consulta sirve para sacar el sueldo promedio de generos de las etnias afroecuatorianas, la consulta es posible gracias a un where, el cual delimita a etnias afroecuatorianas, luego agrupa cada anio  con la función groupBy y conjuntamente con la funcion pivot permite sacar el sueldo promedio por medio del método avg que está dentro de las funciones del pivot, luego de ello se ordena por anio gracias a la funcion orderBy.Y al final lo mostramos con z.show el cual es un método de zeppelin para presentar nuestras consultas de una manera más dinámica un gráfico estadístico.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -860,16 +834,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797860_-1112164622",
+      "jobName": "paragraph_1596381518091_-1359157408",
       "id": "paragraph_1595799796295_-355254488",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:311"
+      "$$hashKey": "object:455"
     },
     {
       "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\")\n       .groupBy(\"anio\").pivot(\"genero\")\n       .agg(round(avg(\"ingreso_laboral\"))).orderBy(\"anio\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -969,17 +943,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797861_25055348",
+      "jobName": "paragraph_1596381518091_-1177425397",
       "id": "paragraph_1595800028755_1251201211",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:312"
+      "$$hashKey": "object:456"
     },
     {
       "title": "Consulta # 5",
       "text": "%md\nEsta consulta permite visualizar las ocupaciones más destacadas de la etnia afroecuatoriana, esto es posible gracias a la delimitación de la data con una funcion where que limita que solo me muestre a etnias afroecuatorianas que no tengan un grupo ocupacion nulo, luego de ello lo agrupamos con groupBy y hacemos un conteo por genero, para finalmente ordenarlos por grupo_ocupacion, realizada con la funcion orderBy. \nY al final lo mostramos con z.show el cual es un método de zeppelin para presentar nuestras consultas de una manera más dinámica un gráfico estadístico",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1011,17 +985,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797861_-1104977412",
+      "jobName": "paragraph_1596381518091_-1252792072",
       "id": "paragraph_1595801172694_1861160965",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:313"
+      "$$hashKey": "object:457"
     },
     {
       "title": "",
       "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\" && $\"grupo_ocupacion\".isNotNull).groupBy(\"grupo_ocupacion\").pivot(\"genero\").count().orderBy(\"grupo_ocupacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1110,17 +1084,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797861_1272096716",
+      "jobName": "paragraph_1596381518091_-704857009",
       "id": "paragraph_1595800106823_-364907899",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:314"
+      "$$hashKey": "object:458"
     },
     {
       "title": "Consulta # 6",
       "text": "%md\nPrimeramente al quere efectuar está consulta utilizamos sentencias sql con consultas nativas (ANSI-SQL), el cual seleccionamos la etnia, a la vez contamos cuantos son de la misma etnia y el sueldo promedio de esas etnia,\nluego le decimos que la obtenga de la tabla personas, luego lo unimos con join con la tabla etnias que cod_canton de etnias sea igual al de cod_canton de la tabla personas. Donde le decimos que que delimite a las personas ingresos sea mayor a 400, todo esto con un where. y que los agrupe por las etnias con un groupBy y al final que los orderne con un groupBy con la tercera columna de nuestra consulta.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1152,16 +1126,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797861_-1794725989",
+      "jobName": "paragraph_1596381518094_-720013272",
       "id": "paragraph_1596315794735_-750268074",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:315"
+      "$$hashKey": "object:459"
     },
     {
       "text": "%mariadb\nSELECT etnia, COUNT(*) AS \"Personas que superan el salario básico\", ROUND(AVG(ingresos)) AS \"Salario promedio\"\nFROM Personas p\nJOIN etnias e ON p.cod_etnia = e.cod_etnia\nWHERE p.ingresos > 400\nGROUP BY etnia\nORDER BY 3 DESC;",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1221,17 +1195,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797861_468897819",
+      "jobName": "paragraph_1596381518095_-1662465826",
       "id": "paragraph_1596315763297_-1761999486",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:316"
+      "$$hashKey": "object:460"
     },
     {
       "title": "Conteo de las personas registradas por género en cada una de las etnias.",
-      "text": "%md\nEn la siguiente consulta se procedió primero a realizar la agrupación de las etnias con el groupBy, y seguido se crea un pivote de genero por la ventaja que nos permite realizar mas operaciones, el cual conjuntamente con el count el cual va contando y nos dará el número de personas clasificada por hombres y mujeres de cada una de las etnias. Finalmente para que se presenten ordenas se le aplica el orderBy y se le especifica en base que columna en este caso las etnias. Y para su visualización se implemente el z.show que en este caso se lo presenta con la gráfica de frecuencias.",
+      "text": "%md\nEl Ecuador es un país muy diversificado, la cual cuenta con varias etnias que a pesar del pasar el tiempo se siguen presentado en la actualidad, según la data presentada por el INEC del empleo y desempleo, se pudo recolectar estos datos y procesarlos para poder realizar un análisis en cuanto a la capacidad económica que se presenta en los ecuatorianos en cada una de las etnias.\n\nPrimeramente, se realizó un conteo de las personas tanto hombres como mujeres se presentan en los datos de cada una de las etnias, y mediante la cual se obtuvo que el número de hombres y mujeres en cada una de las etnias tiene una correlación. Pero a demás de ello en los datos se presenta mayormente el número de personas de etnia mestiza que se da registrado y en su mayoría son hombre pero no con mucha diferencia, lo que se relaciona incluso con la cantidad total de habitantes del Ecuador, que son el 50.1% hombre y 49.9% mujeres como presenta la página Country meters en su pagina web https://countrymeters.info/es/Ecuador.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:21:15-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1256,23 +1230,25 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "<div class=\"markdown-body\">\n<p>En la siguiente consulta se procedió primero a realizar la agrupación de las etnias con el groupBy, y seguido se crea un pivote de genero por la ventaja que nos permite realizar mas operaciones, el cual conjuntamente con el count el cual va contando y nos dará el número de personas clasificada por hombres y mujeres de cada una de las etnias. Finalmente para que se presenten ordenas se le aplica el orderBy y se le especifica en base que columna en este caso las etnias. Y para su visualización se implemente el z.show que en este caso se lo presenta con la gráfica de frecuencias.</p>\n\n</div>"
+            "data": "<div class=\"markdown-body\">\n<p>El Ecuador es un país muy diversificado, la cual cuenta con varias etnias que a pesar del pasar el tiempo se siguen presentado en la actualidad, según la data presentada por el INEC del empleo y desempleo, se pudo recolectar estos datos y procesarlos para poder realizar un análisis en cuanto a la capacidad económica que se presenta en los ecuatorianos en cada una de las etnias.</p>\n<p>Primeramente, se realizó un conteo de las personas tanto hombres como mujeres se presentan en los datos de cada una de las etnias, y mediante la cual se obtuvo que el número de hombres y mujeres en cada una de las etnias tiene una correlación. Pero a demás de ello en los datos se presenta mayormente el número de personas de etnia mestiza que se da registrado y en su mayoría son hombre pero no con mucha diferencia, lo que se relaciona incluso con la cantidad total de habitantes del Ecuador, que son el 50.1% hombre y 49.9% mujeres como presenta la página Country meters en su pagina web <a href=\"https://countrymeters.info/es/Ecuador\">https://countrymeters.info/es/Ecuador</a>.</p>\n\n</div>"
           }
         ]
       },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797861_238789315",
+      "jobName": "paragraph_1596381518095_-1799854351",
       "id": "paragraph_1595800435704_347318149",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "READY",
-      "$$hashKey": "object:317"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:461",
+      "dateFinished": "2020-08-02T10:21:13-0500",
+      "dateStarted": "2020-08-02T10:21:12-0500"
     },
     {
       "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1366,17 +1342,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797861_178423128",
+      "jobName": "paragraph_1596381518095_633841353",
       "id": "paragraph_1595800292774_606324939",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:318"
+      "$$hashKey": "object:462"
     },
     {
       "title": "Edad promedio de hombre y mujeres por cada una de las etnias registradas ",
-      "text": "%md\nEn la siguiente consulta se realizó nuevamente la agrupación de las etnias con el groupBy y de igual forma el pivote de género, en la cual se toma las edades con el .agg se le calcula el promedio con el avg, la cual nos da en decimales, pero al momento de aplicarle el round se lo redondea y se lo castea a Integer para que nos de la edad promedio exacta de cada personas (hombres y mujeres) de cada etnia.",
+      "text": "%md\nSeguido de ellos con el fin de conocer las edades promedio de las personas de cada etnia se calculó el promedio y así ver los rangos de edades, los cuales nos da como resultado que en promedio las edades de hombres y mujeres en su mayoría son idénticas a excepción de la etnia Negra en la cual la edad promedio es 40 años que corresponde a las mujeres y en la etnia clasificada como otros mayormente están los hombres con 43 años.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:22:54-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1401,23 +1377,25 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "<div class=\"markdown-body\">\n<p>En la siguiente consulta se realizó nuevamente la agrupación de las etnias con el groupBy y de igual forma el pivote de género, en la cual se toma las edades con el .agg se le calcula el promedio con el avg, la cual nos da en decimales, pero al momento de aplicarle el round se lo redondea y se lo castea a Integer para que nos de la edad promedio exacta de cada personas (hombres y mujeres) de cada etnia.</p>\n\n</div>"
+            "data": "<div class=\"markdown-body\">\n<p>Seguido de ellos con el fin de conocer las edades promedio de las personas de cada etnia se calculó el promedio y así ver los rangos de edades, los cuales nos da como resultado que en promedio las edades de hombres y mujeres en su mayoría son idénticas a excepción de la etnia Negra en la cual la edad promedio es 40 años que corresponde a las mujeres y en la etnia clasificada como otros mayormente están los hombres con 43 años.</p>\n\n</div>"
           }
         ]
       },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797861_-215868585",
+      "jobName": "paragraph_1596381518095_-1227403432",
       "id": "paragraph_1595800658805_-1443972552",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "READY",
-      "$$hashKey": "object:319"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:463",
+      "dateFinished": "2020-08-02T10:22:50-0500",
+      "dateStarted": "2020-08-02T10:22:50-0500"
     },
     {
       "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\")\n                            .agg(round(avg(\"edad\")).cast(IntegerType))\n                            .orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1516,17 +1494,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797861_1794283900",
+      "jobName": "paragraph_1596381518095_280650667",
       "id": "paragraph_1595800814770_-929282467",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:320"
+      "$$hashKey": "object:464"
     },
     {
       "title": "Conteo de las personas que laboran en cada tipo de Sectorización en cada año registrado.",
-      "text": "%md \nPara las siguientes representaciones se aplicó la misma consulta pero con diferente reprentación, la cual antes de su realización se excluyo los nulos con el isNotNull ya que se encontraban registros que no tenian en los datos de sectorización, seguido se agrupó la sectorización con el groupBy y presentar cada uno de los tipo de datos de esta columna, seguido con el empleo de un pivote de los años la cual nos permite realizar el conteo de los registros de cada año con el .count y se los ordena por el tipo de sectorizacion con el orderBy. Finalmente con el z.show se muestra el conteo de las personas que trabajan en cada uno de los años depende el tipo de trabajo, es decir de la sectorización, la cual en este caso se la presentó en tabla y en barras.",
+      "text": "%md \nUna vez obtenidos estos resultados se procedió a evaluar la cantidad de personas que desde el año 2015 al 2019 han trabajado en cada uno de los cuatro sectores de trabajo en el Ecuador y se obtuvo que en el empleo formal ha ido decreciendo el número de personas trabajando en este sector en comparación del 2015 hasta el año más reciente que presentan los datos que es del 2019, en el sector informal y en el no clasificado también ha existido el decaimiento. Pero por otro lado el sector de empleo Doméstico a tenido no muy excesivo, pero si un aumento, esto quiere decir que se está dando mucho más este tipo de empleo por la existencia de personas que optan por este debido a varios factores como falta de trabajo en los demás sectores de trabajo registrados en el Ecuador.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:23:20-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1551,24 +1529,26 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "<div class=\"markdown-body\">\n<p>Para las siguientes representaciones se aplicó la misma consulta pero con diferente reprentación, la cual antes de su realización se excluyo los nulos con el isNotNull ya que se encontraban registros que no tenian en los datos de sectorización, seguido se agrupó la sectorización con el groupBy y presentar cada uno de los tipo de datos de esta columna, seguido con el empleo de un pivote de los años la cual nos permite realizar el conteo de los registros de cada año con el .count y se los ordena por el tipo de sectorizacion con el orderBy. Finalmente con el z.show se muestra el conteo de las personas que trabajan en cada uno de los años depende el tipo de trabajo, es decir de la sectorización, la cual en este caso se la presentó en tabla y en barras.</p>\n\n</div>"
+            "data": "<div class=\"markdown-body\">\n<p>Una vez obtenidos estos resultados se procedió a evaluar la cantidad de personas que desde el año 2015 al 2019 han trabajado en cada uno de los cuatro sectores de trabajo en el Ecuador y se obtuvo que en el empleo formal ha ido decreciendo el número de personas trabajando en este sector en comparación del 2015 hasta el año más reciente que presentan los datos que es del 2019, en el sector informal y en el no clasificado también ha existido el decaimiento. Pero por otro lado el sector de empleo Doméstico a tenido no muy excesivo, pero si un aumento, esto quiere decir que se está dando mucho más este tipo de empleo por la existencia de personas que optan por este debido a varios factores como falta de trabajo en los demás sectores de trabajo registrados en el Ecuador.</p>\n\n</div>"
           }
         ]
       },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797862_-1019547914",
+      "jobName": "paragraph_1596381518096_1125337202",
       "id": "paragraph_1595801210642_451070163",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "READY",
-      "$$hashKey": "object:321"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:465",
+      "dateFinished": "2020-08-02T10:23:18-0500",
+      "dateStarted": "2020-08-02T10:23:18-0500"
     },
     {
       "title": "Consulta # 8",
       "text": "z.show(data.where($\"sectorizacion\".isNotNull).groupBy(\"sectorizacion\").pivot(\"anio\").count.orderBy(\"sectorizacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1749,16 +1729,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797862_-1311094369",
+      "jobName": "paragraph_1596381518096_1075534888",
       "id": "paragraph_1595800886939_-2053402092",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:322"
+      "$$hashKey": "object:466"
     },
     {
       "text": "z.show(data.where($\"sectorizacion\".isNotNull)\n            .groupBy(\"sectorizacion\")\n           .pivot(\"anio\")\n           .count\n           .orderBy(\"sectorizacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1848,17 +1828,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797862_1634323719",
+      "jobName": "paragraph_1596381518096_1461178570",
       "id": "paragraph_1595801114971_227048157",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:323"
+      "$$hashKey": "object:467"
     },
     {
       "title": "Ingreso laboral promedio de las personas que laboran en cada tipo de Sectorización en cada año",
-      "text": "%md\nEn la presente consulta se agrupo nuevamente con el groupBy de la sectorización pero excluyendo los nulos con el empleo del .isNotNull, se utilizó un pivote de los años y así poder realizar el .agg para agregar del promedio de los ingresos laborales con el uso del avg, en este caso se los ordenó con el orderBy de sectorización. De esta forma con el z.show se presenta la gráfica en tabla que nos refleja el promedio del ingreso laboraral.\n",
+      "text": "%md\nEn base a ello se optó a realizar el análisis de la cantidad de ingresos que han tenido las personas en estos años en sus diferentes sectores.  Cual nos dio como resultado Que en el sector formal es el sector que más tiene ingresos, pero a pesar de ello a tenido una baja de un 3.27 dólares, el sector informal de igual forma con un descenso de 2.94 dólares. En cambio, el sector de empleo doméstico a tenido un aumento con un promedio de ingresos de 29.07 dólares hasta el 2019.\n",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:27:59-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1883,23 +1863,25 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "<div class=\"markdown-body\">\n<p>En la presente consulta se agrupo nuevamente con el groupBy de la sectorización pero excluyendo los nulos con el empleo del .isNotNull, se utilizó un pivote de los años y así poder realizar el .agg para agregar del promedio de los ingresos laborales con el uso del avg, en este caso se los ordenó con el orderBy de sectorización. De esta forma con el z.show se presenta la gráfica en tabla que nos refleja el promedio del ingreso laboraral.</p>\n\n</div>"
+            "data": "<div class=\"markdown-body\">\n<p>En base a ello se optó a realizar el análisis de la cantidad de ingresos que han tenido las personas en estos años en sus diferentes sectores.  Cual nos dio como resultado Que en el sector formal es el sector que más tiene ingresos, pero a pesar de ello a tenido una baja de un 3.27 dólares, el sector informal de igual forma con un descenso de 2.94 dólares. En cambio, el sector de empleo doméstico a tenido un aumento con un promedio de ingresos de 29.07 dólares hasta el 2019.</p>\n\n</div>"
           }
         ]
       },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797862_-1906210372",
+      "jobName": "paragraph_1596381518096_-150320445",
       "id": "paragraph_1595801901708_-830862959",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "READY",
-      "$$hashKey": "object:324"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:468",
+      "dateFinished": "2020-08-02T10:27:58-0500",
+      "dateStarted": "2020-08-02T10:27:57-0500"
     },
     {
       "text": "z.show(data.where($\"sectorizacion\".isNotNull).groupBy(\"sectorizacion\").pivot(\"anio\").agg(round(avg(\"ingreso_laboral\"))).orderBy(\"sectorizacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1979,17 +1961,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797862_708762425",
+      "jobName": "paragraph_1596381518096_1059851776",
       "id": "paragraph_1595801319682_269850659",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:325"
+      "$$hashKey": "object:469"
     },
     {
       "title": "Cantidad de hombre y mujeres que se dedican al Empleo doméstico registrado en el Ecuador",
-      "text": "%md \nPara la siguiente consulta se filtró primeramente los registro correspondientes al empleo doméstico con el data.where y se crea la igualadad con la sectorización, luego se procede a agrupar por cada una de las etnias y se creo un pivote del género y reflejar la cantidad hombres y mujeres con la ayuda del .count que nos cuenta la cantidad de registro y se los ordena por etnia con el orderBy.",
+      "text": "%md \nTomando en cuenta los ingreso laborales de cada personas se calculó cuantos hombre y mujeres son los que se dedican a este tipo de empleo en cada una de las etnias lo que nos reflejo en independientemente de la etnia la mujer es la que se dedica mas a este tipo de empleo, incluso existiendo datos que ningun hombre se dedica en las etnia Mulata y los clasificados como otros. Llegando a la conclusion que aún se refleja en cierto punto la ideología antigua de cada una de las etnias de nuestro pais en donde se decía que las mujeres se dediquen mayormente a tareas del hogar y el hombre a trabajos más forzosos, lo que sin duda en la actulidad de trata de erradicar. ",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:28:24-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2014,24 +1996,26 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "<div class=\"markdown-body\">\n<p>Para la siguiente consulta se filtró primeramente los registro correspondientes al empleo doméstico con el data.where y se crea la igualadad con la sectorización, luego se procede a agrupar por cada una de las etnias y se creo un pivote del género y reflejar la cantidad hombres y mujeres con la ayuda del .count que nos cuenta la cantidad de registro y se los ordena por etnia con el orderBy.</p>\n\n</div>"
+            "data": "<div class=\"markdown-body\">\n<p>Tomando en cuenta los ingreso laborales de cada personas se calculó cuantos hombre y mujeres son los que se dedican a este tipo de empleo en cada una de las etnias lo que nos reflejo en independientemente de la etnia la mujer es la que se dedica mas a este tipo de empleo, incluso existiendo datos que ningun hombre se dedica en las etnia Mulata y los clasificados como otros. Llegando a la conclusion que aún se refleja en cierto punto la ideología antigua de cada una de las etnias de nuestro pais en donde se decía que las mujeres se dediquen mayormente a tareas del hogar y el hombre a trabajos más forzosos, lo que sin duda en la actulidad de trata de erradicar.</p>\n\n</div>"
           }
         ]
       },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797862_-1248971683",
+      "jobName": "paragraph_1596381518096_-782484544",
       "id": "paragraph_1596320278116_-1059496783",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "READY",
-      "$$hashKey": "object:326"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:470",
+      "dateFinished": "2020-08-02T10:28:22-0500",
+      "dateStarted": "2020-08-02T10:28:22-0500"
     },
     {
       "title": "Consulta # 11",
       "text": "z.show(data.where($\"sectorizacion\" === \"3 - Empleo Doméstico\").groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2132,17 +2116,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797862_-2141813383",
+      "jobName": "paragraph_1596381518096_-660207763",
       "id": "paragraph_1595801925549_-905991312",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:327"
+      "$$hashKey": "object:471"
     },
     {
       "title": "Conteo de las personas dedicadas al empleo doméstico en cada provincia registrada",
-      "text": "%md\nPara la siguiente consulta sql la realizó de la siguiente forma: con el SELECT se colocó las provincias y el conteo la cual nos presentará con un alias de persoans con empleo doméstico. Con el FROM se apunta a provincias la cual vamos a ocupar. Para llegar a cada una de las tablas que se necesita se emplea el JOIN, primero de cantones en donde se usa el cod_provincia y relacionar las provincias y los cantones, luego de ello para personas se relaciona con el cod_canton de cantones y la tabla personas, con la sentencia WHERE se ubica a todas aquellas personas con empleo doméstico. Y finalmente se los agrupa por provincia ordenando por la cantidad de personas.\n ",
+      "text": "%md\nEn base a ello se indagó en cual de todas las provincias de nuestro país en donde se da más el trabajo doméstico, dando como resultado que principalmente se da en las provincias del Pichincha con 2460 personas que se dedican a este tipo de trabajo seguidamente del Guayas y del Azuay, donde se puede llegar a decir que el trabajo domético tiene muchas más acogida ya sea por preferencia, nivel de instrucción o incluso por ideología de cada personas como se mencionó anteriormente.\n",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:28:53-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2167,24 +2151,26 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "<div class=\"markdown-body\">\n<p>Para la siguiente consulta sql la realizó de la siguiente forma: con el SELECT se colocó las provincias y el conteo la cual nos presentará con un alias de persoans con empleo doméstico. Con el FROM se apunta a provincias la cual vamos a ocupar. Para llegar a cada una de las tablas que se necesita se emplea el JOIN, primero de cantones en donde se usa el cod_provincia y relacionar las provincias y los cantones, luego de ello para personas se relaciona con el cod_canton de cantones y la tabla personas, con la sentencia WHERE se ubica a todas aquellas personas con empleo doméstico. Y finalmente se los agrupa por provincia ordenando por la cantidad de personas.</p>\n\n</div>"
+            "data": "<div class=\"markdown-body\">\n<p>En base a ello se indagó en cual de todas las provincias de nuestro país en donde se da más el trabajo doméstico, dando como resultado que principalmente se da en las provincias del Pichincha con 2460 personas que se dedican a este tipo de trabajo seguidamente del Guayas y del Azuay, donde se puede llegar a decir que el trabajo domético tiene muchas más acogida ya sea por preferencia, nivel de instrucción o incluso por ideología de cada personas como se mencionó anteriormente.</p>\n\n</div>"
           }
         ]
       },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797862_-382699932",
+      "jobName": "paragraph_1596381518096_-1614886925",
       "id": "paragraph_1596320344516_100089719",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "READY",
-      "$$hashKey": "object:328"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:472",
+      "dateFinished": "2020-08-02T10:28:50-0500",
+      "dateStarted": "2020-08-02T10:28:50-0500"
     },
     {
       "title": "Consulta # 12",
       "text": "%mariadb\nSELECT provincia , COUNT(*) AS \"Personas con empleo doméstico\"\nFROM Provincias p \nJOIN Cantones c ON p.cod_provincia = c.cod_provincia\nJOIN Personas pe ON c.cod_canton = pe.cod_canton\nWHERE Sectorizacion = \"empleo doméstico\"\nGROUP BY Provincia\nORDER BY 2 DESC;",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2278,17 +2264,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797863_242447539",
+      "jobName": "paragraph_1596381518096_-1887012969",
       "id": "paragraph_1596318043034_1719707679",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:329"
+      "$$hashKey": "object:473"
     },
     {
       "title": "Conteo de las personas registradas por rama de Construcción",
       "text": "%md\nLa presente gráfica trata sobre las personas que se dedican a la rama de actividad construcción, clasificado por cada una de las etnias existentes en el país, tal como se puede observar a entre los años 2015 - 2019, la etnia que predomina en esta actividad es la mestiza seguida de la indígena, teniendo su mayor número en el 2015 en ambas etnias, pero a partir del 2017 existe una reducción, en cambio la etnia montubia tiene un ligero incremento al transcurrir del tiempo.\nEl sector de la construcción se ve altamente golpeada por los problemas que atravieza el país, ante ello este 2020 se espera que aun exista una reducción significativa debido a la pandemia generada por el covid-19",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:35:09-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2320,19 +2306,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797863_-1842789407",
+      "jobName": "paragraph_1596381518097_-699462286",
       "id": "paragraph_1595802808364_1186568500",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:330",
-      "dateFinished": "2020-08-02T08:35:06-0500",
-      "dateStarted": "2020-08-02T08:35:06-0500"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "READY",
+      "$$hashKey": "object:474"
     },
     {
       "title": "Consulta # 11",
       "text": "z.show(data.where($\"rama_actividad\" === \"06 - F. Construcción\").groupBy(\"etnia\").pivot(\"anio\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2438,17 +2422,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797863_1082690326",
+      "jobName": "paragraph_1596381518097_1090099233",
       "id": "paragraph_1595801827694_-332891911",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:331"
+      "$$hashKey": "object:475"
     },
     {
       "title": "Cantidad de hombres y mujeres de etnia Mestiza y Montubia",
       "text": "%md\nLa presente gráfica trata sobre la cantidad de hombres y mujeres de la etnia mestiza y montubia, consideras de mayor presencia en Ecuador, tomando como referencia el Banco Mundial (https://datos.bancomundial.org/indicator/SP.POP.TOTL.FE.ZS), en algunos países actualmente el número de mujeres supera al de hombres, se puede evidenciar que en el caso de mestizos y montubios el género que predomina es el masculino, existiendo mayor diferencia en la etnia mestiza cuenta con un estimado del 59 %.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:45:22-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2480,18 +2464,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797863_675884897",
+      "jobName": "paragraph_1596381518097_1395442631",
       "id": "paragraph_1595802739720_1097852877",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:332",
-      "dateFinished": "2020-08-02T08:45:20-0500",
-      "dateStarted": "2020-08-02T08:45:20-0500"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "READY",
+      "$$hashKey": "object:476"
     },
     {
       "text": "z.show(data.where($\"etnia\" === \"6 - Mestizo\" || $\"etnia\" === \"5 - Montubio\")\n            .groupBy(\"etnia\")\n            .pivot(\"genero\")\n            .count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:45:18-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2585,39 +2567,19 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=54",
-              "$$hashKey": "object:10686"
-            },
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=55",
-              "$$hashKey": "object:10687"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797863_1547824004",
+      "jobName": "paragraph_1596381518097_-1315625186",
       "id": "paragraph_1595802850428_2031264569",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:333",
-      "dateFinished": "2020-08-02T08:45:28-0500",
-      "dateStarted": "2020-08-02T08:45:18-0500"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "READY",
+      "$$hashKey": "object:477"
     },
     {
       "title": "Conteo de Personas por etnia que pertenezcan al área rural y nivel de instrucción superio universitario",
       "text": "%md\nEn la siguiente visualización, se muestra las personas de cada etnia que pertenecen al área rural y cuenta con un nivel de instrucción superior universitario, en el Ecuador una gran parte del las personas del área rural se dedican al campo, por lo cual no todas las personas acceden a un nivel de instrucción superior universitario, ante ello exite, una mayoria en la etnia mestiza con un total de 12020 personas que acceden a este nivel seguido de indígenas con 1724, sin embargo las etnias afroecuatoriano, negro, mulato, montubio y blanco no superan las 500 personas.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:52:25-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2649,18 +2611,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797863_-1141937235",
+      "jobName": "paragraph_1596381518097_109365559",
       "id": "paragraph_1595802875874_1550800977",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:334",
-      "dateFinished": "2020-08-02T08:52:23-0500",
-      "dateStarted": "2020-08-02T08:52:22-0500"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "READY",
+      "$$hashKey": "object:478"
     },
     {
       "text": "z.show(data.where($\"area\" === \"2 - Rural\" && $\"nivel_de_instruccion\" === \"09 - Superior Universitario\").groupBy(\"etnia\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2741,17 +2701,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797863_-1516924409",
+      "jobName": "paragraph_1596381518097_-265923339",
       "id": "paragraph_1595802986559_-493911874",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:335"
+      "$$hashKey": "object:479"
     },
     {
       "title": "Conteo de personas por etnia que pertenecen al área urbana",
       "text": "%md\nLa presente gráfica muestra el total de personas por cada etnia que pertenecen a la área urbana, como se muestra visualmente la etnia mestiza es la que mayor presencia tiene en el sector urbano con un 88 %, seguido de la indígena, la gran presencia de mestizos en el área urbana se da porque esta etnia se encuantra distribuida a lo largo del Ecuador, por ende su presencia aumentará a lo largo del tiempo.(http://palabrastendidasalviento.blogspot.com/2012/04/proximas-estaciones-quito-borbon-puyo.html)\n",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T09:05:15-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2783,18 +2743,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797863_617492217",
+      "jobName": "paragraph_1596381518097_-530861824",
       "id": "paragraph_1596316553282_1590302935",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:336",
-      "dateFinished": "2020-08-02T09:05:15-0500",
-      "dateStarted": "2020-08-02T09:05:14-0500"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "READY",
+      "$$hashKey": "object:480"
     },
     {
       "text": "%mariadb\nSELECT etnia, COUNT(*) AS \"Total Área Urbana\"\nFROM Personas p\nJOIN etnias e ON p.cod_etnia = e.cod_etnia\nWHERE p.area = \"U\" \nGROUP BY etnia\nORDER BY 2;",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:59:44-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2881,19 +2839,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797863_2004256129",
+      "jobName": "paragraph_1596381518097_-716279279",
       "id": "paragraph_1596316074432_-359048355",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:337",
-      "dateFinished": "2020-08-02T08:59:41-0500",
-      "dateStarted": "2020-08-02T08:59:37-0500"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "READY",
+      "$$hashKey": "object:481"
     },
     {
       "title": "Cantidad de personas por etnia de la provincia de Santa Elena",
       "text": "val dataCantones = spark\n\t  .read\n\t  .option(\"inferSchema\",\"true\")\n\t  .option(\"header\",\"true\")\n\t  .option(\"delimiter\",\",\")\n\t  .csv(\"/home/davisalex22/Programacion/cantonesEcuador.csv\")",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T09:09:04-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2924,16 +2880,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797863_-1175411747",
+      "jobName": "paragraph_1596381518098_-977592637",
       "id": "paragraph_1595803009414_-1927598925",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:338"
+      "$$hashKey": "object:482"
     },
     {
       "text": "%md\nLa siguiente Tabla muestra la cantidad de personas existentes por cada etnia en la provincia más joven del Ecuador, fundada en el año 2007, tal como se observa en sus tres cantones la etnia predominante es la mestiza, seguida de la montubia, al encontrarse la etnia meztiza distribuida por todo el país se puede evidenciar que la etnia mestiza se esta posicionando con el pasar de los tiempo en cada una de las provincias, anteriormente la etnia montubia tenia gran presencia el la región costa del Ecuador, sin embargo se ve que con el pasar del tiempo los mestizos van incrementando.(https://www.ecured.cu/Provincia_de_Santa_Elena_(Ecuador))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T09:18:02-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2964,18 +2920,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797864_212680981",
+      "jobName": "paragraph_1596381518098_5422213",
       "id": "paragraph_1596372661399_-704290821",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:339",
-      "dateFinished": "2020-08-02T09:17:55-0500",
-      "dateStarted": "2020-08-02T09:17:55-0500"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "READY",
+      "$$hashKey": "object:483"
     },
     {
       "text": "val dataCanton = data.join(dataCantones,data(\"canton\") === dataCantones(\"codigoCanton\"),\"inner\")\nz.show(dataCanton.where($\"provincia\" === 24).groupBy($\"etnia\").pivot(\"nombreCanton\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T09:14:05-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -3077,47 +3031,19 @@
         ]
       },
       "apps": [],
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=66",
-              "$$hashKey": "object:14789"
-            },
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=67",
-              "$$hashKey": "object:14790"
-            },
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=68",
-              "$$hashKey": "object:14791"
-            },
-            {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=69",
-              "$$hashKey": "object:14792"
-            }
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
+      "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797864_1762982519",
+      "jobName": "paragraph_1596381518098_-2011924898",
       "id": "paragraph_1596301276205_1139107517",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "ABORT",
-      "$$hashKey": "object:340",
-      "dateFinished": "2020-08-02T09:14:12-0500",
-      "dateStarted": "2020-08-02T09:14:05-0500"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "READY",
+      "$$hashKey": "object:484"
     },
     {
       "title": "Promedio de sueldo de cada Rama de Actividad",
       "text": "%md\nLa siguiente tabla muestra el promedio de sueldo en cada una de las ramas de actividad, siendo las Actividades de organizaciones extraterritoriales la que recibe un sueldo promedio superior de $ 1709, esto corresponde a actividades de organizaciones internacionales, como las Naciones Unidas y los organismos especializados del sistema de las Naciones Unidas, órganos regionales, etc. Por otro lado la menos remunerada  es la Agricultura, ganadería, casa y silvicultura y pesca. (http://www.actor-atlas.info/es2:9900) ",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T09:34:00-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -3149,19 +3075,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797864_1143568141",
+      "jobName": "paragraph_1596381518098_792710184",
       "id": "paragraph_1596373168621_2012042936",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:341",
-      "dateFinished": "2020-08-02T09:33:56-0500",
-      "dateStarted": "2020-08-02T09:33:56-0500"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "READY",
+      "$$hashKey": "object:485"
     },
     {
       "title": "Consulta # 18",
       "text": "%mariadb\nSELECT rama, ROUND(AVG(ingresos)) AS \"Sueldo Promedio\"\nFROM Personas p\nJOIN Ramas_Actividad r ON p.cod_rama = r.cod_rama\nGROUP BY rama\nORDER BY 2 DESC;",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:56:08-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -3221,18 +3145,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797864_-567893776",
+      "jobName": "paragraph_1596381518098_-2114737379",
       "id": "paragraph_1596318097989_799072919",
-      "dateCreated": "2020-08-02T08:26:37-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:342",
-      "dateFinished": "2020-08-02T08:56:15-0500",
-      "dateStarted": "2020-08-02T08:56:08-0500"
+      "dateCreated": "2020-08-02T10:18:38-0500",
+      "status": "READY",
+      "$$hashKey": "object:486"
     },
     {
       "text": "%mariadb\n",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:26:37-0500",
+      "dateUpdated": "2020-08-02T10:18:38-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -3253,15 +3175,15 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596374797864_-1218440891",
+      "jobName": "paragraph_1596381518098_-815028405",
       "id": "paragraph_1596373401022_-1740978610",
-      "dateCreated": "2020-08-02T08:26:37-0500",
+      "dateCreated": "2020-08-02T10:18:38-0500",
       "status": "READY",
-      "$$hashKey": "object:343"
+      "$$hashKey": "object:487"
     }
   ],
   "name": "Documentacion_UsuarioFinal",
-  "id": "2FGVD8WSP",
+  "id": "2FG9QDTXR",
   "defaultInterpreterGroup": "spark",
   "version": "0.9.0-preview1",
   "noteParams": {},
