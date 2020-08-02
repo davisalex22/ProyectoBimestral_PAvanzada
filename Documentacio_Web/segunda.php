@@ -14,18 +14,28 @@
         <div class = "col-md-8">
             <div class = "contenido_temas">
                 <div id="consulta1">
-                    <h2><b>Consulta1</b></h2>
-                    <p>Explicación<br/><br/></p> 
+                    <h2><b>Etnia afroecuatoriana lucha por la desigualdad.</b></h2>
+                    <p>Basados en las consultas anteriores realizadas dentro de la materia de programación avanzada, dentro de la data, nos quisimos concentrar en una minoría, ya que es interesante a nivel conceptual de cómo viven las minorías étnicas dentro de nuestro país, en este caso nos concentramos en la etnia afroecuatoriana.
+                    El tema del empleo en Ecuador siempre ha sido un tema que nuestro país lucha día con día, de acuerdo con la página Ecuador en cifras. En la gráfica se presenta que desde el año 2015 al 2019, el nivel de empleo adecuado ha ido disminuyendo a lo largo de los años, esto nos 
+                    indica que el gobierno no ha brindado oportunidades para tener un empleo pleno, con sus respectivos beneficios que brinda el gobierno ecuatoriano. Debiendo tener empleos con insuficiencia de tiempo e ingresos u que optando por dos o más empleos para satisfacer las necesidades básicas de él y su familia.<br/><br/></p>
+
                     <iframe src="http://42e9d765490d.ngrok.io/#/notebook/2FG9QDTXR/paragraph/paragraph_1595798412458_-574222663?asIframe" style="width: 1000px; height: 400px; border: 0px"></iframe>
                 </div>
                  <div id="consulta2">
-                    <h2><b>Consulta2</b></h2>
-                    <p>Explicación<br/><br/></p> 
+                    <h2><b>Nivel de educación de personas afroecuatorianas</b></h2>
+                    <p>Sabiendo lo anterior mencionado, es destacable mencionar el nivel de instrucción que recibió cada una de estas personas. Lo cual mediante la interpretación de la gráfica podemos decir que la mayoría de personas afroecuatorianas recibió una educación primaria o secundaria.
+                        Primaria con un 30% y Secundaria con un 36%. Esto nos dice que la educación que recibieron estas personas no puede ser acorde a las necesidades de conocimiento que requiere un ser humano, ya que personas afroecuatorianas que lograron ir a la universidad son un 14% dentro de los participantes
+                        y aún más alarmante tener un 1% de personas que lograron tener un postgrado. Ecuador puede decir que tiene personas afroecuatorianas que en su mayoría tiene un nivel de educación primaria, secundaria. No dando esfuerzos y oportunidades a personas con minoría étnica puedan tener un nivel de educación superior.
+                    <br/><br/></p> 
                     <iframe src="http://42e9d765490d.ngrok.io/#/notebook/2FG9QDTXR/paragraph/paragraph_1595799293852_-456687849?asIframe"style="width: 1000px; height: 400px; border: 0px"></iframe>
                 </div>
                 <div id="consulta3">
-                    <h2><b>Consulta3</b></h2>
-                    <p>Explicación<br/><br/></p> 
+                    <h2><b>Desigualdad en género afroecuatoriano</b></h2>
+                    <p>El machismo en Ecuador es un tema que acoteja a las mujeres ecuatorianas, en el caso de mujeres afroecuatorianas. 
+                        Se puede ver reflejado en el sueldo promedio que tienen de acuerdo con su nivel de instrucción. 
+                        Lo cual en la gráfica se puede observar una clara desigualdad de sueldos. Teniendo una desigualdad de entre 50 hasta 120 dólares aproximadamente, 
+                        este tema debemos trabajar para que Ecuador tenga las mismas obligaciones y derechos para hombres y mujeres afroecuatorianos y tener un país igualitario.
+                    <br/><br/></p> 
                     <iframe src="http://42e9d765490d.ngrok.io/#/notebook/2FG9QDTXR/paragraph/paragraph_1595799654056_-1614270673?asIframe"style="width: 1000px; height: 400px; border: 0px"></iframe>
                 </div>
                 <div id="consulta4">
