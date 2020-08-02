@@ -3197,10 +3197,10 @@
       "$$hashKey": "object:17417"
     },
     {
-      "title": "Cantidad de personas por etnia de la provincia de Santo Domingo",
+      "title": "Cantidad de personas por etnia de la provincia de Santa Elena",
       "text": "val dataCantones = spark\n\t  .read\n\t  .option(\"inferSchema\",\"true\")\n\t  .option(\"header\",\"true\")\n\t  .option(\"delimiter\",\",\")\n\t  .csv(\"/home/davisalex22/Programacion/cantonesEcuador.csv\")",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:18:30-0500",
+      "dateUpdated": "2020-08-02T09:08:05-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -3238,11 +3238,11 @@
           "values": [
             {
               "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=42",
-              "$$hashKey": "object:31343"
+              "$$hashKey": "object:32852"
             },
             {
               "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=43",
-              "$$hashKey": "object:31344"
+              "$$hashKey": "object:32853"
             }
           ],
           "interpreterSettingId": "spark"
@@ -3300,9 +3300,9 @@
       "$$hashKey": "object:17419"
     },
     {
-      "text": "val dataCanton = data.join(dataCantones,data(\"canton\") === dataCantones(\"codigoCanton\"),\"inner\")\nz.show(dataCanton.where($\"provincia\" === 23).groupBy($\"etnia\").pivot(\"nombreCanton\").count.orderBy(\"etnia\"))",
+      "text": "val dataCanton = data.join(dataCantones,data(\"canton\") === dataCantones(\"codigoCanton\"),\"inner\")\nz.show(dataCanton.where($\"provincia\" === 24).groupBy($\"etnia\").pivot(\"nombreCanton\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T08:18:38-0500",
+      "dateUpdated": "2020-08-02T09:08:30-0500",
       "config": {
         "colWidth": 12,
         "fontSize": 9,
@@ -3319,8 +3319,9 @@
                   "tableColumnTypeState": {
                     "names": {
                       "etnia": "string",
-                      "LA CONCORDIA": "string",
-                      "SANTO DOMINGO": "string"
+                      "LA LIBERTAD": "string",
+                      "SALINAS": "string",
+                      "SANTA ELENA": "string"
                     },
                     "updated": false
                   },
@@ -3394,7 +3395,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "etnia\tLA CONCORDIA\tSANTO DOMINGO\n1 - Indígena\t4\t306\n2 - Afroecuatoriano\t20\t157\n3 - Negro\t11\t133\n4 - Mulato\t13\t175\n5 - Montubio\t34\t372\n6 - Mestizo\t953\t12451\n7 - Blanco\t13\t290\n8 - Otro\tnull\t15\n"
+            "data": "etnia\tLA LIBERTAD\tSALINAS\tSANTA ELENA\n1 - Indígena\t39\t16\t23\n2 - Afroecuatoriano\t39\t15\t22\n3 - Negro\t20\t19\t44\n4 - Mulato\t24\t15\t31\n5 - Montubio\t92\t48\t334\n6 - Mestizo\t3658\t2809\t7685\n7 - Blanco\t35\t22\t40\n8 - Otro\t18\t39\t30\n"
           },
           {
             "type": "TEXT",
@@ -3411,20 +3412,20 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=44",
-              "$$hashKey": "object:31575"
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=58",
+              "$$hashKey": "object:33645"
             },
             {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=45",
-              "$$hashKey": "object:31576"
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=59",
+              "$$hashKey": "object:33646"
             },
             {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=46",
-              "$$hashKey": "object:31577"
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=60",
+              "$$hashKey": "object:33647"
             },
             {
-              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=47",
-              "$$hashKey": "object:31578"
+              "jobUrl": "http://davisalex22-virtualbox.local:4040/jobs/job?id=61",
+              "$$hashKey": "object:33648"
             }
           ],
           "interpreterSettingId": "spark"
@@ -3434,8 +3435,8 @@
       "jobName": "paragraph_1596301276205_1139107517",
       "id": "paragraph_1596301276205_1139107517",
       "dateCreated": "2020-08-01T12:01:16-0500",
-      "dateStarted": "2020-08-02T08:18:38-0500",
-      "dateFinished": "2020-08-02T08:18:49-0500",
+      "dateStarted": "2020-08-02T09:08:10-0500",
+      "dateFinished": "2020-08-02T09:08:24-0500",
       "status": "FINISHED",
       "$$hashKey": "object:17420"
     },
