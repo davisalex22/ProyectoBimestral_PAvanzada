@@ -4,7 +4,7 @@
       "title": "Esquema",
       "text": "import org.apache.spark.sql.types._\nimport org.apache.spark.sql.functions._\nval myDataSchema = StructType(\n  Array(\n    StructField(\"id\",DecimalType(26, 0),true),\n    StructField(\"anio\",IntegerType,true),\n    StructField(\"mes\",IntegerType,true),\n    StructField(\"provincia\",IntegerType,true),\n    StructField(\"canton\",IntegerType,true),\n    StructField(\"area\",StringType,true),\n    StructField(\"genero\",StringType,true),\n    StructField(\"edad\",IntegerType,true),\n    StructField(\"estado_civil\",StringType,true),\n    StructField(\"nivel_de_instruccion\",StringType,true),\n    StructField(\"etnia\",StringType,true),\n    StructField(\"ingreso_laboral\",IntegerType,true),\n    StructField(\"condicion_actividad\",StringType,true),\n    StructField(\"sectorizacion\",StringType,true),\n    StructField(\"grupo_ocupacion\",StringType,true),\n    StructField(\"rama_actividad\",StringType,true),\n    StructField(\"factor_expansion\",DoubleType,true)\n  ));",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -35,18 +35,18 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227825_2120050482",
+      "jobName": "paragraph_1596388656287_1111242120",
       "id": "paragraph_1595797302277_1409279875",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
       "focus": true,
-      "$$hashKey": "object:9778"
+      "$$hashKey": "object:10028"
     },
     {
       "title": "Lectura de CSV",
       "text": "val data = spark\n\t  .read\n\t  .option(\"inferSchema\",\"true\")\n\t  .option(\"header\",\"true\")\n\t  .option(\"delimiter\",\"\\t\")\n\t  .csv(\"/home/davisalex22/Programacion/Datos_ENEMDU_PEA_v2.csv\")",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -77,17 +77,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227838_686007618",
+      "jobName": "paragraph_1596388656289_205237407",
       "id": "paragraph_1595797344192_-1132658780",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9779"
+      "$$hashKey": "object:10029"
     },
     {
       "title": "USE DataBase",
       "text": "%mariadb\nUSE PAvanzada_Enemdu",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -118,16 +118,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227838_1594592489",
+      "jobName": "paragraph_1596388656289_-1438295632",
       "id": "paragraph_1596315510758_-96939889",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9780"
+      "$$hashKey": "object:10030"
     },
     {
       "text": "%md\n<H1 align=\"center\">Análisis Exploratorio de Datos ENEMDU</H1>\n<H2>Documentación Técnica</H2>",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -158,17 +158,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227838_-551681159",
+      "jobName": "paragraph_1596388656289_-1084463517",
       "id": "paragraph_1595797365357_591785725",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9781"
+      "$$hashKey": "object:10031"
     },
     {
       "title": "Conteo condicion actividad de personas afroecuatorianas",
       "text": "%md\nEn esta consulta procedemos a utilizar la función crosstab, función interesante en spark, ya que el método crosstab permite solo el conteo con los atributos que nosotros proporcionariamos ocacionando un nuevo dataFrame, también nos encontramos con un orderBy el cual nos ayuda a ordenar de mejor manera el método crosstab. Y al final lo mostramos con z.show el cual es un método de zeppelin para presentar nuestras consultas de una manera más dinámica un gráfico estadístico. \n",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:55:38-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -200,19 +200,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227838_-707431521",
+      "jobName": "paragraph_1596388656289_1451277713",
       "id": "paragraph_1595799242818_165142088",
-      "dateCreated": "2020-08-02T11:53:47-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:9782",
-      "dateFinished": "2020-08-02T11:55:36-0500",
-      "dateStarted": "2020-08-02T11:55:36-0500"
+      "dateCreated": "2020-08-02T12:17:36-0500",
+      "status": "READY",
+      "$$hashKey": "object:10032"
     },
     {
       "title": "Consulta # 1",
-      "text": "z.show(data.stat.crosstab(\"condicion_actividad\", \"anio\").orderBy(\"condicion_actividad_anio\"))",
+      "text": "z.show(data.stat.crosstab(\"condicion_actividad\", \"anio\")\n           .orderBy(\"condicion_actividad_anio\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:36:44-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -318,17 +316,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227838_-1436540972",
+      "jobName": "paragraph_1596388656289_-631855247",
       "id": "paragraph_1595798412458_-574222663",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9783"
+      "$$hashKey": "object:10033"
     },
     {
       "title": "Nivel de instruccion proporcionada a personas afroecuatorianas",
       "text": "%md\nEn esta consulta primero realizamos un where el cual delimito la dataframe, en este caso lo delimitamos con la etnia Afroecuatoriano, en el cual hacemos un groupBy el cual agrupa con la columna nivel_instruccion, el cual los cuenta todos los datos que son iguales dentro de la columna y al final ordenamos con un groupBy. Y al final lo mostramos con z.show el cual es un método de zeppelin para presentar nuestras consultas de una manera más dinámica un gráfico estadístico",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:56:51-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -360,18 +358,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227838_-1574126297",
+      "jobName": "paragraph_1596388656289_-577318972",
       "id": "paragraph_1595798525342_-1322144030",
-      "dateCreated": "2020-08-02T11:53:47-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:9786",
-      "dateFinished": "2020-08-02T11:56:49-0500",
-      "dateStarted": "2020-08-02T11:56:49-0500"
+      "dateCreated": "2020-08-02T12:17:36-0500",
+      "status": "READY",
+      "$$hashKey": "object:10034"
     },
     {
       "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\")\n           .groupBy(\"nivel_de_instruccion\")\n           .count()\n           .orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -452,17 +448,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227838_-958397582",
+      "jobName": "paragraph_1596388656289_1321465125",
       "id": "paragraph_1595799293852_-456687849",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9787"
+      "$$hashKey": "object:10035"
     },
     {
-      "title": "Nivel de instruccion proporcionada a personas afroecuatorianas",
+      "title": "Salario promedio por nivel de instruccion proporcionada a personas afroecuatorianas",
       "text": "%md\nEn esta consulta  usamos un where delimitanto las etnias a solo etnias afroecuatorianas,luego agrupamos la columna nivel_instruccion y realizamos un pivot, el métod pivot nos brinda gran cantidad de operaciones que necesitemos dentro de nuestra consulta (count, avg, round, min, max, etc). utlizamos un pivot con la columna genero que conjuntamente con la funcion avg permite sacar el promedio de sueldos de los generos afroecuatorianos y así ordenandolos con un orderBy. Y al final lo mostramos con z.show el cual es un método de zeppelin para presentar nuestras consultas de una manera más dinámica un gráfico estadístico",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:57:32-0500",
+      "dateUpdated": "2020-08-02T12:43:54-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -494,18 +490,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227838_-1573870453",
+      "jobName": "paragraph_1596388656290_-1015745002",
       "id": "paragraph_1595799441484_-982333077",
-      "dateCreated": "2020-08-02T11:53:47-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:9788",
-      "dateFinished": "2020-08-02T11:57:30-0500",
-      "dateStarted": "2020-08-02T11:57:30-0500"
+      "dateCreated": "2020-08-02T12:17:36-0500",
+      "status": "READY",
+      "$$hashKey": "object:10036"
     },
     {
-      "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\").groupBy(\"nivel_de_instruccion\").pivot(\"genero\").avg(\"ingreso_laboral\").orderBy(\"nivel_de_instruccion\"))",
+      "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\")\n           .groupBy(\"nivel_de_instruccion\")\n           .pivot(\"genero\")\n           .avg(\"ingreso_laboral\")\n           .orderBy(\"nivel_de_instruccion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:37:14-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -592,17 +586,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227838_-1646256042",
+      "jobName": "paragraph_1596388656290_-1253803477",
       "id": "paragraph_1595799654056_-1614270673",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9789"
+      "$$hashKey": "object:10037"
     },
     {
       "title": "Ingreso promedio anual de hombres y mujeres afroecuatorianos",
       "text": "%md \nEsta consulta sirve para sacar el sueldo promedio de generos de las etnias afroecuatorianas, la consulta es posible gracias a un where, el cual delimita a etnias afroecuatorianas, luego agrupa cada anio  con la función groupBy y conjuntamente con la funcion pivot permite sacar el sueldo promedio por medio del método avg que está dentro de las funciones del pivot, luego de ello se ordena por anio gracias a la funcion orderBy. Y al final lo mostramos con z.show el cual es un método de zeppelin para presentar nuestras consultas de una manera más dinámica un gráfico estadístico.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:58:04-0500",
+      "dateUpdated": "2020-08-02T12:32:00-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -686,18 +680,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227838_1256192242",
+      "jobName": "paragraph_1596388656290_-1710534164",
       "id": "paragraph_1595799796295_-355254488",
-      "dateCreated": "2020-08-02T11:53:47-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:9790",
-      "dateFinished": "2020-08-02T11:58:02-0500",
-      "dateStarted": "2020-08-02T11:58:02-0500"
+      "dateCreated": "2020-08-02T12:17:36-0500",
+      "status": "READY",
+      "$$hashKey": "object:10038"
     },
     {
-      "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\")\n       .groupBy(\"anio\").pivot(\"genero\")\n       .agg(round(avg(\"ingreso_laboral\"))).orderBy(\"anio\"))",
+      "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\")\n           .groupBy(\"anio\")\n           .pivot(\"genero\")\n           .agg(round(avg(\"ingreso_laboral\")))\n           .orderBy(\"anio\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:44:49-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -797,17 +789,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_1395285453",
+      "jobName": "paragraph_1596388656290_2044387685",
       "id": "paragraph_1595800028755_1251201211",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9791"
+      "$$hashKey": "object:10039"
     },
     {
       "title": "¿En qué grupo ocupación ocupan las personas afroecuatorianas?",
       "text": "%md\nEsta consulta permite visualizar las ocupaciones más destacadas de la etnia afroecuatoriana, esto es posible gracias a la delimitación de la data con una función where que limita que solo me muestre a etnias afroecuatorianas que no tengan un grupo ocupación nulo, luego de ello lo agrupamos con groupBy y hacemos un conteo por género, para finalmente ordenarlos por grupo_ocupacion, realizada con la función orderBy. Y al final lo mostramos con z.show el cual es un método de zeppelin para presentar nuestras consultas de una manera más dinámica un gráfico estadístico",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:59:33-0500",
+      "dateUpdated": "2020-08-02T12:32:33-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -839,19 +831,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_980511654",
+      "jobName": "paragraph_1596388656290_-263815224",
       "id": "paragraph_1595801172694_1861160965",
-      "dateCreated": "2020-08-02T11:53:47-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:9792",
-      "dateFinished": "2020-08-02T11:59:32-0500",
-      "dateStarted": "2020-08-02T11:59:32-0500"
+      "dateCreated": "2020-08-02T12:17:36-0500",
+      "status": "READY",
+      "$$hashKey": "object:10040"
     },
     {
       "title": "",
-      "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\" && $\"grupo_ocupacion\".isNotNull).groupBy(\"grupo_ocupacion\").pivot(\"genero\").count().orderBy(\"grupo_ocupacion\"))",
+      "text": "z.show(data.where($\"etnia\" === \"2 - Afroecuatoriano\" && $\"grupo_ocupacion\".isNotNull)\n           .groupBy(\"grupo_ocupacion\")\n           .pivot(\"genero\")\n           .count()\n           .orderBy(\"grupo_ocupacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:37:41-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -940,17 +930,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_-177501047",
+      "jobName": "paragraph_1596388656290_293260032",
       "id": "paragraph_1595800106823_-364907899",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9793"
+      "$$hashKey": "object:10041"
     },
     {
       "title": "Promedio de ingreso laboral por etnias",
       "text": "%md\nPrimeramente al querer efectuar está consulta utilizamos sentencias sql con consultas nativas (ANSI-SQL), el cual seleccionamos la etnia, a la vez contamos cuantos son de la misma etnia y el sueldo promedio de esas etnias, luego le decimos que la obtenga de la tabla personas, luego lo unimos con join con la tabla etnias que cod_canton de etnias sea igual al de cod_canton de la tabla personas. Donde le decimos que delimite a las personas con un ingreso mayor a 400 dólares, todo esto con un where. Y que los agrupe por las etnias con un groupBy y al final que los orderne con un orderBy con la tercera columna de nuestra consulta.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T12:01:24-0500",
+      "dateUpdated": "2020-08-02T12:32:52-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -982,18 +972,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_1473659310",
+      "jobName": "paragraph_1596388656291_-1521829338",
       "id": "paragraph_1596315794735_-750268074",
-      "dateCreated": "2020-08-02T11:53:47-0500",
-      "status": "FINISHED",
-      "$$hashKey": "object:9794",
-      "dateFinished": "2020-08-02T12:01:22-0500",
-      "dateStarted": "2020-08-02T12:01:22-0500"
+      "dateCreated": "2020-08-02T12:17:36-0500",
+      "status": "READY",
+      "$$hashKey": "object:10042"
     },
     {
       "text": "%mariadb\nSELECT etnia, COUNT(*) AS \"Personas que superan el salario básico\", ROUND(AVG(ingresos)) AS \"Salario promedio\"\nFROM Personas p\nJOIN etnias e ON p.cod_etnia = e.cod_etnia\nWHERE p.ingresos > 400\nGROUP BY etnia\nORDER BY 3 DESC;",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1053,17 +1041,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_82379952",
+      "jobName": "paragraph_1596388656291_-1281699742",
       "id": "paragraph_1596315763297_-1761999486",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9795"
+      "$$hashKey": "object:10043"
     },
     {
       "title": "Conteo de las personas registradas por género en cada una de las etnias.",
       "text": "%md\nEn la siguiente consulta se procedió primero a realizar la agrupación de las etnias con el groupBy, y seguido se crea un pivote de genero por la ventaja que nos permite realizar mas operaciones, el cual conjuntamente con el count el cual va contando y nos dará el número de personas clasificada por hombres y mujeres de cada una de las etnias. Finalmente para que se presenten ordenas se le aplica el orderBy y se le especifica en base que columna en este caso las etnias. Y para su visualización se implemente el z.show que en este caso se lo presenta con la gráfica de frecuencias.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1095,16 +1083,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_320348742",
+      "jobName": "paragraph_1596388656291_719337970",
       "id": "paragraph_1595800435704_347318149",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9796"
+      "$$hashKey": "object:10044"
     },
     {
-      "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))",
+      "text": "z.show(data.groupBy(\"etnia\")\n           .pivot(\"genero\")\n           .count\n           .orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:45:28-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1198,17 +1186,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_-1741796438",
+      "jobName": "paragraph_1596388656291_-703636624",
       "id": "paragraph_1595800292774_606324939",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9797"
+      "$$hashKey": "object:10045"
     },
     {
       "title": "Edad promedio de hombre y mujeres por cada una de las etnias registradas ",
       "text": "%md\nEn la siguiente consulta se realizó nuevamente la agrupación de las etnias con el groupBy y de igual forma el pivote de género, en la cual se toma las edades con el .agg se le calcula el promedio con el avg, la cual nos da en decimales, pero al momento de aplicarle el round se lo redondea y se lo castea a Integer para que nos de la edad promedio exacta de cada personas (hombres y mujeres) de cada etnia.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1240,16 +1228,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_-1660750862",
+      "jobName": "paragraph_1596388656291_749323533",
       "id": "paragraph_1595800658805_-1443972552",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9798"
+      "$$hashKey": "object:10046"
     },
     {
-      "text": "z.show(data.groupBy(\"etnia\").pivot(\"genero\")\n                            .agg(round(avg(\"edad\")).cast(IntegerType))\n                            .orderBy(\"etnia\"))",
+      "text": "z.show(data.groupBy(\"etnia\")\n           .pivot(\"genero\")\n           .agg(round(avg(\"edad\")).cast(IntegerType))\n           .orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:45:50-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1348,17 +1336,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_1489757463",
+      "jobName": "paragraph_1596388656291_-932620877",
       "id": "paragraph_1595800814770_-929282467",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9799"
+      "$$hashKey": "object:10047"
     },
     {
       "title": "Conteo de las personas que laboran en cada tipo de Sectorización en cada año registrado.",
       "text": "%md \nPara las siguientes representaciones se aplicó la misma consulta pero con diferente reprentación, la cual antes de su realización se excluyo los nulos con el isNotNull ya que se encontraban registros que no tenian en los datos de sectorización, seguido se agrupó la sectorización con el groupBy y presentar cada uno de los tipo de datos de esta columna, seguido con el empleo de un pivote de los años la cual nos permite realizar el conteo de los registros de cada año con el .count y se los ordena por el tipo de sectorizacion con el orderBy. Finalmente con el z.show se muestra el conteo de las personas que trabajan en cada uno de los años depende el tipo de trabajo, es decir de la sectorización, la cual en este caso se la presentó en tabla y en barras.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1390,17 +1378,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_2068465821",
+      "jobName": "paragraph_1596388656292_1714366888",
       "id": "paragraph_1595801210642_451070163",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9800"
+      "$$hashKey": "object:10048"
     },
     {
       "title": "Consulta # 8",
-      "text": "z.show(data.where($\"sectorizacion\".isNotNull).groupBy(\"sectorizacion\").pivot(\"anio\").count.orderBy(\"sectorizacion\"))",
+      "text": "z.show(data.where($\"sectorizacion\".isNotNull)\n           .groupBy(\"sectorizacion\")\n           .pivot(\"anio\")\n           .count\n           .orderBy(\"sectorizacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:46:18-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1581,16 +1569,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_1301295398",
+      "jobName": "paragraph_1596388656298_2106542746",
       "id": "paragraph_1595800886939_-2053402092",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9801"
+      "$$hashKey": "object:10049"
     },
     {
       "text": "z.show(data.where($\"sectorizacion\".isNotNull)\n            .groupBy(\"sectorizacion\")\n           .pivot(\"anio\")\n           .count\n           .orderBy(\"sectorizacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1680,17 +1668,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_1107776043",
+      "jobName": "paragraph_1596388656298_-1380119054",
       "id": "paragraph_1595801114971_227048157",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9802"
+      "$$hashKey": "object:10050"
     },
     {
       "title": "Ingreso laboral promedio de las personas que laboran en cada tipo de Sectorización en cada año",
       "text": "%md\nEn la presente consulta se agrupo nuevamente con el groupBy de la sectorización pero excluyendo los nulos con el empleo del .isNotNull, se utilizó un pivote de los años y así poder realizar el .agg para agregar del promedio de los ingresos laborales con el uso del avg, en este caso se los ordenó con el orderBy de sectorización. De esta forma con el z.show se presenta la gráfica en tabla que nos refleja el promedio del ingreso laboraral.\n",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1722,16 +1710,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_-956349617",
+      "jobName": "paragraph_1596388656298_-1005952686",
       "id": "paragraph_1595801901708_-830862959",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9803"
+      "$$hashKey": "object:10051"
     },
     {
-      "text": "z.show(data.where($\"sectorizacion\".isNotNull).groupBy(\"sectorizacion\").pivot(\"anio\").agg(round(avg(\"ingreso_laboral\"))).orderBy(\"sectorizacion\"))",
+      "text": "z.show(data.where($\"sectorizacion\".isNotNull)\n           .groupBy(\"sectorizacion\")\n           .pivot(\"anio\")\n           .agg(round(avg(\"ingreso_laboral\")))\n           .orderBy(\"sectorizacion\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:47:06-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1811,17 +1799,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_136888738",
+      "jobName": "paragraph_1596388656298_1669402713",
       "id": "paragraph_1595801319682_269850659",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9804"
+      "$$hashKey": "object:10052"
     },
     {
       "title": "Cantidad de hombre y mujeres que se dedican al Empleo doméstico registrado en el Ecuador",
       "text": "%md \nPara la siguiente consulta se filtró primeramente los registro correspondientes al empleo doméstico con el data.where y se crea la igualadad con la sectorización, luego se procede a agrupar por cada una de las etnias y se creo un pivote del género y reflejar la cantidad hombres y mujeres con la ayuda del .count que nos cuenta la cantidad de registro y se los ordena por etnia con el orderBy.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -1853,17 +1841,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_1033855997",
+      "jobName": "paragraph_1596388656299_-1526194521",
       "id": "paragraph_1596320278116_-1059496783",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9805"
+      "$$hashKey": "object:10053"
     },
     {
       "title": "Consulta # 11",
-      "text": "z.show(data.where($\"sectorizacion\" === \"3 - Empleo Doméstico\").groupBy(\"etnia\").pivot(\"genero\").count.orderBy(\"etnia\"))",
+      "text": "z.show(data.where($\"sectorizacion\" === \"3 - Empleo Doméstico\")\n           .groupBy(\"etnia\")\n           .pivot(\"genero\")\n           .count\n           .orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:47:40-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -1964,17 +1952,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_528557289",
+      "jobName": "paragraph_1596388656299_-1081557524",
       "id": "paragraph_1595801925549_-905991312",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9806"
+      "$$hashKey": "object:10054"
     },
     {
       "title": "Conteo de las personas dedicadas al empleo doméstico en cada provincia registrada",
       "text": "%md\nPara la siguiente consulta sql la realizó de la siguiente forma: con el SELECT se colocó las provincias y el conteo la cual nos presentará con un alias de persoans con empleo doméstico. Con el FROM se apunta a provincias la cual vamos a ocupar. Para llegar a cada una de las tablas que se necesita se emplea el JOIN, primero de cantones en donde se usa el cod_provincia y relacionar las provincias y los cantones, luego de ello para personas se relaciona con el cod_canton de cantones y la tabla personas, con la sentencia WHERE se ubica a todas aquellas personas con empleo doméstico. Y finalmente se los agrupa por provincia ordenando por la cantidad de personas.\n ",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2006,17 +1994,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_-201064424",
+      "jobName": "paragraph_1596388656299_982181858",
       "id": "paragraph_1596320344516_100089719",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9807"
+      "$$hashKey": "object:10055"
     },
     {
       "title": "Consulta # 12",
       "text": "%mariadb\nSELECT provincia , COUNT(*) AS \"Personas con empleo doméstico\"\nFROM Provincias p \nJOIN Cantones c ON p.cod_provincia = c.cod_provincia\nJOIN Personas pe ON c.cod_canton = pe.cod_canton\nWHERE Sectorizacion = \"empleo doméstico\"\nGROUP BY Provincia\nORDER BY 2 DESC;",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2110,17 +2098,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_-1633989424",
+      "jobName": "paragraph_1596388656299_1284155481",
       "id": "paragraph_1596318043034_1719707679",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9808"
+      "$$hashKey": "object:10056"
     },
     {
       "title": "Conteo de las personas registradas por rama de Construcción",
       "text": "%md\nA continuación, se muestra gráficamente la cantidad de personas de cada etnia que se dedicaron durante los años 2015-2019 a la construcción, para obtener esta consulta se utilizó la data general, con una cláusula where en el cual se especifica la rama de construcción, seguido de un groupBy para agrupar por etnia, un pivot de anio para agrupar datos procedentes de otra tabla y finalmente un conteo (count) y ordenado por etnia (orderBy).",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2152,17 +2140,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_1954443337",
+      "jobName": "paragraph_1596388656299_-1581996407",
       "id": "paragraph_1595802808364_1186568500",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9809"
+      "$$hashKey": "object:10057"
     },
     {
       "title": "Consulta # 11",
-      "text": "z.show(data.where($\"rama_actividad\" === \"06 - F. Construcción\").groupBy(\"etnia\").pivot(\"anio\").count.orderBy(\"etnia\"))",
+      "text": "z.show(data.where($\"rama_actividad\" === \"06 - F. Construcción\")\n           .groupBy(\"etnia\")\n           .pivot(\"anio\")\n           .count\n           .orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:48:35-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2268,17 +2256,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_901336796",
+      "jobName": "paragraph_1596388656300_330987802",
       "id": "paragraph_1595801827694_-332891911",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9810"
+      "$$hashKey": "object:10058"
     },
     {
       "title": "Cantidad de hombres y mujeres de etnia Mestiza y Montubia",
       "text": "%md\nEn la siguiente consulta primero se establece una cláusula where para especificar la etnia Mestizo y Montubio,seguidamente una agrupacion por etnia con un groupBy haciendo un pivote de genero para agrupar los datos procedentes de otra tabla y posteriormente se realiza un conteo (count) y un ordenamiento (orderBy) por etnia.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2310,16 +2298,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_731534550",
+      "jobName": "paragraph_1596388656300_-489768247",
       "id": "paragraph_1595802739720_1097852877",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9811"
+      "$$hashKey": "object:10059"
     },
     {
       "text": "z.show(data.where($\"etnia\" === \"6 - Mestizo\" || $\"etnia\" === \"5 - Montubio\")\n            .groupBy(\"etnia\")\n            .pivot(\"genero\")\n            .count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2415,17 +2403,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_1632428987",
+      "jobName": "paragraph_1596388656300_-3851629",
       "id": "paragraph_1595802850428_2031264569",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9812"
+      "$$hashKey": "object:10060"
     },
     {
       "title": "Conteo de Personas por etnia que pertenezcan al área rural y nivel de instrucción superio universitario",
       "text": "%md\nEn la siguiente consulta primero se establece una cláusula where para especificar la area rural y el nivel de instrucción superior universitario,seguidamente una agrupacion por etnia con un groupBy y posteriormente se realiza un conteo (count) y un ordenamiento (orderBy) por etnia. Además de usar z.show que es un contenedor de todo el sistema para funciones de utilidad comunes y datos específicos del usuario e implementa funciones para la entrada de datos, visualización de datos.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2457,16 +2445,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227839_-1237851787",
+      "jobName": "paragraph_1596388656301_1261895654",
       "id": "paragraph_1595802875874_1550800977",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9813"
+      "$$hashKey": "object:10061"
     },
     {
-      "text": "z.show(data.where($\"area\" === \"2 - Rural\" && $\"nivel_de_instruccion\" === \"09 - Superior Universitario\").groupBy(\"etnia\").count.orderBy(\"etnia\"))",
+      "text": "z.show(data.where($\"area\" === \"2 - Rural\" && $\"nivel_de_instruccion\" === \"09 - Superior Universitario\")\n           .groupBy(\"etnia\")\n           .count\n           .orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:49:23-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2547,17 +2535,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227840_2119119597",
+      "jobName": "paragraph_1596388656301_956389151",
       "id": "paragraph_1595802986559_-493911874",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9814"
+      "$$hashKey": "object:10062"
     },
     {
       "title": "Conteo de personas por etnia que pertenecen al área urbana",
       "text": "%md\nPara la siguiente consulta sql utilizando mariadb se realizó de la siguiente forma: con el SELECT se selecciona la etnia y se reliza un conteo de personas que pertenecen al área urbana asignando un alias de \"Total Área Urbana\". Con el FROM se señala a la tabla personas y para llegar a cada una de las tablas que se necesita se emplear el JOIN, primero al cod_etnia de personas luego al cod_etnia de etnias. Finalmente se los agrupa por etnia y ordena por el el total área urbana.\n",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2589,16 +2577,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227840_-1326609908",
+      "jobName": "paragraph_1596388656301_-176430996",
       "id": "paragraph_1596316553282_1590302935",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9815"
+      "$$hashKey": "object:10063"
     },
     {
       "text": "%mariadb\nSELECT etnia, COUNT(*) AS \"Total Área Urbana\"\nFROM Personas p\nJOIN etnias e ON p.cod_etnia = e.cod_etnia\nWHERE p.area = \"U\"\nGROUP BY etnia\nORDER BY 2;",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2658,17 +2646,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227840_1006883393",
+      "jobName": "paragraph_1596388656301_1742968303",
       "id": "paragraph_1596316074432_-359048355",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9816"
+      "$$hashKey": "object:10064"
     },
     {
       "title": "Cantidad de personas por etnia de la provincia de Santa Elena",
       "text": "val dataCantones = spark\n\t  .read\n\t  .option(\"inferSchema\",\"true\")\n\t  .option(\"header\",\"true\")\n\t  .option(\"delimiter\",\",\")\n\t  .csv(\"/home/davisalex22/Programacion/cantonesEcuador.csv\")",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2699,16 +2687,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227840_504988464",
+      "jobName": "paragraph_1596388656302_1911697075",
       "id": "paragraph_1595803009414_-1927598925",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9817"
+      "$$hashKey": "object:10065"
     },
     {
-      "text": "%md\nPara esta consulta previamente se realizo la lectura del csv denominado dataCantones que contiene una columna codCanton y nombreCanton, luego de ello se declaró una variable dataCanton, en el cual se aplica un join que sirve para la unión interna de tablas básicamente, luego dentro de un z.show usando la dataCanton se utiliza la cláusula where para especificar la provincia 23 (Santo Domingo),luego se agrupa por etnia (groupBy), seguidamente un pivot de nombreCanton,un conte de las personas (count) y un ordenamiento por etnia (orderBy).",
+      "text": "%md\nPara esta consulta previamente se realizo la lectura del csv denominado dataCantones que contiene una columna codCanton y nombreCanton, luego de ello se declaró una variable dataCanton, en el cual se aplica un join que sirve para la unión interna de tablas básicamente, luego dentro de un z.show usando la dataCanton se utiliza la cláusula where para especificar la provincia 24 (Santa Elena),luego se agrupa por etnia (groupBy), seguidamente un pivot de nombreCanton,un conte de las personas (count) y un ordenamiento por etnia (orderBy).",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T14:12:31-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2732,23 +2720,25 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "<div class=\"markdown-body\">\n<p>Para esta consulta previamente se realizo la lectura del csv denominado dataCantones que contiene una columna codCanton y nombreCanton, luego de ello se declaró una variable dataCanton, en el cual se aplica un join que sirve para la unión interna de tablas básicamente, luego dentro de un z.show usando la dataCanton se utiliza la cláusula where para especificar la provincia 23 (Santo Domingo),luego se agrupa por etnia (groupBy), seguidamente un pivot de nombreCanton,un conte de las personas (count) y un ordenamiento por etnia (orderBy).</p>\n\n</div>"
+            "data": "<div class=\"markdown-body\">\n<p>Para esta consulta previamente se realizo la lectura del csv denominado dataCantones que contiene una columna codCanton y nombreCanton, luego de ello se declaró una variable dataCanton, en el cual se aplica un join que sirve para la unión interna de tablas básicamente, luego dentro de un z.show usando la dataCanton se utiliza la cláusula where para especificar la provincia 24 (Santa Elena),luego se agrupa por etnia (groupBy), seguidamente un pivot de nombreCanton,un conte de las personas (count) y un ordenamiento por etnia (orderBy).</p>\n\n</div>"
           }
         ]
       },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227840_-1550327383",
+      "jobName": "paragraph_1596388656302_-971529735",
       "id": "paragraph_1596372661399_-704290821",
-      "dateCreated": "2020-08-02T11:53:47-0500",
-      "status": "READY",
-      "$$hashKey": "object:9818"
+      "dateCreated": "2020-08-02T12:17:36-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:10066",
+      "dateFinished": "2020-08-02T14:12:29-0500",
+      "dateStarted": "2020-08-02T14:12:29-0500"
     },
     {
       "text": "val dataCanton = data.join(dataCantones,data(\"canton\") === dataCantones(\"codigoCanton\"),\"inner\")\nz.show(dataCanton.where($\"provincia\" === 24).groupBy($\"etnia\").pivot(\"nombreCanton\").count.orderBy(\"etnia\"))",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -2852,17 +2842,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227840_1854147957",
+      "jobName": "paragraph_1596388656302_-846456983",
       "id": "paragraph_1596301276205_1139107517",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9819"
+      "$$hashKey": "object:10067"
     },
     {
       "title": "Promedio de sueldo de cada Rama de Actividad",
       "text": "%md\nPara la siguiente consulta sql utilizando mariadb se realizó de la siguiente forma: con el SELECT se selecciona la rama actividad y se calcula el promedio de ingresos realizando un redondeo y asignando un alias de \"Sueldo Promedio\". Con el FROM se señala a la tabla personas y para llegar a cada una de las tablas que se necesita se emplear el JOIN, primero al cod_rama de personas luego al cod_rama de Ramas_Actividad. Finalmente se los agrupa por rama y ordena por el sueldo promedio.",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2894,17 +2884,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227840_-2022303769",
+      "jobName": "paragraph_1596388656302_-262534252",
       "id": "paragraph_1596373168621_2012042936",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9820"
+      "$$hashKey": "object:10068"
     },
     {
       "title": "Consulta # 18",
       "text": "%mariadb\nSELECT rama, ROUND(AVG(ingresos)) AS \"Sueldo Promedio\"\nFROM Personas p\nJOIN Ramas_Actividad r ON p.cod_rama = r.cod_rama\nGROUP BY rama\nORDER BY 2 DESC;",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2964,16 +2954,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227840_-612772151",
+      "jobName": "paragraph_1596388656303_1357550336",
       "id": "paragraph_1596318097989_799072919",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9821"
+      "$$hashKey": "object:10069"
     },
     {
       "text": "%mariadb\n",
       "user": "anonymous",
-      "dateUpdated": "2020-08-02T11:53:47-0500",
+      "dateUpdated": "2020-08-02T12:17:36-0500",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2994,15 +2984,15 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1596387227840_-777908146",
+      "jobName": "paragraph_1596388656303_-2145153565",
       "id": "paragraph_1596373401022_-1740978610",
-      "dateCreated": "2020-08-02T11:53:47-0500",
+      "dateCreated": "2020-08-02T12:17:36-0500",
       "status": "READY",
-      "$$hashKey": "object:9822"
+      "$$hashKey": "object:10070"
     }
   ],
   "name": "Documentacion_Tecnica",
-  "id": "2FEWAMP6U",
+  "id": "2FFFUBY8Q",
   "defaultInterpreterGroup": "spark",
   "version": "0.9.0-preview1",
   "noteParams": {},

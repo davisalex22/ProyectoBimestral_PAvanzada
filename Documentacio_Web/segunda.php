@@ -4,15 +4,18 @@
 
 <div class="all-title-box">
     <div class="container text-center">
-        <h1>Documentación Usuario Final<span class="m_1"></h1>
+        <h1><br>Documentación Usuario Final<span class="m_1"></h1>
         <p class="lead" data-animation="animated fadeInLeft">Analisis de exploratorio de datos Empleo y desempleo del Ecuador</p>
     </div>
 </div>
 
 <div class="container">
          <!-- Contenido -->
-        <div class = "col-md-8">
+        <div class = "col-md-12">
             <div class = "contenido_temas">
+<div align="center"><img src="images/Ecuador.jpg" 
+     width="400"
+     height="341"></div>
                 <div id="consulta1">
                     <h2><b>Etnia afroecuatoriana lucha por la desigualdad.</b></h2>
                     <p>Basados en las consultas anteriores realizadas dentro de la materia de programación avanzada, dentro de la data, nos quisimos concentrar en una minoría, ya que es interesante a nivel conceptual de cómo viven las minorías étnicas dentro de nuestro país, en este caso nos concentramos en la etnia afroecuatoriana.
@@ -64,7 +67,8 @@
                     <h2><b>Conteo de las personas registradas por genero en cada una de las etnias</b></h2>
                     <p><p>El Ecuador es un país muy diversificado, la cual cuenta con varias etnias que a pesar del pasar el tiempo se siguen presentado en la actualidad, según la data presentada por el INEC del empleo y desempleo, se pudo recolectar estos datos y procesarlos para poder realizar un análisis en cuanto a la capacidad económica que se presenta en los ecuatorianos en cada una de las etnias.</p> 
 
-Primeramente, se realizó un conteo de las personas tanto hombres como mujeres se presentan en los datos de cada una de las etnias, y mediante la cual se obtuvo que el número de hombres y mujeres en cada una de las etnias tiene una correlación. Pero a demás de ello en los datos se presenta mayormente el número de personas de etnia mestiza que se da registrado y en su mayoría son hombre pero no con mucha diferencia, lo que se relaciona incluso con la cantidad total de habitantes del Ecuador, que son el 50.1% hombre y 49.9% mujeres como presenta la página  en su pagina web .<td><a href="https://countrymeters.info/es/Ecuador".$act.">Country meters</a><br/><br/></p> 
+Primeramente, se realizó un conteo de las personas tanto hombres como mujeres se presentan en los datos de cada una de las etnias, y mediante la cual se obtuvo que el número de hombres y mujeres en cada una de las etnias tiene una correlación. Pero a demás de ello en los datos se presenta mayormente el número de personas de etnia mestiza que se da registrado y en su mayoría son hombre pero no con mucha diferencia, lo que se relaciona incluso con la cantidad total de habitantes del Ecuador, que son el 50.1% hombre y 49.9% mujeres como presenta la página  en su pagina web .
+<p><a href="https://countrymeters.info/es/Ecuador" style="color:blue;"> (https://countrymeters.info/es/Ecuador)</a> <br/></p><br/><br/></p> 
                     
 <iframe src="http://42e9d765490d.ngrok.io/#/notebook/2FG9QDTXR/paragraph/paragraph_1595800292774_606324939?asIframe" style="width: 1000px; height: 400px; border: 0px"></iframe>
                 </div>
@@ -103,7 +107,7 @@ El sector de la construcción se ve altamente golpeada por los problemas que atr
                 </div>
                 <div id="consulta14">
                     <h2><b>Cantidad de hombres y mujeres de etnia Mestiza y Montubia</b></h2>
-                    <p>La presente gráfica trata sobre la cantidad de hombres y mujeres de la etnia mestiza y montubia, consideras de mayor presencia en Ecuador, tomando como referencia el Banco Mundial (https://datos.bancomundial.org/indicator/SP.POP.TOTL.FE.ZS), en algunos países actualmente el número de mujeres supera al de hombres, se puede evidenciar que en el caso de mestizos y montubios el género que predomina es el masculino, existiendo mayor diferencia en la etnia mestiza cuenta con un estimado del 59 %.
+                    <p>La presente gráfica trata sobre la cantidad de hombres y mujeres de la etnia mestiza y montubia, consideras de mayor presencia en Ecuador, tomando como referencia el Banco Mundial ), en algunos países actualmente el número de mujeres supera al de hombres, se puede evidenciar que en el caso de mestizos y montubios el género que predomina es el masculino, existiendo mayor diferencia en la etnia mestiza cuenta con un estimado del 59 %.<p><a href="https://datos.bancomundial.org/indicator/SP.POP.TOTL.FE.ZS" style="color:blue;"> (https://datos.bancomundial.org/indicator/SP.POP.TOTL.FE.ZS)</a> <br/></p>
 <br/><br/></p> 
                     <iframe src="http://42e9d765490d.ngrok.io/#/notebook/2FG9QDTXR/paragraph/paragraph_1595802850428_2031264569?asIframe" style="width: 1000px; height: 400px; border: 0px"></iframe>
                 </div>
@@ -115,20 +119,20 @@ El sector de la construcción se ve altamente golpeada por los problemas que atr
                 </div>
                 <div id="consulta16">
                     <h2><b>Conteo de personas por etnia que pertenecen al área urbana</b></h2>
-                    <p>La presente gráfica muestra el total de personas por cada etnia que pertenecen a la área urbana, como se muestra visualmente la etnia mestiza es la que mayor presencia tiene en el sector urbano con un 88 %, seguido de la indígena, la gran presencia de mestizos en el área urbana se da porque esta etnia se encuantra distribuida a lo largo del Ecuador, por ende su presencia aumentará a lo largo del tiempo.(http://palabrastendidasalviento.blogspot.com/2012/04/proximas-estaciones-quito-borbon-puyo.html)
+                    <p>La presente gráfica muestra el total de personas por cada etnia que pertenecen a la área urbana, como se muestra visualmente la etnia mestiza es la que mayor presencia tiene en el sector urbano con un 88 %, seguido de la indígena, la gran presencia de mestizos en el área urbana se da porque esta etnia se encuantra distribuida a lo largo del Ecuador, por ende su presencia aumentará a lo largo del tiempo.<p><a href="http://palabrastendidasalviento.blogspot.com/2012/04/proximas-estaciones-quito-borbon-puyo.html" style="color:blue;"> (http://palabrastendidasalviento.blogspot.com/2012/04/proximas-estaciones-quito-borbon-puyo.html)</a> <br/></p>
 
 <br/><br/></p> 
                     <iframe src="http://42e9d765490d.ngrok.io/#/notebook/2FG9QDTXR/paragraph/paragraph_1596316074432_-359048355?asIframe" style="width: 1000px; height: 400px; border: 0px"></iframe>
                 </div>
                 <div id="consulta17">
                     <h2><b>Cantidad de personas por etnia de la provincia de Santa Elena</b></h2>
-                    <p>La siguiente tabla muestra el promedio de sueldo en cada una de las ramas de actividad, siendo las Actividades de organizaciones extraterritoriales la que recibe un sueldo promedio superior de $ 1709, esto corresponde a actividades de organizaciones internacionales, como las Naciones Unidas y los organismos especializados del sistema de las Naciones Unidas, órganos regionales, etc. Por otro lado la menos remunerada es la Agricultura, ganadería, casa y silvicultura y pesca. (http://www.actor-atlas.info/es2:9900)
+                    <p>LLa siguiente Tabla muestra la cantidad de personas existentes por cada etnia en la provincia más joven del Ecuador, fundada en el año 2007, tal como se observa en sus tres cantones la etnia predominante es la mestiza, seguida de la montubia, al encontrarse la etnia meztiza distribuida por todo el país se puede evidenciar que la etnia mestiza se esta posicionando con el pasar de los tiempo en cada una de las provincias, anteriormente la etnia montubia tenia gran presencia el la región costa del Ecuador, sin embargo se ve que con el pasar del tiempo los mestizos van incrementando.<p><a href="https://www.ecured.cu/Provincia_de_Santa_Elena_(Ecuador)" style="color:blue;">(https://www.ecured.cu/Provincia_de_Santa_Elena_(Ecuador))</a> <br/></p> 
 <br/><br/></p> 
 <iframe src="http://42e9d765490d.ngrok.io/#/notebook/2FG9QDTXR/paragraph/paragraph_1596301276205_1139107517?asIframe" style="width: 1000px; height: 400px; border: 0px"></iframe>
                 </div>
                 <div id="consulta18">
                     <h2><b>Promedio de sueldo de cada Rama de Actividad</b></h2>
-                    <p>La siguiente tabla muestra el promedio de sueldo en cada una de las ramas de actividad, siendo las Actividades de organizaciones extraterritoriales la que recibe un sueldo promedio superior de $ 1709, esto corresponde a actividades de organizaciones internacionales, como las Naciones Unidas y los organismos especializados del sistema de las Naciones Unidas, órganos regionales, etc. Por otro lado la menos remunerada es la Agricultura, ganadería, casa y silvicultura y pesca. (http://www.actor-atlas.info/es2:9900)
+                    <p>La siguiente tabla muestra el promedio de sueldo en cada una de las ramas de actividad, siendo las Actividades de organizaciones extraterritoriales la que recibe un sueldo promedio superior de $ 1709, esto corresponde a actividades de organizaciones internacionales, como las Naciones Unidas y los organismos especializados del sistema de las Naciones Unidas, órganos regionales, etc. Por otro lado la menos remunerada es la Agricultura, ganadería, casa y silvicultura y pesca. <p><a href="http://www.actor-atlas.info/es2:9900" style="color:blue;">(http://www.actor-atlas.info/es2:9900)</a> <br/></p> 
 <br/><br/></p> 
                     <iframe src="http://42e9d765490d.ngrok.io/#/notebook/2FG9QDTXR/paragraph/paragraph_1596318097989_799072919?asIframe" style="width: 1000px; height: 400px; border: 0px"></iframe>
                 </div>
