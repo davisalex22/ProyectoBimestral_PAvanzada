@@ -39,18 +39,25 @@
                     <iframe src="http://42e9d765490d.ngrok.io/#/notebook/2FG9QDTXR/paragraph/paragraph_1595799654056_-1614270673?asIframe"style="width: 1000px; height: 400px; border: 0px"></iframe>
                 </div>
                 <div id="consulta4">
-                    <h2><b>Consulta4</b></h2>
-                    <p>Explicación<br/><br/></p> 
+                    <h2><b>Sueldo promedio por año por género del 2015 - 2019 de etnia afroecuatoriana</b></h2>
+                    <p>Refutando el punto anterior se puede ver que el sueldo promedio por año para hombres y mujeres afroecuatorianos se puede establecer una clara desigualdad en cuanto a cantidad de sueldo promedio por año.<br/><br/></p> 
                     <iframe src="http://42e9d765490d.ngrok.io/#/notebook/2FG9QDTXR/paragraph/paragraph_1595800028755_1251201211?asIframe"style="width: 1000px; height: 400px; border: 0px"></iframe>
                 </div>
                 <div id="consulta5">
-                    <h2><b>Consulta5</b></h2>
-                    <p>Explicación<br/><br/></p> 
+                    <h2><b>Grupos ocupaciones que laboran géneros afroecuatorianos</b></h2>
+                        <p>
+                        Evidenciando los sueldos promedios por año para hombres y mujeres afroecuatorianos, nos damos cuenta de que reciben lo equivalente a un sueldo básico vitalicio, se puede valorar que ocupaciones pueden laborar las personas afroecuatorianas para recibir ese sueldo vitalicio.
+                        teniendo en cuenta las ocupaciones que laboran las personas afroecuatorianas, lo cual nos permitió establecer que en su mayoría se dedican al comercio, agricultura y pescadera u ocupaciones elementales. Este tipo de ocupaciones son una de las más grandes ocupaciones dentro de nuestro país.
+                        Ecuador debería tener medidas para este tipo de ocupaciones para que tengan mayores beneficios como por ejemplo seguro de salud, seguro de vida, entre otros.
+                        <br/><br/></p> 
                     <iframe src="http://42e9d765490d.ngrok.io/#/notebook/2FG9QDTXR/paragraph/paragraph_1595800106823_-364907899?asIframe"style="width: 1000px; height: 400px; border: 0px"></iframe>
                 </div>
                 <div id="consulta6">
-                    <h2><b>Consulta6</b></h2>
-                    <p>Explicación<br/><br/></p> 
+                    <h2><b>Etnias que ganan más que el salario básico unificado en Ecuador</b></h2>
+                    <p>Ecuador es un país diverso en etnias y cultura lo cual la hace rica en distintos ámbitos. Queremos saber el salario promedio por etnias dentro del Ecuador.
+                        Sorprendentemente las etnias con más ingresos económicos dentro de nuestro país son las etnias blancas y mestizas, ya que son predominantes etnias. Al igual hay que destacar que la
+                        etnia indígena es una de las más bajas, esto se puede atribuir por diversas causas como por ejemplo el nivel de instrucción, pobreza, entre otros.
+                        <br/><br/></p> 
                     <iframe src="http://42e9d765490d.ngrok.io/#/notebook/2FG9QDTXR/paragraph/paragraph_1596315763297_-1761999486?asIframe" style="width: 1000px; height: 400px; border: 0px"></iframe>
                 </div>
                 <div id="consulta7">
