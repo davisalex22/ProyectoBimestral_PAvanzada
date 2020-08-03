@@ -6,7 +6,7 @@
                         <div class="widget-title">
                             <h2 style="color:#fff" >Analisis Exploratorio de Datos</h2>
                         </div>
-                       <p>En este portal se encontrarála explicación detallada de una análisis de datos del Empleo y desempleo del Ecuador obtenida del la página..</p>
+                       <p>En este portal se encontrará la explicación detallada de una análisis de datos del Empleo y desempleo del Ecuador obtenida del la página..</p>
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
 
