@@ -4,9 +4,9 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
-                            <h2 style="color:#fff" >Analisis Exploratorio de Datos</h2>
+                            <h2 style="color:#fff" >Análisis Exploratorio de Datos</h2>
                         </div>
-                       <p>En este portal se encontrará la explicación detallada de una análisis de datos del Empleo y desempleo del Ecuador obtenida del la página..</p>
+                       <p>En este portal se encontrará la explicación detallada de una análisis de datos del Empleo y desempleo del Ecuador.</p>
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
 
